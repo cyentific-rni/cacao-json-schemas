@@ -1,0 +1,29 @@
+{
+  "$id": "marking_statement_data_marking.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Marking Statement Data Marking",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "data_marking.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "marking-statement"
+          ]
+        },
+        "statement": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "statement"
+  ],
+  "unevaluatedProperties": false
+}

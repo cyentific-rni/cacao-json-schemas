@@ -1,0 +1,73 @@
+{
+  "$id": "single_action_step.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Single action step",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "workflow_step_common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The value of this property MUST be single.",
+          "enum": [
+            "single"
+          ]
+        },
+        "commands": {
+          "type": "array",
+          "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed.",
+          "items": {
+            "$ref": "command.json"
+          }
+        },
+        "target": {
+          "$ref": "target.json",
+          "description": "A target that SHOULD execute the commands defined in this step.\n\n \n\nThe value of this property MUST contain a CACAO target object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
+        },
+        "target_ids": {
+          "type": "array",
+          "description": "A list of target ID references that SHOULD execute the commands defined in this step.\n\n \n\nEach ID MUST reference a CACAO target object. If this property is defined the target property MUST NOT be defined.",
+          "items": {
+            "$ref": "identifier.json"
+          },
+          "minItems": 1
+        },
+        "in_args": {
+          "type": "array",
+          "description": "The optional list of arguments passed to the target(s) as input to the step",
+          "items": {
+            "type": "string"
+          }
+        },
+        "out_args": {
+          "type": "array",
+          "description": "The optional list of arguments that are returned from this step after execution of the commands by the targets",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "anyOf": [
+    {
+      "not": {
+        "required": ["target"]
+      }
+    },
+    {
+      "not": {
+        "required": ["target_ids"]
+      }
+    }
+  ],
+  "required": [
+    "commands"
+  ],
+  "$defs": {},
+  "unevaluatedProperties": false
+}

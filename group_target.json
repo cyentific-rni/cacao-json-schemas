@@ -1,0 +1,30 @@
+{
+  "$id": "group_target.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Group Target",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "group"
+          ]
+        },
+        "contact": {
+          "$ref": "target.json#/$defs/contact"
+        },
+        "location": {
+          "$ref": "target.json#/$defs/civic-location"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

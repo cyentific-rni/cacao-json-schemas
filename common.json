@@ -1,0 +1,12 @@
+{
+  "$id": "common.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "core",
+  "description": "Common properties and behavior across all STIX Domain Objects and STIX Relationship Objects.",
+  "type": "object",
+  "properties": {
+  },
+  "required": [
+  ],
+  "unevaluatedProperties": false
+}

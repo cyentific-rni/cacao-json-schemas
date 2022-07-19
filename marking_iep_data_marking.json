@@ -1,0 +1,54 @@
+{
+  "$id": "marking_iep_data_marking.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "IEP Data Marking",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "data_marking.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "marking-iep"
+          ]
+        },
+
+        "tlp_level": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "iep_version": {
+          "type": "string"
+        },
+        "start_date": {
+          "$ref": "timestamp.json"
+        },
+        "end_date": {
+          "$ref": "timestamp.json"
+        },
+        "encrypt_in_transit": {
+          "type": "string"
+        },
+        "permitted_actions": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "unmodified_resale": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "name"
+  ],
+  "unevaluatedProperties": false
+}

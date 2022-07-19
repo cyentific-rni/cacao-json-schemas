@@ -1,0 +1,68 @@
+{
+  "$id": "net_address_target.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "net_address Target",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "net-address"
+          ]
+        },
+        "address":{
+          "type": "object",
+          "unevaluatedProperties": false,
+          "patternProperties": {
+            "^url": {
+              "type": "string",
+              "pattern": "[(http(s)?):/(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_+.~#?&//=]*)"
+            },
+            "^l2mac": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{2}(:[a-fA-F0-9]{2}){5}$"
+            },
+            "^ipv4": {
+              "type": "string",
+              "pattern": "(\\b25[0-5]|\\b2[0-4][0-9]|\\b[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}"
+            },
+            "^ipv6": {
+              "type": "string",
+              "pattern": "(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))"
+            },
+            "^vlan": {
+              "type": "string"
+            }
+          },
+          "description":" The key for each entry in the dictionary MUST be a string that uniquely identifies the address type. The value for each key MUST be a string and MUST have a value of ipv4, ipv6, l2mac, vlan, or url."},
+        "username":{
+          "type":"string",
+          "description":" The username to access this target."},
+        "password":{
+          "type":"string",
+          "description":" The password associated with the username to access this target. This value will most often be passed in via a variable."},
+        "private_key":{
+          "type":"string",
+          "description":" The private key associated with the username to access this target. This value will most often be passed in via a variable."},
+        "category":{
+          "type":"string",
+          "description":" The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1.  The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."},
+        "location":{
+          "$ref": "target.json#/$defs/civic-location",
+          "description":" Physical address information for this target."
+        }
+      }
+    }
+  ],
+  "required": [
+    "address"
+  ],
+  "unevaluatedProperties": false
+}

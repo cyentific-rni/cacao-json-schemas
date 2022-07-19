@@ -1,0 +1,299 @@
+{
+  "$id": "target.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "Target",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+      "enum": [
+        "individual",
+        "group",
+        "organization",
+        "location",
+        "sector",
+        "http-api",
+        "ssh",
+        "security-infrastructure-category",
+        "net-address",
+        "kali",
+        "attacker",
+        "attack-agent",
+        "attack-group"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name that represents this target that is meant to be displayed in a user interface or captured in a log message."
+    },
+    "description": {
+      "type": "string",
+      "description": "More details, context, and possibly an explanation about this target."
+    },
+    "target_extensions": {
+      "type": "object",
+      "patternProperties": {
+        "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "type": "object"
+        }
+      },
+      "description": "This property defines the extensions that are in use on this target.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of \"extension\" (see section 9.7 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension's schema location."
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ],
+  "$defs": {
+    "target-type-ov": {
+      "type": "string",
+      "enum": [
+        "individual",
+        "group",
+        "organization",
+        "location",
+        "sector",
+        "http-api",
+        "ssh",
+        "security-infrastructure-category",
+        "net-address",
+        "kali",
+        "attacker",
+        "attack-agent",
+        "attack-group"
+      ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "An email address for this contact. The key for each entry in the dictionary MUST be a string that uniquely identifies the contact type (e.g., the keys could be things like \"work\", \"home\", \"personal\", etc). The value for each key MUST be a string.",
+          "patternProperties": {
+            "": {
+              "anyOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "phone": {
+          "type": "object",
+          "description": "A phone number for this contact. The key for each entry in the dictionary MUST be a string that uniquely identifies the contact type (e.g., the keys could be things like \"work\", \"home\", \"personal\", etc). The value for each key MUST be a string.",
+          "patternProperties": {
+            "": {
+              "anyOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "contact_details": {
+          "type": "string",
+          "description": "Additional contact information."
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "civic-location": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "building_details": {
+        },
+        "network_details": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "country":{
+          "type": "string"
+        },
+        "administrative_area": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "street_address": {
+          "type": "string"
+        },
+        "postal_code": {
+          "type": "string"
+        }
+      },
+      "unevaluatedProperties": false
+    },
+    "gps-location": {
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "precision": {
+          "type": "string"
+        }
+      },
+      "dependentRequired": {
+        "latitude": [
+          "longitude"
+        ],
+        "longitude": [
+          "latitude"
+        ],
+        "precision": [
+          "longitude",
+          "latitude"
+        ]
+      },
+      "unevaluatedProperties": false
+    },
+    "region-ov": {
+      "type": "string",
+      "enum": [
+        "africa",
+        "eastern-africa",
+        "middle-africa",
+        "northern-africa",
+        "southern-africa",
+        "western-africa",
+        "americas",
+        "caribbean",
+        "central-america",
+        "latin-america-caribbean",
+        "northern-america",
+        "south-america",
+        "asia",
+        "central-asia",
+        "eastern-asia",
+        "southern-asia",
+        "south-eastern-asia",
+        "western-asia",
+        "europe",
+        "eastern-europe",
+        "northern-europe",
+        "southern-europe",
+        "western-europe",
+        "oceania",
+        "antarctica",
+        "australia-new-zealand",
+        "melanesia",
+        "micronesia",
+        "polynesia"
+      ]
+    },
+    "industry-sector-ov": {
+      "type": "array",
+      "enum": [
+        [
+          "Sector Type",
+          "aerospace",
+          "aviation",
+          "agriculture",
+          "automotive",
+          "biotechnology",
+          "chemical",
+          "commercial",
+          "consulting",
+          "construction",
+          "cosmetics",
+          "critical-infrastructure",
+          "dams",
+          "defense",
+          "education",
+          "emergency-services",
+          "energy",
+          "non-renewable-energy",
+          "renewable-energy",
+          "media",
+          "financial",
+          "food",
+          "gambling",
+          "government",
+          "local-government",
+          "national-government",
+          "regional-government",
+          "public-services",
+          "healthcare",
+          "information-communications-technology",
+          "electronics-hardware",
+          "software",
+          "telecommunications",
+          "legal-services",
+          "lodging",
+          "manufacturing",
+          "maritime",
+          "metals",
+          "mining",
+          "non-profit",
+          "humanitarian-aid",
+          "human-rights",
+          "nuclear",
+          "petroleum",
+          "pharmaceuticals",
+          "research",
+          "transportation",
+          "logistics-shipping",
+          "utilities",
+          "video-game",
+          "water"
+        ]
+      ]
+    },
+    "security-infrastructure-type-ov": {
+      "type": "string",
+      "enum": [
+        "endpoint",
+        "handset",
+        "router",
+        "firewall",
+        "ids",
+        "ips",
+        "aaa",
+        "os-windows",
+        "os-linux",
+        "os-mac",
+        "switch",
+        "wireless",
+        "desktop",
+        "server",
+        "content-gateway",
+        "analytics",
+        "siem",
+        "tip",
+        "ticketing"
+      ]
+    },
+    "orchestration-system-type-ov": {
+      "type": "string",
+      "enum": [
+        "kali",
+        "caldera",
+        "redcanary-atomicred",
+        "jupyter",
+        "kestrel"
+      ]
+    },
+    "attack-agent-type-ov": {
+      "type": "string",
+      "enum": [
+        "sandcat",
+        "manx",
+        "ragdoll"
+      ]
+    }
+  }
+}

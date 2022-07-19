@@ -1,0 +1,45 @@
+{
+  "$id": "http_api_target.json",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title": "http-api Target",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "http-api"
+          ]
+        },
+        "http_url": {
+          "type": "string"
+        },
+        "http_auth_type": {
+          "type": "string"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "oauth_header": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "http_url"
+  ],
+  "unevaluatedProperties": false
+}
