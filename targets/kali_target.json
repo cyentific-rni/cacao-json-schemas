@@ -1,0 +1,41 @@
+{
+  "$id": "kali_target.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "kali Target",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "kali"
+          ]
+        },"private_key": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "port": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "required": [
+    "address"
+  ],
+  "unevaluatedProperties": false
+}

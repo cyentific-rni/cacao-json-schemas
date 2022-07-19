@@ -1,0 +1,71 @@
+{
+  "$id": "playbook_step.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Playbook Step",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "workflow_step_common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The value of this property MUST be playbook.",
+          "enum": [
+            "playbook"
+          ]
+        },
+        "playbook_id": {
+          "$ref": "identifier.json",
+          "description": "The referenced playbook to execute at the target or targets. The playbook ID SHOULD be defined such that it is locally relevant to each target that will execute the playbook."
+        },
+        "target": {
+          "$ref": "target.json",
+          "description": "A target that SHOULD execute the referenced playbook. The value of this property MUST contain a CACAO target object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
+        },
+        "target_ids": {
+          "type": "array",
+          "description": "A list of target ID references that SHOULD execute the named playbook Each ID MUST reference a CACAO target object. If this property is defined the target property MUST NOT be defined.",
+          "items": {
+            "$ref": "identifier.json"
+          },
+          "minItems": 0
+        },
+        "in_args": {
+          "type": "array",
+          "description": "The optional list of arguments passed to the target(s) as input to the referenced playbook.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "out_args": {
+          "type": "array",
+          "description": "The optional list of arguments that are returned from this playbook after execution of the commands by the targets.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "anyOf": [
+    {
+      "not": {
+        "required": ["target"]
+      }
+    },
+    {
+      "not": {
+        "required": ["target_ids"]
+      }
+    }
+  ],
+  "required": [
+    "type",
+    "playbook_id"
+  ],
+  "$defs": {},
+  "unevaluatedProperties": false
+}

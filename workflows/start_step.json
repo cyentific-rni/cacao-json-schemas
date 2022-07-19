@@ -1,0 +1,23 @@
+{
+  "$id": "start_step.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Playbook Step",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "workflow_step_common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "start"
+          ]
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

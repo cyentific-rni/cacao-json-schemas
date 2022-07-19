@@ -1,0 +1,35 @@
+{
+  "$id": "marking_tlp_data_marking.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Marking Statement Data Marking",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "data_marking.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "marking-tlp"
+          ]
+        },
+        "tlp_level": {
+          "type": "string",
+          "enum": [
+            "TLP:RED",
+            "TLP:AMBER",
+            "TLP:GREEN",
+            "TLP:WHITE"
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "tlp_level"
+  ],
+  "unevaluatedProperties": false
+}
