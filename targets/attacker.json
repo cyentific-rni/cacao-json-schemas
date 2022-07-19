@@ -1,0 +1,33 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attacker.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "attacker",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "attacker"
+          ]
+        },
+        "executor": {
+          "$ref": "target.json"
+        },
+        "executor-type": {
+          "$ref": "target.json#/$defs/orchestration-system-type-ov"
+        },
+        "subject": {
+          "$ref": "target.json"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

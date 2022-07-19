@@ -1,0 +1,35 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/marking-tlp.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "marking-tlp",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "data-marking.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "marking-tlp"
+          ]
+        },
+        "tlp_level": {
+          "type": "string",
+          "enum": [
+            "TLP:RED",
+            "TLP:AMBER",
+            "TLP:GREEN",
+            "TLP:WHITE"
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "tlp_level"
+  ],
+  "unevaluatedProperties": false
+}

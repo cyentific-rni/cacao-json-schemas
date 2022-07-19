@@ -1,0 +1,96 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow_step_common.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "workflow-step-common",
+  "description": "Common object schema used by all the specific types of workflow steps",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "#/$defs/workflow-step-type",
+      "description": "The type of workflow step being used. The value for this property MUST come from the workflow-step-type vocabulary."
+    },
+    "name": {
+      "type": "string",
+      "description": "A name for this step that is meant to be displayed in a user interface or captured in a log message."
+    },
+    "description": {
+      "type": "string",
+      "description": "More details, context, and possibly an explanation about what this step does and tries to accomplish."
+    },
+    "external_references": {
+      "type": "array",
+      "description": "An optional list of external references for this step.",
+      "items": {
+        "$ref": "external_reference.json"
+      }
+    },
+    "delay": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "The amount of time in milliseconds that this step SHOULD wait before it starts processing. The integer MUST be a positive value greater than 0. If this field is omitted, then the workflow step executes immediately without delay."
+    },
+    "timeout": {
+      "type": "integer",
+      "description": "The amount of time in milliseconds that this step MUST wait before considering the step has failed. Upon timeout occurring for a step, the on_failure step pointer is invoked and the information included in that call states that an ACTION_TIMEOUT occurred including the id of the step that timed out. If this field is omitted, the system executing this workflow step SHOULD consider implementing a maximum allowed timeout to ensure that no individual workflow step can block a playbook execution indefinitely."
+    },
+    "step_variables": {
+      "$ref": "dictionary.json",
+      "description": "This property contains the variables that can be used within this workflow step or within commands and targets referenced by this workflow step. See section 9.13.2 for information about referencing variables. The key for each entry in the dictionary MUST be a string that uniquely identifies the variable. The value for each key MUST be a CACAO variable data type (see section 9.13.3)."
+    },
+    "owner": {
+      "$ref": "identifier.json",
+      "description": "An ID that represents the entity that is assigned as the owner or responsible party for this step. The ID MUST represent a STIX 2.1+ Identity object."
+    },
+    "on_completion": {
+      "$ref": "identifier.json",
+      "description": "The ID of the next step to be processed upon completion of the defined commands. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object. If this property is defined, then on_success and on_failure MUST NOT be defined."
+    },
+    "on_success": {
+      "$ref": "identifier.json",
+      "description": "The ID of the next step to be processed if this step completes successfully. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
+    },
+    "on_failure": {
+      "$ref": "identifier.json",
+      "description": "The ID of the next step to be processed if this step fails to complete successfully. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object. If omitted and a failure occurs, then the playbook’s exception handler action step will be invoked."
+    },
+    "step_extensions": {
+      "type": "object",
+      "description": "This property defines the extensions that are in use on this step. The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of \"extension\"(see section 9.7 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension's schema location.",
+      "patternProperties": {
+        "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "not": {
+        "required": ["on_failure", "on_success"]
+      }
+    },
+    {
+      "not": {
+        "required": ["on_completion"]
+      }
+    }
+  ],
+  "required": [
+    "type"
+  ],
+  "$defs": {
+    "workflow-step-type": {
+      "type": "string",
+      "enum": [
+        "start",
+        "end",
+        "single",
+        "playbook",
+        "parallel",
+        "if-condition",
+        "while-condition",
+        "switch-condition"
+      ]
+    }
+  }
+}

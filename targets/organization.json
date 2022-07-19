@@ -1,0 +1,30 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/organization.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "organization",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "target.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "enum": [
+            "organization"
+          ]
+        },
+        "contact": {
+          "$ref": "target.json#/$defs/contact"
+        },
+        "location": {
+          "$ref": "target.json#/$defs/civic-location"
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

@@ -1,0 +1,23 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/start.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "start",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "workflow_step_common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "start"
+          ]
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}
