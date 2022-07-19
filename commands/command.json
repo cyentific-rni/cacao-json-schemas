@@ -1,7 +1,7 @@
 {
-  "$id": "command.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/commands/command.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Command",
+  "title": "command",
   "description": "",
   "type": "object",
   "allOf": [

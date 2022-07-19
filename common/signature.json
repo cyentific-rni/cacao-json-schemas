@@ -1,7 +1,7 @@
 {
-  "$id": "signature.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/signature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Signature",
+  "title": "signature",
   "description": "",
   "type": "object",
   "properties": {

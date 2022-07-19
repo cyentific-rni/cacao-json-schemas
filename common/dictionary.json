@@ -1,5 +1,5 @@
 {
-  "$id": "dictionary.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/dictionary.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "dictionary",
   "description": "A dictionary captures a set of key/value pairs",

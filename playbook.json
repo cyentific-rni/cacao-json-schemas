@@ -1,5 +1,5 @@
 {
-  "$id": "playbook.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/playbook.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Playbook Step",
   "description": "",
@@ -144,28 +144,28 @@
         "^step--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "while_condition_step.json"
+              "$ref": "workflows/while-condition.json"
             },
             {
-              "$ref": "single_action_step.json"
+              "$ref": "workflows/single-action.json"
             },
             {
-              "$ref": "playbook_step.json"
+              "$ref": "workflows/playbook.json"
             },
             {
-              "$ref": "end_step.json"
+              "$ref": "workflows/end.json"
             },
             {
-              "$ref": "start_step.json"
+              "$ref": "workflows/start.json"
             },
             {
-              "$ref": "switch_condition_step.json"
+              "$ref": "workflows/switch-condition.json"
             },
             {
-              "$ref": "if_condition_step.json"
+              "$ref": "workflows/if-condition.json"
             },
             {
-              "$ref": "parallel_step.json"
+              "$ref": "workflows/parallel.json"
             }
           ]
         }
@@ -177,19 +177,45 @@
       "patternProperties": {
         "^target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
-            {"$ref": "individual_target.json"},
-            {"$ref": "group_target.json"},
-            {"$ref": "organization_target.json"},
-            {"$ref": "location_target.json"},
-            {"$ref": "sector_target.json"},
-            {"$ref": "http_api_target.json"},
-            {"$ref": "ssh_target.json"},
-            {"$ref": "security_infrastructure_category_target.json"},
-            {"$ref": "net_address_target.json"},
-            {"$ref": "kali_target.json"},
-            {"$ref": "attacker_target.json"},
-            {"$ref": "attack_agent_target.json"},
-            {"$ref": "attack_group_target.json"}
+            {
+              "$ref": "targets/individual.json"
+            },
+            {
+              "$ref": "targets/group.json"
+            },
+            {
+              "$ref": "targets/organization.json"
+            },
+            {
+              "$ref": "targets/location.json"
+            },
+            {
+              "$ref": "targets/sector.json"
+            },
+            {
+              "$ref": "targets/http-api.json"
+            },
+            {
+              "$ref": "targets/ssh.json"
+            },
+            {
+              "$ref": "targets/security-infrastructure-category.json"
+            },
+            {
+              "$ref": "targets/net-address.json"
+            },
+            {
+              "$ref": "targets/kali.json"
+            },
+            {
+              "$ref": "targets/attacker.json"
+            },
+            {
+              "$ref": "targets/attack-agent.json"
+            },
+            {
+              "$ref": "targets/attack-group.json"
+            }
           ]
         }
       },
@@ -212,9 +238,11 @@
       "patternProperties": {
         "^marking-tlp--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "$ref": "marking_tlp_data_marking.json"
-        },"^marking-iep--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+        },
+        "^marking-iep--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "$ref": "marking_iep_data_marking.json"
-        },"^marking-statement--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+        },
+        "^marking-statement--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "$ref": "marking_statement_data_marking.json"
         }
       }

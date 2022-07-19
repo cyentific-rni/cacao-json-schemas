@@ -1,7 +1,7 @@
 {
-  "$id": "variable.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/variable.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Playbook Step",
+  "title": "variable",
   "description": "",
   "type": "object",
   "allOf": [
