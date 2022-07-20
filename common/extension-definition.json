@@ -26,7 +26,7 @@
     },
     "schema": {
       "type": "string",
-      "description": "The normative definition of the extension, either as a URL or as text explaining the definition.  A URL SHOULD point to a JSON schema or a location that contains information about the schema."
+      "description": "The normative definition of the extension, either as a URL or as text explaining the definition. A URL SHOULD point to a JSON schema or a location that contains information about the schema."
     },
     "version": {
       "type": "string",

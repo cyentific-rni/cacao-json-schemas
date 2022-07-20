@@ -2,70 +2,46 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/playbook-action.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "playbook-action",
-  "description": "",
+  "description": "This workflow step executes a referenced playbook. In addition to the inherited properties, this section defines three more specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow_step_common.json"
+      "$ref": "workflow-step-common.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The value of this property MUST be playbook.",
+          "description": "The value of this property MUST be 'playbook-action'.",
           "enum": [
-            "playbook"
+            "playbook-action"
           ]
         },
         "playbook_id": {
-          "$ref": "identifier.json",
-          "description": "The referenced playbook to execute at the target or targets. The playbook ID SHOULD be defined such that it is locally relevant to each target that will execute the playbook."
-        },
-        "target": {
-          "$ref": "target.json",
-          "description": "A target that SHOULD execute the referenced playbook. The value of this property MUST contain a CACAO target object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
-        },
-        "target_ids": {
-          "type": "array",
-          "description": "A list of target ID references that SHOULD execute the named playbook Each ID MUST reference a CACAO target object. If this property is defined the target property MUST NOT be defined.",
-          "items": {
-            "$ref": "identifier.json"
-          },
-          "minItems": 0
+          "$ref": "../common/identifier.json",
+          "description": "The referenced playbook to execute at the defined target(s). The playbook ID SHOULD be defined such that it is locally relevant to each target that will execute the playbook."
         },
         "in_args": {
           "type": "array",
-          "description": "The optional list of arguments passed to the target(s) as input to the referenced playbook.",
+          "description": "The optional list of arguments/variable names from the global 'playbook_variables' dictionary (see section 3.1) that are to be passed into this step to be executed by the playbook as inputs. See section 9.13 for more information about variables.",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1
         },
         "out_args": {
           "type": "array",
-          "description": "The optional list of arguments that are returned from this playbook after execution of the commands by the targets.",
+          "description": "The optional list of arguments/variable names from the global 'playbook_variables' dictionary (see section 3.1) that are to be returned from this playbook after execution of the commands by the target(s) and stored in the same variable dictionary. See section 9.13 for more information about variables.",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1
         }
       }
     }
   ],
-  "anyOf": [
-    {
-      "not": {
-        "required": ["target"]
-      }
-    },
-    {
-      "not": {
-        "required": ["target_ids"]
-      }
-    }
-  ],
   "required": [
-    "type",
     "playbook_id"
   ],
-  "$defs": {},
   "unevaluatedProperties": false
 }

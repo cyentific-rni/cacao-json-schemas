@@ -2,27 +2,27 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/switch-condition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "switch-condition",
-  "description": "",
+  "description": "This schema defines the 'switch' condition logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines two additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow_step_common.json"
+      "$ref": "workflow-step-common.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The value of this property MUST be switch-condition.",
+          "description": "The value of this property MUST be 'switch-condition'.",
           "enum": [
             "switch-condition"
           ]
         },
         "switch": {
           "type": "string",
-          "description": "A variable that is evaluated to determine which key in the match_props dictionary is matched against to execute the associated step."
+          "description": "A variable that is evaluated to determine which key in the cases dictionary is matched against to execute the associated step."
         },
         "cases": {
-          "description": "This property is a dictionary that defines one or more case values (as dictionary keys) and a list of sequential step IDs (as key values) to be processed when the case value is matched against the switch value.\n\n \n\nThe value for each entry in the dictionary MUST be a list of type identifier that uniquely identifies a set of sequential steps to be processed when that key/value is chosen. Each id in the list MUST use the object type of \"step\" (see section 9.8 for more information on identifiers).\n\n \n\nThis dictionary MAY have a \"default\" case value.",
+          "description": "This property is a dictionary that defines one or more case values (as dictionary keys) and a list of sequential step IDs (as key values) to be processed when the case value is matched against the switch value. The value for each entry in the dictionary MUST be an 'identifier' and it MUST represent a CACAO workflow step object. This value uniquely identifies the steps to be processed when that key/value is chosen (see section 9.8 for more information on identifiers). This dictionary MAY have a 'default' case value.",
           "minProperties": 1,
           "type": "object",
           "unevaluatedProperties": false,
@@ -32,7 +32,7 @@
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "identifier.json"
+                    "$ref": "../common/identifier.json"
                   },
                   "minItems": 1
                 }
@@ -44,7 +44,6 @@
     }
   ],
   "required": [
-    "type",
     "switch",
     "cases"
   ],

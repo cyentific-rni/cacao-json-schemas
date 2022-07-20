@@ -2,16 +2,17 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/end.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "end",
-  "description": "",
+  "description": "This workflow step is the ending point of a playbook and represents an explicit point in the workflow to signify the end of a playbook.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow_step_common.json"
+      "$ref": "workflow-step-common.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
+          "description": "The value of this property MUST be 'end'.'",
           "enum": [
             "end"
           ]

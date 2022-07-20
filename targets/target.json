@@ -7,22 +7,7 @@
   "properties": {
     "type": {
       "type": "string",
-      "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
-      "enum": [
-        "individual",
-        "group",
-        "organization",
-        "location",
-        "sector",
-        "http-api",
-        "ssh",
-        "security-infrastructure-category",
-        "net-address",
-        "kali",
-        "attacker",
-        "attack-agent",
-        "attack-group"
-      ]
+      "description": "The type of target object being used. The value of this property SHOULD come from the 'target-type-ov' vocabulary."
     },
     "name": {
       "type": "string",
@@ -39,7 +24,7 @@
           "type": "object"
         }
       },
-      "description": "This property defines the extensions that are in use on this target.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of \"extension\" (see section 9.7 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension's schema location."
+      "description": "This property defines the extensions that are in use on this target. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.8 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension definition's schema property."
     }
   },
   "required": [
@@ -49,20 +34,27 @@
   "$defs": {
     "target-type-ov": {
       "type": "string",
-      "enum": [
-        "individual",
-        "group",
-        "organization",
-        "location",
-        "sector",
-        "http-api",
-        "ssh",
-        "security-infrastructure-category",
-        "net-address",
-        "kali",
-        "attacker",
-        "attack-agent",
-        "attack-group"
+      "AnyOf": [
+        {
+          "enum": [
+            "individual",
+            "group",
+            "organization",
+            "location",
+            "sector",
+            "http-api",
+            "ssh",
+            "security-infrastructure-category",
+            "net-address",
+            "kali",
+            "attacker",
+            "attack-agent",
+            "attack-group"
+          ]
+        },
+        {
+          "type": "string"
+        }
       ]
     },
     "contact": {
@@ -108,15 +100,14 @@
         "description": {
           "type": "string"
         },
-        "building_details": {
-        },
+        "building_details": {},
         "network_details": {
           "type": "string"
         },
         "region": {
           "type": "string"
         },
-        "country":{
+        "country": {
           "type": "string"
         },
         "administrative_area": {
