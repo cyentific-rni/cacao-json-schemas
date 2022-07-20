@@ -52,9 +52,7 @@
             "attack-group"
           ]
         },
-        {
-          "type": "string"
-        }
+        {}
       ]
     },
     "contact": {
@@ -90,37 +88,6 @@
         "contact_details": {
           "type": "string",
           "description": "Additional contact information."
-        }
-      },
-      "unevaluatedProperties": false
-    },
-    "civic-location": {
-      "type": "object",
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "building_details": {},
-        "network_details": {
-          "type": "string"
-        },
-        "region": {
-          "type": "string"
-        },
-        "country": {
-          "type": "string"
-        },
-        "administrative_area": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "street_address": {
-          "type": "string"
-        },
-        "postal_code": {
-          "type": "string"
         }
       },
       "unevaluatedProperties": false
