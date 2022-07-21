@@ -2,22 +2,22 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/net-address.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "net-address",
-  "description": "",
+  "description": "This target type contains a Network Address Target. In addition to the inherited properties, this section defines six additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be 'net-address'.",
           "enum": [
             "net-address"
           ]
         },
-        "address":{
+        "address": {
           "type": "object",
           "unevaluatedProperties": false,
           "patternProperties": {
@@ -41,22 +41,27 @@
               "type": "string"
             }
           },
-          "description":" The key for each entry in the dictionary MUST be a string that uniquely identifies the address type. The value for each key MUST be a string and MUST have a value of ipv4, ipv6, l2mac, vlan, or url."},
-        "username":{
-          "type":"string",
-          "description":" The username to access this target."},
-        "password":{
-          "type":"string",
-          "description":" The password associated with the username to access this target. This value will most often be passed in via a variable."},
-        "private_key":{
-          "type":"string",
-          "description":" The private key associated with the username to access this target. This value will most often be passed in via a variable."},
-        "category":{
-          "type":"string",
-          "description":" The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1.  The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."},
-        "location":{
+          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the address type. The key MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username to access this target."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password associated with the username to access this target. This value SHOULD be passed in via a variable."
+        },
+        "private_key": {
+          "type": "string",
+          "description": "The private key associated with the username to access this target. This value SHOULD be passed in via a variable."
+        },
+        "category": {
+          "type": "string",
+          "description": "The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1. The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."
+        },
+        "location": {
           "$ref": "target.json#/$defs/civic-location",
-          "description":" Physical address information for this target."
+          "description": "Physical address information for this target."
         }
       }
     }

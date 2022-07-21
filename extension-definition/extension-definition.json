@@ -1,8 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/extension-definition.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/extension-definition/extension-definition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "extension-definition",
-  "description": "",
+  "description": "The CACAO extension object allows a playbook producer to define detailed information about the extensions that are in use in a playbook that they created. In a playbook, extensions are stored in a dictionary where the ID is the key and the extension object is the value. Workflow steps, targets, data markings and playbooks themselves can use extensions by referencing their IDs. Extensions can use and refer to all objects that may be used in other parts of a playbook including variables and constants just like other parts of the playbook. While the extension's name and description are optional, they are encouraged and producers SHOULD populate them.",
   "type": "object",
   "properties": {
     "type": {
@@ -10,7 +10,7 @@
       "enum": [
         "extension-definition"
       ],
-      "description": "The value of this property MUST be extension-definition."
+      "description": "The value of this property MUST be 'extension-definition'."
     },
     "name": {
       "type": "string",
@@ -18,10 +18,10 @@
     },
     "description": {
       "type": "string",
-      "description": "More details, context, and possibly an explanation about what this extension does and accomplishes.  While the extension's description is optional, it is encouraged that producers SHOULD populate the field.  Note that the schema property is the normative definition of the extension, and this property, if present, is for documentation purposes only."
+      "description": "More details, context, and possibly an explanation about what this extension does and accomplishes. While the extension's description is optional, it is encouraged that producers SHOULD populate the field. Note that the schema property is the normative definition of the extension, and this property, if present, is for documentation purposes only."
     },
     "created_by": {
-      "$ref": "identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
       "description": "An ID that represents the entity that created this extension. The ID MUST represent a STIX 2.1+ identity object."
     },
     "schema": {

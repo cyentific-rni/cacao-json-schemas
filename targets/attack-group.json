@@ -6,16 +6,20 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be 'attack-group'.",
           "enum": [
             "attack-group"
           ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The group name of the Attack group that should execute the attack command sent to it and all agents that are part of the group."
         }
       }
     }

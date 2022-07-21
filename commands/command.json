@@ -8,7 +8,7 @@
     {
       "properties": {
         "type": {
-          "$ref": "command-type-ov",
+          "$ref": "string",
           "description": "The type of command being used. The value of this property SHOULD come from the 'command-type-ov' vocabulary."
         },
         "command": {
@@ -30,28 +30,5 @@
   "required": [
     "type"
   ],
-  "$defs": {
-    "command-type-ov": {
-      "type": "string",
-      "AnyOf": [
-        {
-          "enum": [
-            "manual",
-            "http-api",
-            "ssh",
-            "bash",
-            "openc2-json",
-            "attack-cmd",
-            "sigma",
-            "jupyter",
-            "kestrel"
-          ]
-        },
-        {
-          "type": "string"
-        }
-      ]
-    }
-  },
   "unevaluatedProperties": false
 }

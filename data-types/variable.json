@@ -1,15 +1,15 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/variable.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/variable.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "variable",
-  "description": "",
+  "description": "Variables can be defined and then used as the playbook is executed. Variables are stored in a dictionary where the key is the name of the variable and the value is a variable data type. Variables can represent stateful elements that may need to be captured to allow for the successful execution of the playbook. All playbook variables are mutable unless identified as a constant.",
   "type": "object",
   "allOf": [
     {
       "properties": {
         "type": {
-          "$ref": "#/$defs/variable-type-ov",
-          "description": "The type of variable being used. The values for this property MUST come from the variable-type vocabulary."
+          "type": "string",
+          "description": "The type of variable being used. The values for this property MUST come from the 'variable-type-ov' vocabulary."
         },
         "description": {
           "type": "string",
@@ -21,32 +21,14 @@
         },
         "constant": {
           "type": "boolean",
-          "description": "Is this variable immutable or mutable. If true, the variable is immutable and MUST NOT be changed. If false, the variable can be updated later on in the playbook. The default value is false. If this property is not present then then value is false."
+          "description": "Is this variable immutable or mutable. If true, the variable is immutable and MUST NOT be changed. If false, the variable can be updated later on in the playbook. The default value is 'false'. If this property is not present then the value is 'false'."
         },
         "external": {
           "type": "boolean",
-          "description": "This property only applies to playbook scoped variables. When set to false or omitted, the variable is defined within the playbook.When set to false or omitted, the variable is defined within the playbook."
+          "description": "This property only applies to playbook scoped variables. When set to true the variable declaration defines that the variable's initial value is passed into the playbook from a calling context. When set to false or omitted, the variable is defined within the playbook."
         }
       }
     }
   ],
-  "$defs": {
-    "variable-type-ov": {
-      "type": "string",
-      "enum": [
-        "string",
-        "uuid",
-        "integer",
-        "long",
-        "mac-addr",
-        "ipv4-addr",
-        "ipv6-addr",
-        "uri",
-        "sha256-hash",
-        "hexstring",
-        "dictionary"
-      ]
-    }
-  },
   "required": ["type"]
 }

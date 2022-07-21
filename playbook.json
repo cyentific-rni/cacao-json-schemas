@@ -1,13 +1,13 @@
 {
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/playbook.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Playbook Step",
-  "description": "",
+  "title": "playbook",
+  "description": "CACAO playbooks are made up of five parts; playbook metadata, the workflow logic, a list of targets, a list of extensions, and a list of data markings. Playbooks MAY refer to other playbooks in the workflow, similar to how programs refer to function calls or modules that comprise the program. The definition and normative requirements for all data types listed in the property table below and other property tables in this document can be found in Section 9.",
   "type": "object",
   "properties": {
     "type": {
       "type": "string",
-      "description": "The value of this property MUST be playbook or playbook-template. See section 1.2, section 1.3, and section 1.4 respectively, for information about executable playbooks and playbook templates.",
+      "description": "The value of this property MUST be 'playbook' or 'playbook-template'. See section 1.2, section 1.3, and section 1.4 respectively, for information about executable playbooks and playbook templates.",
       "enum": [
         "playbook",
         "playbook-template"
@@ -15,14 +15,14 @@
     },
     "spec_version": {
       "type": "string",
-      "description": "The version of the specification used to represent this playbook. The value of this property MUST be \"1.1\" to represent the version of this specification.",
+      "description": "The version of the specification used to represent this playbook. The value of this property MUST be '1.1' to represent the version of this specification. ",
       "enum": [
         "1.1"
       ]
     },
     "id": {
-      "$ref": "identifier.json",
-      "description": "A value that uniquely identifies the playbook. All playbooks with the same id are considered different versions of the same playbook and the version of the playbook is identified by its modified property."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "description": "A value that uniquely identifies the playbook. All playbooks with the same 'id' are considered different versions of the same playbook and the version of the playbook is identified by its 'modified' property."
     },
     "name": {
       "type": "string",
@@ -34,138 +34,144 @@
     },
     "playbook_types": {
       "type": "array",
-      "description": "A list of playbook types that specifies the operational functions this playbook addresses.  The values for this property MUST come from the playbook-type vocabulary.",
+      "description": "A list of playbook types that specifies the operational functions this playbook addresses. The values for this property MUST come from the playbook-type-ov vocabulary.",
       "items": {
-        "$ref": "#/$defs/playbook-type-ov"
+        "type": "string"
       },
       "minItems": 1
     },
     "created_by": {
-      "$ref": "http://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/stix2.1/schemas/sdos/identity.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
       "description": "An ID that represents the entity that created this playbook. The ID MUST represent a STIX 2.1 identity object."
     },
     "created": {
-      "$ref": "timestamp.json",
-      "description": "The time at which this playbook was originally created. The creator can use any time it deems most appropriate as the time the playbook was created, but it MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds). The created property MUST NOT be changed when creating a new version of the object."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "description": "The time at which this playbook was originally created. The creator can use any time it deems most appropriate as the time the playbook was created, but it MUST be given to the nearest millisecond (exactly three digits after the decimal place in seconds). The created property MUST NOT be changed when creating a new version of the object."
     },
     "modified": {
-      "$ref": "timestamp.json",
-      "description": "The time that this particular version of the playbook was last modified. The creator can use any time it deems most appropriate as the time that this version of the playbook was modified, but it MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds). The modified property MUST be later than or equal to the value of the created property."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "description": "The time that this particular version of the playbook was last modified. The creator can use any time it deems most appropriate as the time that this version of the playbook was modified, but it MUST be given to the nearest millisecond (exactly three digits after the decimal place in seconds). The modified property MUST be later than or equal to the value of the created property."
     },
     "revoked": {
       "type": "boolean",
-      "description": "A boolean that identifies if the playbook creator deems that this playbook is no longer valid. The default value is \"false\"."
+      "description": "A boolean that identifies if the playbook creator deems that this playbook is no longer valid. The default value is 'false'."
     },
     "valid_from": {
-      "$ref": "timestamp.json",
-      "description": "The time from which this playbook is considered valid and the steps that it contains can be executed. More detailed information about time frames MAY be applied in the workflow.  If omitted, the playbook is valid at all times or until the timestamp defined by valid_until."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "description": "The time from which this playbook is considered valid and the steps that it contains can be executed. More detailed information about time frames MAY be applied in the 'workflow'. If omitted, the playbook is valid at all times or until the timestamp defined by 'valid_until'."
     },
     "valid_until": {
-      "$ref": "timestamp.json",
-      "description": "The time at which this playbook should no longer be considered a valid playbook to be executed.  If the valid_until property is omitted, then there is no constraint on the latest time for which the playbook is valid.  This property MUST be greater than the timestamp in the valid_from property if the valid_from property is defined."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "description": "The time at which this playbook should no longer be considered a valid playbook to be executed. If the 'valid_until' property is omitted, then there is no constraint on the latest time for which the playbook is valid. This property MUST be greater than the timestamp in the 'valid_from' property if the 'valid_from' property is defined."
     },
     "derived_from": {
       "type": "array",
-      "description": "The ID of one or more playbooks that this playbook was derived from.  The ID MUST represent a CACAO playbook object.",
+      "description": "The ID of one or more playbooks that this playbook was derived from. The ID MUST represent a CACAO playbook object.",
       "items": {
-        "$ref": "identifier.json"
-      }
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json"
+      },
+      "minItems": 1
     },
     "priority": {
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "A positive integer that represents the priority of this playbook relative to other defined playbooks.  Priority is a subjective assessment by the producer based on the context in which the playbook can be shared. Marketplaces and sharing organizations MAY define rules on how priority should be assessed and assigned. This property is primarily to allow such usage without requiring the addition of a custom field for such practices.  If specified, the value of this property MUST be between 0 and 100.  When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the highest priority, to a value of 100, the lowest."
+      "description": "A number (𝕎 - whole number) that represents the priority of this playbook relative to other defined playbooks. Priority is a subjective assessment by the producer based on the context in which the playbook can be shared. Marketplaces and sharing organizations MAY define rules on how priority should be assessed and assigned. This property is primarily to allow such usage without requiring the addition of a custom field for such practices. If specified, the value of this property MUST be between 0 and 100. When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the highest priority, to a value of 100, the lowest. The values of 1-100 in this property are inverted from 'severity' and 'impact' based on how the concept of priority is used today. For example, in a SOC a P1 ticket is higher priority than a P4 ticket."
     },
     "severity": {
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "A positive integer that represents the seriousness of the conditions that this playbook addresses. This is highly dependent on whether it's an incident (in which cases the severity can be mapped to the incident category) or a response to a threat (in which case the severity would likely be mapped to the severity of threat faced or captured by threat intelligence).  Marketplaces and sharing organizations MAY define additional rules for how this property should be assigned.  If specified, the value of this property MUST be between 0 and 100.  When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest severity, to a value of 100, the highest."
+      "description": "A number (𝕎 - whole number) that represents the seriousness of the conditions that this playbook addresses. This is highly dependent on whether the playbook is a response to an incident (in which cases the severity can be mapped to the incident category), a response to a threat (in which case the severity would likely be mapped to the severity of threat faced or captured by threat intelligence), or a response to something else. Marketplaces and sharing organizations MAY define additional rules for how this property should be assigned. If specified, the value of this property MUST be between 0 and 100. When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest severity, to a value of 100, the highest."
     },
     "impact": {
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "A positive integer that represents the impact the playbook has on the organization, not what triggered the playbook in the 1st place such as a threat or an incident. For example, a purely investigative playbook that is non-invasive would have a low impact value (1), whereas a playbook that makes firewall changes, IPS changes, moves laptops to quarantine etc., would have a higher impact value. If specified, the value of this property MUST be between 0 and 100.  When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest impact, to a value of 100, the highest."
+      "description": "A number (𝕎 - whole number) that represents the impact the playbook has on the organization, not what triggered the playbook in the first place such as a threat or an incident. For example, a purely investigative playbook that is non-invasive would have a low impact value (1), whereas a playbook that makes firewall changes, IPS changes, moves laptops to quarantine etc., would have a higher impact value. If specified, the value of this property MUST be between 0 and 100. When left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest impact, to a value of 100, the highest."
     },
     "industry_sectors": {
       "type": "array",
-      "description": "A list of industry sectors that this playbook is applied to.  The values for this property SHOULD come from the industry-sector-ov vocabulary.",
+      "description": "A list of industry sectors that this playbook is applied to. Any industry sectors that are used in other parts of this playbook MUST also be included in this property. Any industry sectors that are used in other referenced playbooks MAY also be included in this property. The values for this property SHOULD come from the 'industry-sector-ov' vocabulary.",
       "items": {
-        "$ref": "#/$defs/industry-sector-ov"
-      }
+        "type": "string"
+      },
+      "minItems": 1
     },
     "labels": {
       "type": "array",
       "description": "An optional set of terms, labels, or tags associated with this playbook. The values may be user, organization, or trust-group defined and their meaning is outside the scope of this specification.",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "external_references": {
       "type": "array",
-      "description": "An optional list of external references for this playbook or content found in this playbook.",
+      "description": "An optional list of external references for this playbook or content found in this playbook. Any external references that are used in other parts of this playbook MUST also be included in this property. Any external references that are used in other referenced playbooks MAY also be included in this property.",
       "items": {
-        "$ref": "external_reference.json"
-      }
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/external-reference.json"
+      },
+      "minItems": 1
     },
     "features": {
       "type": "array",
-      "description": "An optional property that contains a list of features that are enabled for this playbook.",
+      "description": "This property contains a summarized list of features that are defined within this playbook. This property enables the content of a playbook to be assessed without requiring the entire content to be parsed or understood. See section 9.7.",
       "items": {
-        "$ref": "#/$defs/playbook-features-ov"
-      }
+        "type": "string"
+      },
+      "minItems": 1
     },
     "markings": {
       "type": "array",
-      "description": "An optional list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references).  The IDs MUST represent a CACAO data marking object.",
+      "description": "An optional list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references). Each ID MUST represent a CACAO data marking object.",
       "items": {
         "$ref": "identifier.json"
-      }
+      },
+      "minItems": 1
     },
     "playbook_variables": {
-      "$ref": "dictionary.json",
-      "description": "This property contains the variables that can be used within this playbook or within workflow steps, commands, and targets defined within this playbook. See section 9.13 for information about referencing variables.  The key for each entry in the dictionary MUST be a string that uniquely identifies the variable. The value for each key MUST be a CACAO variable data type (see section 9.13)."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/dictionary.json",
+      "description": "This property contains the global variables (see section 9.13.1 for information about variable scope) that can be used within this playbook or within workflow steps, commands, and targets defined within this playbook. See section 9.13 for information about referencing variables. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the variable. The value for each key MUST be a CACAO 'variable' data type (see section 9.13)."
     },
     "workflow_start": {
-      "$ref": "identifier.json",
-      "description": "The first workflow step included in the workflow property that MUST be executed when starting the workflow.  The ID MUST represent a CACAO workflow step object."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "description": "The first workflow step included in the 'workflow' property that MUST be executed when starting the workflow. The ID MUST represent a CACAO 'workflow' step object and that object MUST be included in the workflow property."
     },
     "workflow_exception": {
-      "$ref": "identifier.json",
-      "description": "The workflow step invoked whenever a playbook exception condition occurs.  The ID MUST represent a CACAO workflow step object."
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "description": "The workflow step invoked whenever a playbook exception condition occurs. If defined, the ID MUST represent a CACAO 'workflow' step object and that object MUST be included in the workflow property."
     },
     "workflow": {
-      "description": "The workflow property contains the processing logic for the playbook as workflow steps.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the workflow step. The id MUST use the object type of \"step\" (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO workflow step object (see section 4).",
+      "description": "The workflow property contains the processing logic for the playbook as workflow steps. For playbooks with a type of 'playbook', the workflow MUST contain the following three steps: a 'start' step, an 'action'/'playbook-action' step, and an 'end' step. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the workflow step (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO workflow step object (see section 4).",
       "type": "object",
       "unevaluatedProperties": false,
       "patternProperties": {
         "^step--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "workflows/while-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/while-condition.json"
             },
             {
-              "$ref": "workflows/single-action.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/single-action.json"
             },
             {
-              "$ref": "workflows/playbook.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/playbook.json"
             },
             {
-              "$ref": "workflows/end.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/end.json"
             },
             {
-              "$ref": "workflows/start.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/start.json"
             },
             {
-              "$ref": "workflows/switch-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/switch-condition.json"
             },
             {
-              "$ref": "workflows/if-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/if-condition.json"
             },
             {
-              "$ref": "workflows/parallel.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/parallel.json"
             }
           ]
         }
@@ -178,81 +184,82 @@
         "^target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "targets/individual.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/individual.json"
             },
             {
-              "$ref": "targets/group.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/group.json"
             },
             {
-              "$ref": "targets/organization.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/organization.json"
             },
             {
-              "$ref": "targets/location.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/location.json"
             },
             {
-              "$ref": "targets/sector.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/sector.json"
             },
             {
-              "$ref": "targets/http-api.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/http-api.json"
             },
             {
-              "$ref": "targets/ssh.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/ssh.json"
             },
             {
-              "$ref": "targets/security-infrastructure-category.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/security-infrastructure-category.json"
             },
             {
-              "$ref": "targets/net-address.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/net-address.json"
             },
             {
-              "$ref": "targets/kali.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/kali.json"
             },
             {
-              "$ref": "targets/attacker.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attacker.json"
             },
             {
-              "$ref": "targets/attack-agent.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-agent.json"
             },
             {
-              "$ref": "targets/attack-group.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-group.json"
             }
           ]
         }
       },
-      "description": "A dictionary of targets that can be referenced from workflow steps found in the workflow property.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the target. The id MUST use the object type of \"target\" (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO target object (see section 6)."
+      "description": "A dictionary of targets that can be referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the target (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO target object (see section 6). Any targets that are used in other parts of this playbook MUST also be included in this property. Any targets that are used in other referenced playbooks MAY also be included in this property."
     },
     "extension_definitions": {
       "type": "object",
       "unevaluatedProperties": false,
       "patternProperties": {
         "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "extension_definition.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/extension-definition/extension-definition.json"
         }
       },
-      "description": "A dictionary of extension definitions that are referenced from workflow steps found in the workflow property.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of \"extension\" (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO extension object (see section 7)."
+      "description": "A dictionary of extension definitions that are referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO extension object (see section 7). Any extensions that are used in other parts of this playbook MUST also be included in this property. Any extensions that are used in other referenced playbooks MAY also be included in this property."
     },
     "data_marking_definitions": {
       "type": "object",
       "unevaluatedProperties": false,
-      "description": "A dictionary of data marking definitions that can be referenced from the playbook found in the markings property.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the data marking. The id MUST use an object type of one of the data marking objects defined in section 8, for example \"marking-statement\" (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO data marking object (see section 8).",
+      "description": "A dictionary of data marking definitions that can be referenced from the playbook found in the markings property. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the data marking (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO data marking object (see section 8). Any data markings that are used in other parts of this playbook MUST also be included in this property. Any data markings that are used in other referenced playbooks MAY also be included in this property.",
       "patternProperties": {
         "^marking-tlp--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "marking_tlp_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_tlp_data_marking.json"
         },
         "^marking-iep--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "marking_iep_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_iep_data_marking.json"
         },
         "^marking-statement--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "marking_statement_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_statement_data_marking.json"
         }
       }
     },
     "signatures": {
       "type": "array",
-      "description": "An optional list of digital signatures for this playbook. Adding a signature to a playbook does not represent a version change of the playbook. See sections 2.5, 9.10, and A.2 in the appendix for a detailed example.",
+      "description": "An optional list of digital signatures for this playbook. Adding a signature to a playbook does not represent a version change of the playbook. See sections 2.5, 9.10, and A.2 in the appendix for more information and a detailed example.",
       "items": {
-        "$ref": "signature.json"
-      }
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/signature.json"
+      },
+      "minItems": 1
     }
   },
   "required": [
@@ -265,93 +272,5 @@
     "created",
     "modified"
   ],
-  "$defs": {
-    "type-ov": {
-      "type": "string",
-      "enum": [
-        "playbook",
-        "playbook-template"
-      ]
-    },
-    "playbook-type-ov": {
-      "type": "string",
-      "enum": [
-        "notification",
-        "detection",
-        "investigation",
-        "prevention",
-        "mitigation",
-        "remediation",
-        "attack"
-      ]
-    },
-    "industry-sector-ov": {
-      "type": "string",
-      "enum": [
-        "aerospace",
-        "aviation",
-        "agriculture",
-        "automotive",
-        "biotechnology",
-        "chemical",
-        "commercial",
-        "consulting",
-        "construction",
-        "cosmetics",
-        "critical-infrastructure",
-        "dams",
-        "defense",
-        "education",
-        "emergency-services",
-        "energy",
-        "non-renewable-energy",
-        "renewable-energy",
-        "media",
-        "financial",
-        "food",
-        "gambling",
-        "government",
-        "local-government",
-        "national-government",
-        "regional-government",
-        "public-services",
-        "healthcare",
-        "information-communications-technology",
-        "electronics-hardware",
-        "software",
-        "telecommunications",
-        "legal-services",
-        "lodging",
-        "manufacturing",
-        "maritime",
-        "metals",
-        "mining",
-        "non-profit",
-        "humanitarian-aid",
-        "human-rights",
-        "nuclear",
-        "petroleum",
-        "pharmaceuticals",
-        "research",
-        "transportation",
-        "logistics-shipping",
-        "utilities",
-        "video-game",
-        "water"
-      ]
-    },
-    "playbook-features-ov": {
-      "type": "string",
-      "enum": [
-        "parallel_processing",
-        "if_logic",
-        "while_logic",
-        "switch_logic",
-        "temporal_logic",
-        "data_markings",
-        "extensions"
-      ]
-    }
-  },
   "unevaluatedProperties": false
 }

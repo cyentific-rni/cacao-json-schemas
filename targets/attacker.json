@@ -2,29 +2,32 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attacker.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "attacker",
-  "description": "",
+  "description": "This target type is used for commands that need to be executed on an attack orchestration system. This object inherits the common target properties. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be 'attacker'.",
           "enum": [
             "attacker"
           ]
         },
-        "executor": {
-          "$ref": "target.json"
-        },
         "executor-type": {
-          "$ref": "target.json#/$defs/orchestration-system-type-ov"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json#/$defs/orchestration-system-type-ov",
+          "description": "The type of orchestration system that runs the attacks. The values for this property MUST come from the 'orchestration-system-type-ov' vocabulary."
+        },
+        "executor": {
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
+          "description": "The executor of the attack."
         },
         "subject": {
-          "$ref": "target.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
+          "description": "The subject of the attack"
         }
       }
     }

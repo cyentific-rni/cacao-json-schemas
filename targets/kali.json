@@ -2,35 +2,41 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/kali.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "kali",
-  "description": "",
+  "description": "This target type contains a Kali CLI target. In addition to the inherited properties, this section defines five additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be kali.",
           "enum": [
             "kali"
           ]
-        },"private_key": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
-        },
-        "port": {
-          "type": "string"
         },
         "address": {
-          "type": "string"
-        }
+          "type": "string",
+          "description": "The IP address or domain name of the host that should be contacted."
+        },
+        "port": {
+          "type": "string",
+          "description": "The TCP port number for the Kali linux service. The default value is 22 based on standard port number services [PortNumbers]."
+        },
+        "username": {
+          "type": "string",
+          "description": "The username to access this target."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password associated with the username to access this target. This value will most often be passed in via a variable."
+        },
+        "private_key": {
+          "type": "string",
+          "description": "The private key associated with the username to access this target. This value will most often be passed in via a variable."
+        }       
       }
     }
   ],

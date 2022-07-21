@@ -2,23 +2,24 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/security-infrastructure-category.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "security-infrastructure-category",
-  "description": "",
+  "description": "This target type contains a Security Infrastructure Category Target. In addition to the inherited properties, this section defines one additional specific property that is valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be 'security-infrastructure-category'.",
           "enum": [
             "security-infrastructure-category"
           ]
         },
           "category": {
-            "$ref": "target.json#/$defs/security-infrastructure-type-ov"
+            "$ref": "target.json#/$defs/security-infrastructure-type-ov",
+            "description": "One or more identified categories of security infrastructure types that this target represents. A product instantiation may include one or more security infrastructure types as hints to assist in describing the target features most likely required by a playbook step or playbook. The values for this property SHOULD come from the 'security-infrastructure-type-ov' vocabulary."
           }
       }
     }

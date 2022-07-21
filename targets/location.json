@@ -2,32 +2,36 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/location.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "location",
-  "description": "",
+  "description": "This target type is used for commands that need to be processed or executed by a location. This object inherits the common target properties. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "target.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of target object being used. The value of this property SHOULD come from the target-type-ov.",
+          "description": "The value of this property MUST be 'location'.",
           "enum": [
             "location"
           ]
         },
         "location": {
-          "$ref": "target.json#/$defs/civic-location"
+          "$ref": "target.json#/$defs/civic-location",
+          "description": "Physical address information for this target."
         },
         "gps": {
-          "$ref": "target.json#/$defs/gps-location"
+          "$ref": "target.json#/$defs/gps-location",
+          "description": "GPS information for this target."
         },
         "logical": {
           "type": "array",
+          "description": "An optional list of logical location names as defined by the playbook creator.",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1
         }
       }
     }
