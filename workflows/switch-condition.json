@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow-step-common.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
     },
     {
       "properties": {
@@ -32,7 +32,7 @@
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "../common/identifier.json"
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json"
                   },
                   "minItems": 1
                 }

@@ -26,7 +26,7 @@
       "description": "An identifier used by the source to reference this content. Some organizations give names or numbers to content that they publish. This property would capture that information to help ensure that a consumer is being referred to the correct content."
     },
     "reference_id": {
-      "$ref": "identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
       "description": "A UUID based identifier that this content is referenced to. This property is especially useful when referencing content that already exists in a graph dataset or can be referenced via a UUID based ID."
     }
   },

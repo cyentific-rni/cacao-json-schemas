@@ -18,7 +18,7 @@
           ]
         },
           "category": {
-            "$ref": "target.json#/$defs/security-infrastructure-type-ov",
+            "type": "string",
             "description": "One or more identified categories of security infrastructure types that this target represents. A product instantiation may include one or more security infrastructure types as hints to assist in describing the target features most likely required by a playbook step or playbook. The values for this property SHOULD come from the 'security-infrastructure-type-ov' vocabulary."
           }
       }

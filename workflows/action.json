@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow-step-common.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
     },
     {
       "properties": {
@@ -21,19 +21,19 @@
           "type": "array",
           "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed.",
           "items": {
-            "$ref": "../commands/command.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/commands/command.json"
           },
           "minItems": 1
         },
         "target": {
-          "$ref": "../targets/target.json",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
           "description": "One or more targets that SHOULD execute the commands defined in this step.The value of this property MUST contain a CACAO 'target' object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
         },
         "target_ids": {
           "type": "array",
           "description": "A list of target ID references that SHOULD execute the commands defined in this step. Each ID MUST reference a CACAO target object (see section 6). If this property is defined the targets property MUST NOT be defined.",
           "items": {
-            "$ref": "../common/identifier.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
           },
           "minItems": 1
         },
@@ -42,7 +42,8 @@
           "description": "The optional list of arguments/variable names from the local 'step_variables' dictionary (see section 4.1) or global 'playbook_variables' dictionary (see section 3.1) that are to be passed into this step to be executed by the target(s) as inputs. See section 9.13 for more information about variables.",
           "items": {
             "type": "string"
-          }
+          },
+          "minItems": 1
         },
         "out_args": {
           "type": "array",

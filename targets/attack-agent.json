@@ -12,7 +12,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The value of this property MUST be attack-agent.",
+          "description": "The value of this property MUST be 'attack-agent'.",
           "enum": [
             "attack-agent"
           ]
@@ -22,7 +22,7 @@
           "description": "The IP address or domain name of the Attack agent that should execute the attack command sent to it. "
         },
         "agent-type": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json#/$defs/attack-agent-type-ov",
+          "type": "string",
           "description": "The type of agent being used. The values for this property MUST come from the 'attack-agent-type-ov' vocabulary."
         }
       }

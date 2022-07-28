@@ -21,7 +21,7 @@
           "type": "array",
           "description": "An optional list of physical address information for this target.",
           "items": {
-            "$ref": "target.json#/$defs/civic-location"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/civic-location.json"
           },
           "minItems": 1
         }

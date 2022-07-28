@@ -60,7 +60,7 @@
           "description": "The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1. The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."
         },
         "location": {
-          "$ref": "target.json#/$defs/civic-location",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/civic-location.json",
           "description": "Physical address information for this target."
         }
       }

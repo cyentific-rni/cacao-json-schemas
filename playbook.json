@@ -126,7 +126,7 @@
       "type": "array",
       "description": "An optional list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references). Each ID MUST represent a CACAO data marking object.",
       "items": {
-        "$ref": "identifier.json"
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json"
       },
       "minItems": 1
     },

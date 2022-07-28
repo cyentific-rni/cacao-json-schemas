@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow-step-common.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
     },
     {
       "properties": {
@@ -21,7 +21,7 @@
           "type": "array",
           "description": "A list of two or more workflow steps to be processed in parallel. The 'next_steps' MUST contain at least one value.The definition of parallel execution and how many parallel steps that are possible to execute is implementation dependent and is not part of this specification. If any of the steps referenced in 'next_steps' generate an error of any kind (exception or timeout) then implementers SHOULD consider defining rollback error handling for the playbook and include those steps in the playbook itself. The ID MUST represent a CACAO workflow step object.",
           "items": {
-            "$ref": "../common/identifier.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
           },
           "minItems": 1
         }

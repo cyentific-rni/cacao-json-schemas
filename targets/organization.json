@@ -18,11 +18,11 @@
           ]
         },
         "contact": {
-          "$ref": "target.json#/$defs/contact",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/contact.json",
           "description": "Contact information for this target."
         },
         "location": {
-          "$ref": "target.json#/$defs/civic-location",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/civic-location.json",
           "description": "Physical address information for this target."
         }
       }

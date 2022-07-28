@@ -18,7 +18,7 @@
           ]
         },
         "executor-type": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json#/$defs/orchestration-system-type-ov",
+          "type": "string",
           "description": "The type of orchestration system that runs the attacks. The values for this property MUST come from the 'orchestration-system-type-ov' vocabulary."
         },
         "executor": {

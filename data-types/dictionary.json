@@ -2,12 +2,12 @@
   "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/dictionary.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "dictionary",
-  "description": "A dictionary captures a set of key/value pairs",
+  "description": "The dictionary data type captures an arbitrary set of key/value pairs and uses the JSON object type [RFC8259] for serialization.",
   "type": "object",
   "unevaluatedProperties": false,
   "patternProperties": {
     "^\\$\\$[a-zA-Z0-9_-]{0,250}\\$\\$": {
-      "$ref": "variable.json"
+      
     }
   }
 }
