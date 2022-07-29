@@ -8,7 +8,7 @@
     {
       "properties": {
         "type": {
-          "$ref": "string",
+          "type": "string",
           "description": "The type of command being used. The value of this property SHOULD come from the 'command-type-ov' vocabulary."
         },
         "command": {
