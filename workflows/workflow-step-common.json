@@ -6,8 +6,8 @@
   "type": "object",
   "properties": {
     "type": {
-      "$ref": "#/$defs/workflow-step-type",
-      "description": "The type of workflow step being used. The value for this property MUST come from the 'workflow-step-type' vocabulary."
+      "$ref": "#/$defs/workflow-step-type-enum",
+      "description": "The type of workflow step being used. The value for this property MUST come from the 'workflow-step-type-enum' enumeration."
     },
     "name": {
       "type": "string",
@@ -80,7 +80,7 @@
     "type"
   ],
   "$defs": {
-    "workflow-step-type": {
+    "workflow-step-type-enum": {
       "type": "string",
       "enum": [
         "start",
