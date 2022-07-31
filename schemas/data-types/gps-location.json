@@ -1,0 +1,39 @@
+{
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/gps-location.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "gps-location",
+    "description": "The gps-location data type captures GPS location information and uses the JSON object type [RFC8259] for serialization.",
+    "type": "object",
+    "properties": {
+        "gps-location": {
+            "type": "object",
+            "properties": {
+                "latitude": {
+                    "type": "string",
+                    "description": "The GPS latitude of the target in decimal degrees. Positive numbers describe latitudes north of the equator, and negative numbers describe latitudes south of the equator. The value of this property MUST be less than or equal to 90.0 and greater than -90.0 (i.e., 90.0 >= x > -90.0). If the longitude property is present, this property MUST be present."
+                },
+                "longitude": {
+                    "type": "string",
+                    "description": "The GPS longitude of the target in decimal degrees. Positive numbers describe longitudes east of the prime meridian and negative numbers describe longitudes west of the prime meridian. The value of this property MUST be less than or equal to 180.0 and a value that is greater than -180.0 (i.e., 180.0 >= x > -180.0). If the latitude property is present, this property MUST be present."
+                },
+                "precision": {
+                    "type": "string",
+                    "description": "Defines the precision of the coordinates specified by the 'latitude' and 'longitude' properties. This is measured in meters. The actual target may be anywhere up to precision meters from the defined point. If this property is not present, then the precision is unspecified. If this property is present, the 'latitude' and 'longitude' properties MUST be present."
+                }
+            },
+            "dependentRequired": {
+                "latitude": [
+                    "longitude"
+                ],
+                "longitude": [
+                    "latitude"
+                ],
+                "precision": [
+                    "longitude",
+                    "latitude"
+                ]
+            },
+            "unevaluatedProperties": false
+        }
+    }
+}

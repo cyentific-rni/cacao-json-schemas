@@ -1,0 +1,24 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/start.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "start",
+  "description": "This workflow step is the starting point of a playbook and represents an explicit entry in the workflow to signify the start of a playbook.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The value of this property MUST be 'start'.",
+          "enum": [
+            "start"
+          ]
+        }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

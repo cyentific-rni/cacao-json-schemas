@@ -1,0 +1,47 @@
+{
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/playbook-action.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "playbook-action",
+  "description": "This workflow step executes a referenced playbook. In addition to the inherited properties, this section defines three more specific properties that are valid for this type.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The value of this property MUST be 'playbook-action'.",
+          "enum": [
+            "playbook-action"
+          ]
+        },
+        "playbook_id": {
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json",
+          "description": "The referenced playbook to execute at the defined target(s). The playbook ID SHOULD be defined such that it is locally relevant to each target that will execute the playbook."
+        },
+        "in_args": {
+          "type": "array",
+          "description": "The optional list of arguments/variable names from the global 'playbook_variables' dictionary (see section 3.1) that are to be passed into this step to be executed by the playbook as inputs. See section 9.13 for more information about variables.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "out_args": {
+          "type": "array",
+          "description": "The optional list of arguments/variable names from the global 'playbook_variables' dictionary (see section 3.1) that are to be returned from this playbook after execution of the commands by the target(s) and stored in the same variable dictionary. See section 9.13 for more information about variables.",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  ],
+  "required": [
+    "playbook_id"
+  ],
+  "unevaluatedProperties": false
+}
