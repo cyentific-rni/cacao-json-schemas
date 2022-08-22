@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "identifier",
     "description": "The identifier datatype represents an RFC 4122-compliant UUID [RFC4122] and uses the JSON stringtype [RFC8259] for serialization.",

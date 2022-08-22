@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/while-condition.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/while-condition.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "while-condition",
     "description": "This section defines the 'while' conditionallogic that can be used within the workflow of the playbook. In addition to theinherited properties, this section defines three additional specific propertiesthat are valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -24,13 +24,13 @@
                 "on_true": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "The list of sequential step IDs to be processed every time the loop condition evaluates as true. Each ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
                 },
                 "on_false": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
                     "description": "The ID of the next step to be processed every time the loop condition evaluates as false. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
                 }
             },

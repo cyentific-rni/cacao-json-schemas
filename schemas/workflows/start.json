@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/start.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/start.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "start",
     "description": "This workflow step is the starting point of aplaybook or branch of steps. While this type inherits all of the commonproperties of a workflow step it does not define any additional properties.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {

@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/commands/command.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/commands/command.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "command",
     "description": "The CACAO command object (command-data) contains detailed information about the commands that are to beexecuted or processed automatically or manually as part of a workflow step (seesection 4). Each command listed in a step may be of a different command type,however, all commands listed in a single step MUST be processed orexecuted by all of the targets defined in that step.",

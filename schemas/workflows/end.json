@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/end.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/end.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "end",
     "description": "This workflow step is the ending point of aplaybook or branch of steps. While this type inherits all of the commonproperties of a workflow step it does not define any additional properties.When a playbook or branch of a playbook terminates it MUST call an EndStep.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {

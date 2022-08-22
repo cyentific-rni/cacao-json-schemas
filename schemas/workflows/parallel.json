@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/parallel.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/parallel.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "parallel",
     "description": "This section defines how to create steps thatcan be processed in parallel. In addition to the inherited properties, thissection defines one additional specific property that is valid for this type. Aparallel step MUST execute all workflow steps that are part of the next_stepsproperty before this step can be considered complete and the workflow logicmoves on.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -20,7 +20,7 @@
                 "next_steps": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "A list of one or more workflow steps to be processed in parallel. The next_steps MUST contain at least one value. The definition of parallel execution and how many parallel steps that are possible to execute is implementation dependent and is not part of this specification. If any of the steps referenced in next_steps generate an error of any kind (exception or timeout) then implementers SHOULD consider defining rollback error handling for the playbook and include those steps in the playbook itself. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object."

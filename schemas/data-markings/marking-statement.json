@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/marking-statement.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/marking-statement.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "marking-statement",
     "description": "The statement marking object defines therepresentation of a textual marking statement (e.g., copyright, terms of use,etc.). Statement markings are generally not machine-readable, and thisspecification does not define any behavior or actions based on their values.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
         },
         {
             "properties": {

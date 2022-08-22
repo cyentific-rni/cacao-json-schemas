@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/single.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/single.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "single",
     "description": "This workflow step contains the actualcommands to be executed on one or more targets. These commands are intended tobe processed sequentially one at a time. In addition to the inheritedproperties, this section defines five more specific properties that are validfor this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -20,19 +20,19 @@
                 "commands": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/commands/command.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/commands/command.json"
                     },
                     "minItems": 1,
                     "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed."
                 },
                 "target": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json",
                     "description": "A target that SHOULD execute the commands defined in this step. The value of this property MUST contain a CACAO target object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
                 },
                 "target_ids": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "A list of target ID references that SHOULD execute the commands defined in this step. Each ID MUST reference a CACAO target object. If this property is defined the target property MUST NOT be defined."

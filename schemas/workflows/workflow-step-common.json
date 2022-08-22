@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "workflow-step-common",
     "description": "Workflows contain a series of steps that arestored in a dictionary, where the key is the step ID and the value is aworkflow step. These workflow steps along with the associated commands form thebuilding blocks for playbooks and are used to control the commands that need tobe executed. Workflows process steps either sequentially, in parallel, or bothdepending on the type of steps required by the playbook. In addition to simpleprocessing, workflow steps MAY also contain conditional and/or temporaloperations to control the execution of the playbook.",
@@ -20,7 +20,7 @@
         "external_references": {
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/external-reference.json"
+                "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/external-reference.json"
             },
             "minItems": 1,
             "description": "An optional list of external references for this step."
@@ -37,29 +37,29 @@
             "type": "object",
             "patternProperties": {
                 "^[$]{2}[a-zA-Z0-9_-]{0,250}[$]{2}$": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/variable.json"
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/variable.json"
                 }
             },
             "description": "This property contains the variables that can be used within this workflow step or within commands and targets referenced by this workflow step. See section 9.13.2 for information about referencing variables. The key for each entry in the dictionary MUST be a string that uniquely identifies the variable. The value for each key MUST be a CACAO variable data type (see section 9.13.3)."
         },
         "owner": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
             "description": "An ID that represents the entity that is assigned as the owner or responsible party for this step. The ID MUST represent a STIX 2.1+ Identity object."
         },
         "on_completion": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
             "description": "The ID of the next step to be processed upon completion of the defined commands. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object. If this property is defined, then on_success and on_failure MUST NOT be defined."
         },
         "on_success": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
             "description": "The ID of the next step to be processed if this step completes successfully. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
         },
         "on_failure": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
             "description": "The ID of the next step to be processed if this step fails to complete successfully. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object. If omitted and a failure occurs, then the playbooks exception handler action step will be invoked."
         },
         "step_extensions": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
             "description": "This property defines the extensions that are in use on this step. The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of &quot;extension&quot; (see section 9.7 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension's schema location."
         }
     },

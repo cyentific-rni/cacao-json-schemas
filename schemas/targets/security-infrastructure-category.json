@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/security-infrastructure-category.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/security-infrastructure-category.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "security-infrastructure-category",
     "description": "This target type contains a SecurityInfrastructure Category Target. In addition to the inherited properties, thissection defines one additional specific property that is valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
         {
             "properties": {

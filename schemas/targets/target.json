@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "target",
     "description": "The CACAO target object contains detailedinformation about the entities or devices that accept, receive, process, orexecute one or more commands as defined in a workflow step. Targets contain theinformation needed to send commands as defined in steps to devices or humans. ",
@@ -18,7 +18,7 @@
             "description": "More details, context, and possibly an explanation about this target."
         },
         "target_extensions": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
             "description": "This property defines the extensions that are in use on this target.  The key for each entry in the dictionary MUST be an identifier that uniquely identifies the extension. The id MUST use the object type of 'extension' (see section 9.7 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension's schema location."
         }
     },

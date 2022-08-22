@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/sector.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/sector.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "sector",
     "description": "This target type is used for commands thatneed to be processed or executed by a sector. This object inherits the commontarget properties. In addition to the inherited properties, this sectiondefines one additional specific property that is valid for this type. Thevalues for the inherited name property SHOULD come from theindustry-sector-ov vocabulary, see section 6.7.1.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
         {
             "properties": {
@@ -20,7 +20,7 @@
                 "location": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/civic-location.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/civic-location.json"
                     },
                     "minItems": 1,
                     "description": "An optional list of physical address information for this target."

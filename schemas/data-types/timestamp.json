@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "timestamp",
     "description": "The timestamp datatype represents dates and times and uses the JSON string type [RFC8259] forserialization. The timestamp data MUST be a valid RFC 3339-formattedtimestamp [RFC3339] using the format yyyy-mm-ddThh:mm:ss[.s+]Z where the&quot;s+&quot; represents 1 or more sub-second values. The brackets denote thatsub-second precision is optional, and that if no digits are provided, thedecimal place MUST NOT be present. The timestamp MUST berepresented in the UTC+0 timezone and MUST use the &quot;Z&quot;designation to indicate this.",

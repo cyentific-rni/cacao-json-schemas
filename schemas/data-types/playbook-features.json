@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/playbook-features.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/playbook-features.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "playbook-features",
     "description": "The playbook-features data type represents the major features and functionality of aplaybook. ",

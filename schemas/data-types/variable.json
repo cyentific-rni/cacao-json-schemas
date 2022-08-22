@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/variable.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/variable.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "variable",
     "description": "The variable datatype captures variable information and uses the JSON object type [RFC8259] forserialization.",

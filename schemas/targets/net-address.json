@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/net-address.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/net-address.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "net-address",
     "description": "This target type contains a Network AddressTarget. In addition to the inherited properties, this section defines sixadditional specific properties that are valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
         {
             "properties": {
@@ -18,7 +18,7 @@
                     ]
                 },
                 "address": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
                     "description": "The key for each entry in the dictionary MUST be a string that uniquely identifies the address type. The value for each key MUST be a string and MUST have a value of ipv4, ipv6, l2mac, vlan, or url."
                 },
                 "username": {
@@ -38,7 +38,7 @@
                     "description": "The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1. The values for this property, if defined, MUST come from the security-infrastructure-type-ov vocabulary."
                 },
                 "location": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/civic-location.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/civic-location.json",
                     "description": "Physical address information for this target."
                 }
             },

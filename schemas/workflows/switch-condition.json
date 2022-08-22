@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/switch-condition.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/switch-condition.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "switch-condition",
     "description": "This section defines the 'switch' conditionlogic that can be used within the workflow of the playbook. In addition to theinherited properties, this section defines two additional specific propertiesthat are valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -22,7 +22,7 @@
                     "description": "A variable that is evaluated to determine which key in the match_props dictionary is matched against to execute the associated step."
                 },
                 "cases": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/dictionary.json",
                     "description": "This property is a dictionary that defines one or more case values (as dictionary keys) and a list of sequential step IDs (as key values) to be processed when the case value is matched against the switch value. The value for each entry in the dictionary MUST be a list of type identifier that uniquely identifies a set of sequential steps to be processed when that key/value is chosen. Each id in the list MUST use the object type of &quot;step&quot; (see section 9.8 for more information on identifiers). This dictionary MAY have a &quot;default&quot; case value."
                 }
             },

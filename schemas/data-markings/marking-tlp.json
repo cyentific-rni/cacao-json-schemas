@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/marking-tlp.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/marking-tlp.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "marking-tlp",
     "description": "The TLP marking object defines therepresentation of a FIRST TLP marking statement. If the TLP marking isexternally defined, producers SHOULD use the external_refernces propertyof this object.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
         },
         {
             "properties": {

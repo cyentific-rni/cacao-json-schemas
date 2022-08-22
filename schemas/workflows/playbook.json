@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/playbook.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/playbook.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "playbook",
     "description": "This workflow step executes a referencedplaybook on one or more targets. In addition to the inherited properties, thissection defines five more specific properties that are valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -18,17 +18,17 @@
                     ]
                 },
                 "playbook_id": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
                     "description": "The referenced playbook to execute at the target or targets.   The playbook ID SHOULD be defined such that it is locally relevant to each target that will execute the playbook."
                 },
                 "target": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/target.json",
                     "description": "A target that SHOULD execute the referenced playbook. The value of this property MUST contain a CACAO target object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
                 },
                 "target_ids": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "A list of target ID references that SHOULD execute the named playbook  Each ID MUST reference a CACAO target object. If this property is defined the target property MUST NOT be defined."

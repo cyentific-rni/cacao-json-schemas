@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/if-condition.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/if-condition.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "if-condition",
     "description": "This section defines the 'if-then-else' conditional logic that can be used within the workflow of the playbook. Inaddition to the inherited properties, this section defines three additionalspecific properties that are valid for this type.",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
         {
             "properties": {
@@ -24,7 +24,7 @@
                 "on_true": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "The sequential list of step IDs to be processed if the condition evaluates as true. Each ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
@@ -32,7 +32,7 @@
                 "on_false": {
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
                     },
                     "minItems": 1,
                     "description": "The sequential list of step IDs to be processed if the condition evaluates as false. Each ID MUST represent either a CACAO workflow Step object or a CACAO playbook object."

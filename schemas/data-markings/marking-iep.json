@@ -1,12 +1,12 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/marking-iep.json",
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/marking-iep.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "marking-iep",
     "description": "The IEP marking object defines the representationof a FIRST IEP marking statement. For more information about the propertiesfrom the IEP specification, please refer to that document [IEP].",
     "type": "object",
     "allOf": [
         {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
         },
         {
             "properties": {
@@ -34,11 +34,11 @@
                     "description": "See IEP Specification [IEP]."
                 },
                 "start_date": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
                     "description": "See IEP Specification [IEP]."
                 },
                 "end_date": {
-                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/timestamp.json",
                     "description": "See IEP Specification [IEP]."
                 },
                 "encrypt_in_transit": {
