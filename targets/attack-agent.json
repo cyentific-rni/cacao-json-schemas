@@ -1,32 +1,36 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-agent.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "attack-agent",
-  "description": "",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The value of this property MUST be 'attack-agent'.",
-          "enum": [
-            "attack-agent"
-          ]
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/attack-agent.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "attack-agent",
+    "description": "This target type contains an Attack Agenttarget. In addition to the inherited properties, this section defines threeadditional specific properties that are valid for this type. For a Calderaagent example see [CalderaAgent] for more details.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
-        "address": {
-          "type": "string",
-          "description": "The IP address or domain name of the Attack agent that should execute the attack command sent to it. "
-        },
-        "agent-type": {
-          "type": "string",
-          "description": "The type of agent being used. The values for this property MUST come from the 'attack-agent-type-ov' vocabulary."
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be attack-agent.",
+                    "enum": [
+                        "attack-agent"
+                    ]
+                },
+                "address": {
+                    "type": "string",
+                    "description": "The IP address or domain name of the Attack agent that should execute the attack command sent to it."
+                },
+                "agent-type": {
+                    "type": "string",
+                    "description": "The type of agent being used. The values for this property MUST come from the attack-agent-type vocabulary."
+                }
+            },
+            "required": [
+                "type",
+                "address"
+            ]
         }
-      }
-    }
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }

@@ -1,37 +1,32 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking-tlp.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "marking-tlp",
-  "description": "The TLP marking object defines the representation of a FIRST TLP marking statement. If the TLP marking is externally defined, producers SHOULD use the external_references property of this object.",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-marking/data-marking.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "marking-tlp"
-          ],
-          "description": "The value of this property MUST be marking-tlp."
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/marking-tlp.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "marking-tlp",
+    "description": "The TLP marking object defines therepresentation of a FIRST TLP marking statement. If the TLP marking isexternally defined, producers SHOULD use the external_refernces propertyof this object.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-markings/data-marking.json"
         },
-        "tlp_level": {
-          "type": "string",
-          "enum": [
-            "TLP:RED",
-            "TLP:AMBER",
-            "TLP:GREEN",
-            "TLP:WHITE"
-          ],
-          "description": "The name of the TLP level [TLP] taken from the following: 'TLP:RED', 'TLP:AMBER', 'TLP:GREEN', 'TLP:WHITE'"
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be marking-tlp.",
+                    "enum": [
+                        "marking-tlp"
+                    ]
+                },
+                "tlp_level": {
+                    "type": "string",
+                    "description": "The name of the TLP level taken from the following:  TLP:RED, TLP:AMBER, TLP:GREEN, TLP:WHITE"
+                }
+            },
+            "required": [
+                "type",
+                "tlp_level"
+            ]
         }
-      }
-    }
-  ],
-  "required": [
-    "tlp_level"
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }

@@ -1,43 +1,50 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/if-condition.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "if-condition",
-  "description": "This schema defines the 'if-then-else' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The value of this property MUST be 'if-condition'.",
-          "enum": [
-            "if-condition"
-          ]
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/if-condition.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "if-condition",
+    "description": "This section defines the 'if-then-else' conditional logic that can be used within the workflow of the playbook. Inaddition to the inherited properties, this section defines three additionalspecific properties that are valid for this type.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
-        "condition": {
-          "type": "string",
-          "description": "A boolean expression as defined in the STIX Patterning Grammar that when it evaluates as true executes the workflow step identified by the 'on_true' property, otherwise it executes the 'on_false' workflow step"
-        },
-        "on_true": {
-          "type": "string",
-          "description": "The step ID to be processed if the condition evaluates as true. The ID MUST represent a CACAO workflow step object. ",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
-        },
-        "on_false": {
-          "type": "string",
-          "description": "The step ID to be processed if the condition evaluates as false. The ID MUST represent a CACAO workflow Step object.",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be if-condition.",
+                    "enum": [
+                        "if-condition"
+                    ]
+                },
+                "condition": {
+                    "type": "string",
+                    "description": "A boolean expression as defined in the STIX Patterning Grammar that when it evaluates as true executes the workflow step identified by the on_true property, otherwise it executes the on_false workflow step"
+                },
+                "on_true": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                    },
+                    "minItems": 1,
+                    "description": "The sequential list of step IDs to be processed if the condition evaluates as true. Each ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
+                },
+                "on_false": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                    },
+                    "minItems": 1,
+                    "description": "The sequential list of step IDs to be processed if the condition evaluates as false. Each ID MUST represent either a CACAO workflow Step object or a CACAO playbook object."
+                }
+            },
+            "required": [
+                "type",
+                "condition",
+                "on_true",
+                "on_false"
+            ]
         }
-      }
-    }
-  ],
-  "required": [
-    "condition",
-    "on_true",
-    "on_false"
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }

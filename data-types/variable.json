@@ -1,39 +1,33 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/variable.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "dictionary",
-  "description": "Variables can be defined and then used as the playbook is executed. Variables are stored in a 'dictionary' where the key is the name of the variable and the value is a 'variable' data type. Variables can represent stateful elements that may need to be captured to allow for the successful execution of the playbook. All playbook variables are mutable unless identified as a constant.",
-  "type": "object",
-  "unevaluatedProperties": false,
-  "patternProperties": {
-    "^\\$\\$[a-zA-Z_][a-zA-Z0-9_-]{0,199}\\$\\$": {
-      "allOf": [
-        {
-          "properties": {
-            "type": {
-              "type": "string",
-              "description": "The type of variable being used. The values for this property MUST come from the 'variable-type-ov' vocabulary."
-            },
-            "description": {
-              "type": "string",
-              "description": "An optional detailed description of this variable."
-            },
-            "value": {
-              "type": ["string","null"],
-              "description": "The value of the variable represented by a JSON string. The value MAY be populated with a string value (or number encoded as a string), an empty string \"\", or with the special JSON NULL value. NOTE: An empty string is NOT equivalent to a JSON NULL value. An empty string means the value is known to be empty. A value of NULL means the value is unknown or undefined."
-            },
-            "constant": {
-              "type": "boolean",
-              "description": "Is this variable immutable or mutable. If true, the variable is immutable and MUST NOT be changed. If false, the variable can be updated later on in the playbook. The default value is 'false'. If this property is not present then the value is 'false'."
-            },
-            "external": {
-              "type": "boolean",
-              "description": "This property only applies to playbook scoped variables. When set to true the variable declaration defines that the variable's initial value is passed into the playbook from a calling context. When set to false or omitted, the variable is defined within the playbook."
-            }
-          }
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/variable.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "variable",
+    "description": "The variable datatype captures variable information and uses the JSON object type [RFC8259] forserialization.",
+    "type": "object",
+    "properties": {
+        "type": {
+            "type": "string",
+            "description": "The type of variable being used. The values for this property MUST come from the variable-type vocabulary."
+        },
+        "description": {
+            "type": "string",
+            "description": "An optional detailed description of this variable."
+        },
+        "value": {
+            "type": "string",
+            "description": "The value of the variable represented by a JSON string. The value MAY be populated with a string value (or number encoded as a string), an empty string &quot;&quot;, or with the special JSON NULL value. NOTE: An empty string is NOT equivalent to a JSON NULL value. An empty string means the value is known to be empty. A value of NULL means the value is unknown or undefined."
+        },
+        "constant": {
+            "type": "boolean",
+            "description": "Is this variable immutable or mutable. If true, the variable is immutable and MUST NOT be changed. If false, the variable can be updated later on in the playbook. The default value is false. If this property is not present then then value is false."
+        },
+        "external": {
+            "type": "boolean",
+            "description": "This property only applies to playbook scoped variables. When set to true the variable declaration defines that the variables initial value is passed into the playbook from a calling context. When set to false or omitted, the variable is defined within the playbook."
         }
-      ],
-      "required": ["type"]
-    }
-  }
+    },
+    "required": [
+        "type"
+    ],
+    "additionalProperties": false
 }

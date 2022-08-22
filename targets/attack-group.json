@@ -1,28 +1,32 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-group.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "attack-group",
-  "description": "",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The value of this property MUST be 'attack-group'.",
-          "enum": [
-            "attack-group"
-          ]
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/attack-group.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "attack-group",
+    "description": "This target type contains an Attack Grouptarget. In addition to the inherited properties, this section defines oneadditional specific property that is valid for this type. For a Caldera Groupexample, see [CalderaGroup] for more details.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
-        "name": {
-          "type": "string",
-          "description": "The group name of the Attack group that should execute the attack command sent to it and all agents that are part of the group."
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be attack-group.",
+                    "enum": [
+                        "attack-group"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The group name of the Attack group that should execute the attack command sent to it and all agents that are part of the group."
+                }
+            },
+            "required": [
+                "type",
+                "name"
+            ]
         }
-      }
-    }
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }

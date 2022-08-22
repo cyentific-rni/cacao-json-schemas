@@ -1,36 +1,39 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attacker.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "attacker",
-  "description": "This target type is used for commands that need to be executed on an attack orchestration system. This object inherits the common target properties. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The value of this property MUST be 'attacker'.",
-          "enum": [
-            "attacker"
-          ]
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/attacker.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "attacker",
+    "description": "This target type is used for commands thatneed to be executed on an attack orchestration system. This object inherits thecommon target properties. In addition to the inherited properties, this sectiondefines three additional specific properties that are valid for this type.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json"
         },
-        "executor-type": {
-          "type": "string",
-          "description": "The type of orchestration system that runs the attacks. The values for this property MUST come from the 'orchestration-system-type-ov' vocabulary."
-        },
-        "executor": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
-          "description": "The executor of the attack."
-        },
-        "subject": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
-          "description": "The subject of the attack"
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be attacker.",
+                    "enum": [
+                        "attacker"
+                    ]
+                },
+                "executor": {
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json",
+                    "description": "The executor of the attack"
+                },
+                "executor-type": {
+                    "type": "string",
+                    "description": "The type of orchestration system that runs the attacks. The values for this property MUST come from the orchestration-system-type vocabulary."
+                },
+                "subject": {
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/targets/target.json",
+                    "description": "The subject of the attack"
+                }
+            },
+            "required": [
+                "type"
+            ]
         }
-      }
-    }
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }

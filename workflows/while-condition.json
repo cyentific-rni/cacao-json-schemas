@@ -1,42 +1,46 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/while-condition.json",
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "while-condition",
-  "description": "This schema defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
-    },
-    {
-      "properties": {
-        "type": {
-          "type": "string",
-          "description": "The value of this property MUST be 'while-condition'.",
-          "enum": [
-            "while-condition"
-          ]
+    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/while-condition.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "while-condition",
+    "description": "This section defines the 'while' conditionallogic that can be used within the workflow of the playbook. In addition to theinherited properties, this section defines three additional specific propertiesthat are valid for this type.",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/workflows/workflow-step-common.json"
         },
-        "condition": {
-          "type": "string",
-          "description": "A boolean expression as defined in the STIX Patterning Grammar that while it is true executes the workflow step identified by 'on_true' otherwise it exits the while conditional workflow step and executes the 'on_false' workflow step"
-        },
-        "on_true": {
-          "type": "string",
-          "description": "The step ID to be processed every time the loop condition evaluates as true. The ID MUST represent a CACAO workflow step object.",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
-        },
-        "on_false": {
-          "description": "The ID of the next step to be processed if the loop condition evaluates as false. The ID MUST represent a CACAO workflow step object.",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
+        {
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The value of this property MUST be while-condition.",
+                    "enum": [
+                        "while-condition"
+                    ]
+                },
+                "condition": {
+                    "type": "string",
+                    "description": "A boolean expression as defined in the STIX Patterning Grammar that while it is true executes the workflow step identified by on_do otherwise it exits the while conditional workflow step and executes the on_end workflow step"
+                },
+                "on_true": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json"
+                    },
+                    "minItems": 1,
+                    "description": "The list of sequential step IDs to be processed every time the loop condition evaluates as true. Each ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
+                },
+                "on_false": {
+                    "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/security-playbooks-v1.0-cs02/schemas/data-types/identifier.json",
+                    "description": "The ID of the next step to be processed every time the loop condition evaluates as false. The ID MUST represent either a CACAO workflow step object or a CACAO playbook object."
+                }
+            },
+            "required": [
+                "type",
+                "condition",
+                "on_true",
+                "on_false"
+            ]
         }
-      }
-    }
-  ],
-  "required": [
-    "condition",
-    "on_true",
-    "on_false"
-  ],
-  "unevaluatedProperties": false
+    ],
+    "unevaluatedProperties": false
 }
