@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/individual.json",
+  "$id": "targets/individual.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "individual",
   "description": "This target type is used for commands that need to be processed or executed by an individual. This object inherits the common target properties. In addition to the inherited properties, this section defines two additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/target.json"
+      "$ref": "targets/target.json"
     },
     {
       "properties": {
@@ -18,11 +18,11 @@
           ]
         },
         "contact": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/contact.json",
+          "$ref": "data-types/contact.json",
           "description": "Contact information for this target."
         },
         "location": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/civic-location.json",
+          "$ref": "data-types/civic-location.json",
           "description": "Physical address information for this target."
         }
       }

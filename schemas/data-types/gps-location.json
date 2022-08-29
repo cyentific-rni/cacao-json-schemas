@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/gps-location.json",
+    "$id": "data-types/gps-location.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "gps-location",
     "description": "The gps-location data type captures GPS location information and uses the JSON object type [RFC8259] for serialization.",
