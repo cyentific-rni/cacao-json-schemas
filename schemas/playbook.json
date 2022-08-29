@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/playbook.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/playbook.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "playbook",
   "description": "CACAO playbooks are made up of five parts; playbook metadata, the workflow logic, a list of targets, a list of extensions, and a list of data markings. Playbooks MAY refer to other playbooks in the workflow, similar to how programs refer to function calls or modules that comprise the program. The definition and normative requirements for all data types listed in the property table below and other property tables in this document can be found in Section 9.",
@@ -21,7 +21,7 @@
       ]
     },
     "id": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "A value that uniquely identifies the playbook. All playbooks with the same 'id' are considered different versions of the same playbook and the version of the playbook is identified by its 'modified' property."
     },
     "name": {
@@ -41,15 +41,15 @@
       "minItems": 1
     },
     "created_by": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "An ID that represents the entity that created this playbook. The ID MUST represent a STIX 2.1 identity object."
     },
     "created": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time at which this playbook was originally created. The creator can use any time it deems most appropriate as the time the playbook was created, but it MUST be given to the nearest millisecond (exactly three digits after the decimal place in seconds). The created property MUST NOT be changed when creating a new version of the object."
     },
     "modified": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time that this particular version of the playbook was last modified. The creator can use any time it deems most appropriate as the time that this version of the playbook was modified, but it MUST be given to the nearest millisecond (exactly three digits after the decimal place in seconds). The modified property MUST be later than or equal to the value of the created property."
     },
     "revoked": {
@@ -57,18 +57,18 @@
       "description": "A boolean that identifies if the playbook creator deems that this playbook is no longer valid. The default value is 'false'."
     },
     "valid_from": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time from which this playbook is considered valid and the steps that it contains can be executed. More detailed information about time frames MAY be applied in the 'workflow'. If omitted, the playbook is valid at all times or until the timestamp defined by 'valid_until'."
     },
     "valid_until": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time at which this playbook should no longer be considered a valid playbook to be executed. If the 'valid_until' property is omitted, then there is no constraint on the latest time for which the playbook is valid. This property MUST be greater than the timestamp in the 'valid_from' property if the 'valid_from' property is defined."
     },
     "derived_from": {
       "type": "array",
       "description": "The ID of one or more playbooks that this playbook was derived from. The ID MUST represent a CACAO playbook object.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json"
       },
       "minItems": 1
     },
@@ -110,7 +110,7 @@
       "type": "array",
       "description": "An optional list of external references for this playbook or content found in this playbook. Any external references that are used in other parts of this playbook MUST also be included in this property. Any external references that are used in other referenced playbooks MAY also be included in this property.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/external-reference.json"
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/external-reference.json"
       },
       "minItems": 1
     },
@@ -126,20 +126,20 @@
       "type": "array",
       "description": "An optional list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references). Each ID MUST represent a CACAO data marking object.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json"
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json"
       },
       "minItems": 1
     },
     "playbook_variables": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/dictionary.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/dictionary.json",
       "description": "This property contains the global variables (see section 9.13.1 for information about variable scope) that can be used within this playbook or within workflow steps, commands, and targets defined within this playbook. See section 9.13 for information about referencing variables. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the variable. The value for each key MUST be a CACAO 'variable' data type (see section 9.13)."
     },
     "workflow_start": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "The first workflow step included in the 'workflow' property that MUST be executed when starting the workflow. The ID MUST represent a CACAO 'workflow' step object and that object MUST be included in the workflow property."
     },
     "workflow_exception": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "The workflow step invoked whenever a playbook exception condition occurs. If defined, the ID MUST represent a CACAO 'workflow' step object and that object MUST be included in the workflow property."
     },
     "workflow": {
@@ -150,28 +150,28 @@
         "^step--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/while-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/while-condition.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/single-action.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/action.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/playbook.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/playbook.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/end.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/end.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/start.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/start.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/switch-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/switch-condition.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/if-condition.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/if-condition.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/parallel.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/parallel.json"
             }
           ]
         }
@@ -184,43 +184,43 @@
         "^target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/individual.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/individual.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/group.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/group.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/organization.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/organization.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/location.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/location.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/sector.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/sector.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/http-api.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/http-api.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/ssh.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/ssh.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/security-infrastructure-category.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/security-infrastructure-category.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/net-address.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/net-address.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/kali.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/kali.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attacker.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/attacker.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-agent.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/attack-agent.json"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-group.json"
+              "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/attack-group.json"
             }
           ]
         }
@@ -232,7 +232,7 @@
       "unevaluatedProperties": false,
       "patternProperties": {
         "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/extension-definition/extension-definition.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/extension-definition/extension-definition.json"
         }
       },
       "description": "A dictionary of extension definitions that are referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO extension object (see section 7). Any extensions that are used in other parts of this playbook MUST also be included in this property. Any extensions that are used in other referenced playbooks MAY also be included in this property."
@@ -243,13 +243,13 @@
       "description": "A dictionary of data marking definitions that can be referenced from the playbook found in the markings property. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the data marking (see section 9.8 for more information on identifiers). The value for each key MUST be a CACAO data marking object (see section 8). Any data markings that are used in other parts of this playbook MUST also be included in this property. Any data markings that are used in other referenced playbooks MAY also be included in this property.",
       "patternProperties": {
         "^marking-tlp--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_tlp_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-markings/marking-tlp.json"
         },
         "^marking-iep--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_iep_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-markings/marking-iep.json"
         },
         "^marking-statement--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking_statement_data_marking.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-markings/marking-statement.json"
         }
       }
     },
@@ -257,7 +257,7 @@
       "type": "array",
       "description": "An optional list of digital signatures for this playbook. Adding a signature to a playbook does not represent a version change of the playbook. See sections 2.5, 9.10, and A.2 in the appendix for more information and a detailed example.",
       "items": {
-        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/signature.json"
+        "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/signature.json"
       },
       "minItems": 1
     }

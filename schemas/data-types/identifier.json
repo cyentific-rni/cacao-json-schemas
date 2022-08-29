@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "identifier",
   "description": "The 'identifier' data type represents an RFC 4122-compliant UUID [RFC4122] and uses the JSON string type [RFC8259] for serialization. An identifier uniquely identifies a CACAO object and MAY allow producers and consumers using the same namespace and contributing properties to generate the same identifier for the exact same content defined in the CACAO object. All identifiers MUST follow the form object-type--UUID, where object-type is the exact value (all type names are lowercase strings by definition) from the type property of the object being identified and where the UUID MUST be an RFC 4122-compliant UUID [RFC4122].",

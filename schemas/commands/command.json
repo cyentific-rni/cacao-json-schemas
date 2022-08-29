@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/commands/command.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/commands/command.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "command",
   "description": "The CACAO command object (command-data) contains detailed information about the commands that are to be executed or processed automatically or manually as part of a workflow step (see section 4). Each command listed in a step may be of a different command type, however, all commands listed in a single step MUST be processed or executed by all of the targets defined in that step. Commands can use and refer to variables just like other parts of the playbook. For each command either the 'command' property or the 'command_b64' property MUST be present. The individual commands MAY be defined in other specifications, and when possible will be mapped to the JSON structure of this specification. When that is not possible, they will be base64 encoded.",

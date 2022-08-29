@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-markings/marking-tlp.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-markings/marking-tlp.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "marking-tlp",
   "description": "The TLP marking object defines the representation of a FIRST TLP marking statement. If the TLP marking is externally defined, producers SHOULD use the external_references property of this object.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-marking/data-marking.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-marking/data-marking.json"
     },
     {
       "properties": {

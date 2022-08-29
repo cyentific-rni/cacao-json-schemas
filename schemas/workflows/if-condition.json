@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/if-condition.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/if-condition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "if-condition",
   "description": "This schema defines the 'if-then-else' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/workflow-step-common.json"
     },
     {
       "properties": {
@@ -24,12 +24,12 @@
         "on_true": {
           "type": "string",
           "description": "The step ID to be processed if the condition evaluates as true. The ID MUST represent a CACAO workflow step object. ",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/common/identifier.json"
         },
         "on_false": {
           "type": "string",
           "description": "The step ID to be processed if the condition evaluates as false. The ID MUST represent a CACAO workflow Step object.",
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/common/identifier.json"
         }
       }
     }

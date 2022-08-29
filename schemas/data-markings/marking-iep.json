@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-marking/marking-iep.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-marking/marking-iep.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "marking-iep",
   "description": "The IEP marking object defines the representation of a FIRST IEP marking statement. For more information about the properties from the IEP specification, please refer to that document [IEP].",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-marking/data-marking.json"
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-marking/data-marking.json"
     },
     {
       "properties": {
@@ -34,11 +34,11 @@
           "description": "See IEP Specification [IEP]."
         },
         "start_date": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
           "description": "See IEP Specification [IEP]."
         },
         "end_date": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
           "description": "See IEP Specification [IEP]."
         },
         "encrypt_in_transit": {

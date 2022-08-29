@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/signature.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/signature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "signature",
   "description": "The 'signature' data type captures the actual digital signature and meta-data about the signature and uses the JSON object type [RFC8259] for serialization. See section A.2 in the appendix for a detailed example. NOTE: All of the properties in this data type, except the value property, can be considered 'claims' per JWS [RFC7515]. It is important to note that CACAO signatures do not use the JWS [RFC7515] header construct. (One of the following properties MUST be populated, 'public_keys' (preferred), 'cert_url', or 'thumbprint'.)",
@@ -20,19 +20,19 @@
       "description": "The version of the specification used to represent this signature. The value of this property MUST be '1.1' to represent the version of this specification. "
     },
     "id": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "A value that uniquely identifies the signature. All signatures with the same ID are considered different versions of the same signature and the version of the signature is identified by its modified property."
     },
     "created_by": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "An ID that represents the entity that created this signature. The ID MUST represent a STIX 2.1+ identity object."
     },
     "created": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time at which this signature was originally created. The creator can use any time it deems most appropriate as the time the signature was created, but it MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds). The created property MUST NOT be changed when creating a new version of the object."
     },
     "modified": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time that this particular version of the signature was last modified. The creator can use any time it deems most appropriate as the time that this version of the signature was modified, but it MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds). The modified property MUST be later than or equal to the value of the created property."
     },
     "revoked": {
@@ -44,19 +44,19 @@
       "description": "The name of the entity or organization that produced this signature. This property is similar to the X.509 fields."
     },
     "valid_from": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time from which this signature is considered valid. If omitted, the signature is valid at all times or until the timestamp defined by 'valid_until'."
     },
     "valid_until": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The time at which this signature should no longer be considered valid. If the 'valid_until' property is omitted, then there is no constraint on the latest time for which the signature is valid. This property MUST be greater than the timestamp in the 'valid_from' property if the 'valid_from' property is defined."
     },
     "related_to": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/identifier.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/identifier.json",
       "description": "The CACAO playbook that this signature is for. The value of this property MUST be a CACAO playbook id."
     },
     "related_version": {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/timestamp.json",
+      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/timestamp.json",
       "description": "The version of the CACAO playbook that this signature is for. The value of this property MUST be the 'modified' 'timestamp' from the CACAO playbook that this signature is for."
     },
     "sha256": {
