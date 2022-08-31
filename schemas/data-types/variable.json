@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/variable.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/data-types/variable.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "dictionary",
   "description": "Variables can be defined and then used as the playbook is executed. Variables are stored in a 'dictionary' where the key is the name of the variable and the value is a 'variable' data type. Variables can represent stateful elements that may need to be captured to allow for the successful execution of the playbook. All playbook variables are mutable unless identified as a constant.",

@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/action.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/workflows/action.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "action",
   "description": "This workflow step contains the actual commands to be executed on one or more targets. These commands are intended to be processed sequentially. In addition to the inherited properties, this section defines five more specific properties that are valid for this type.",

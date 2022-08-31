@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/targets/attacker.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/targets/attacker.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "attacker",
   "description": "This target type is used for commands that need to be executed on an attack orchestration system. This object inherits the common target properties. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",

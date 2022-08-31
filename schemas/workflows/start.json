@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/start.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/workflows/start.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "start",
   "description": "This workflow step is the starting point of a playbook and represents an explicit entry in the workflow to signify the start of a playbook.",

@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/data-types/signature.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/data-types/signature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "signature",
   "description": "The 'signature' data type captures the actual digital signature and meta-data about the signature and uses the JSON object type [RFC8259] for serialization. See section A.2 in the appendix for a detailed example. NOTE: All of the properties in this data type, except the value property, can be considered 'claims' per JWS [RFC7515]. It is important to note that CACAO signatures do not use the JWS [RFC7515] header construct. (One of the following properties MUST be populated, 'public_keys' (preferred), 'cert_url', or 'thumbprint'.)",
