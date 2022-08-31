@@ -1,5 +1,5 @@
 {
-  "$id": "workflows/while-condition.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/while-condition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "while-condition",
   "description": "This schema defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",

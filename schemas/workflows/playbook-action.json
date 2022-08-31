@@ -1,5 +1,5 @@
 {
-  "$id": "workflows/playbook-action.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/security-playbooks-v1.0-cs02/schemas/workflows/playbook-action.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "playbook-action",
   "description": "This workflow step executes a referenced playbook. In addition to the inherited properties, this section defines three more specific properties that are valid for this type.",
