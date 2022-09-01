@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/workflows/parallel.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/parallel.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "parallel",
   "description": "This object defines how to create steps that can be processed in parallel. In addition to the inherited properties, this section defines one additional specific property that is valid for this type. A parallel step MUST execute all workflow steps that are part of the 'next_steps' property before this step can be considered complete and the workflow logic moves on.  The Parallel Step is a playbook step that allows playbook authors to define two or more steps that can be executed at the same time. For example, a playbook that responds to an incident may require both the network team and the desktop team to investigate and respond to a threat at the same time. Another example is in response to a cyber attack on an operational technology (OT) environment that would require releasing air / steam / water pressure simultaneously. The steps referenced from this object are intended to be processed in parallel, however, if an implementation cannot support executing steps in parallel, then the steps MAY be executed in sequential order if the desired outcome stays the same.",
@@ -21,7 +21,7 @@
           "type": "array",
           "description": "A list of two or more workflow steps to be processed in parallel. The 'next_steps' MUST contain at least one value.The definition of parallel execution and how many parallel steps that are possible to execute is implementation dependent and is not part of this specification. If any of the steps referenced in 'next_steps' generate an error of any kind (exception or timeout) then implementers SHOULD consider defining rollback error handling for the playbook and include those steps in the playbook itself. The ID MUST represent a CACAO workflow step object.",
           "items": {
-            "$ref": "common/identifier.json"
+            "$ref": "../data-types/identifier.json"
           },
           "minItems": 1
         }

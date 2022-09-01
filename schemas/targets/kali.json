@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/targets/kali.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/kali.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "kali",
   "description": "This target type contains a Kali CLI target. In addition to the inherited properties, this section defines five additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "targets/target.json"
+      "$ref": "target.json"
     },
     {
       "properties": {

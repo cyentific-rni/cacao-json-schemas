@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/cacao-v1.0-cs02/schemas/targets/net-address.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/net-address.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "net-address",
   "description": "This target type contains a Network Address Target. In addition to the inherited properties, this section defines six additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "targets/target.json"
+      "$ref": "target.json"
     },
     {
       "properties": {
@@ -60,7 +60,7 @@
           "description": "The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1. The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."
         },
         "location": {
-          "$ref": "data-types/civic-location.json",
+          "$ref": "../data-types/civic-location.json",
           "description": "Physical address information for this target."
         }
       }
