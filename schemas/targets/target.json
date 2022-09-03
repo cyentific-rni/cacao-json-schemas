@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/target.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "target",
   "description": "Each target contains some base properties that are common across all targets. These properties are defined in the following table. The ID for each target is stored as the key in the 'targets' dictionary.",

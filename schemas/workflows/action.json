@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/action.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/action.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "action",
   "description": "This workflow step contains the actual commands to be executed on one or more targets. These commands are intended to be processed sequentially. In addition to the inherited properties, this section defines five more specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/workflows/workflow-step-common.json"
+      "$ref": "workflow-step-common.json"
     },
     {
       "properties": {
@@ -21,19 +21,19 @@
           "type": "array",
           "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed.",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/commands/command.json"
+            "$ref": "../commands/command.json"
           },
           "minItems": 1
         },
         "target": {
-          "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json",
+          "$ref": "../targets/target.json",
           "description": "One or more targets that SHOULD execute the commands defined in this step.The value of this property MUST contain a CACAO 'target' object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
         },
         "target_ids": {
           "type": "array",
           "description": "A list of target ID references that SHOULD execute the commands defined in this step. Each ID MUST reference a CACAO target object (see section 6). If this property is defined the targets property MUST NOT be defined.",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/common/identifier.json"
+            "$ref": "../data-types/identifier.json"
           },
           "minItems": 1
         },

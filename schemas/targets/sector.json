@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/sector.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/sector.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "sector",
   "description": "This target type is used for commands that need to be processed or executed by a sector. This object inherits the common target properties. In addition to the inherited properties, this section defines one additional specific property that is valid for this type. The values for the inherited name property SHOULD come from the 'industry-sector-ov' vocabulary, see section 6.7.1.",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
+      "$ref": "target.json"
     },
     {
       "properties": {
@@ -21,7 +21,7 @@
           "type": "array",
           "description": "An optional list of physical address information for this target.",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/data-types/civic-location.json"
+            "$ref": "../data-types/civic-location.json"
           },
           "minItems": 1
         }

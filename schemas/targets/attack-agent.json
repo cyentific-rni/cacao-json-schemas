@@ -1,12 +1,12 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/attack-agent.json",
+  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/targets/attack-agent.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "attack-agent",
   "description": "",
   "type": "object",
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/fovea-research/cacao-json-schema/main/targets/target.json"
+      "$ref": "target.json"
     },
     {
       "properties": {
