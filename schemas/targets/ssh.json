@@ -23,7 +23,7 @@
         },
         "port": {
           "type": "string",
-          "description": "The username to access this target."
+          "description": "The port of the host that should be contacted."
         },
         "username": {
           "type": "string",
