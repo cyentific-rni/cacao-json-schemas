@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/playbook-features.json",
+    "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/data-types/playbook-features.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "playbook-features",
     "description": "The playbook-features data type represents the major features and functionality of a playbook. This data type contains a summarized list of features that can be implemented for a specific playbook and is used at playbook metadata level. This is done to help implementations understand the concepts and features used within a specific playbook without having to parse the entire playbook.",

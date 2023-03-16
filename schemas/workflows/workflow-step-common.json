@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/workflows/workflow-step-common.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/workflow-step-common.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "workflow-step-common",
   "description": "Workflow step common properties",

@@ -1,32 +1,31 @@
 {
-  "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/playbook.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/playbook.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "playbook",
-  "description": "CACAO playbooks are made up of five parts; playbook metadata, the workflow logic, a list of targets, a list of extensions, and a list of data markings. Playbooks MAY refer to other playbooks in the workflow, similar to how programs refer to function calls or modules that comprise the program. The definition and normative requirements for all data types listed in the property table below and other property tables in this document can be found in Section 9.",
+  "description": "CACAO playbooks are made up of five parts; playbook metadata, the workflow logic, a list of agents, a list of extensions, and a list of data markings. Playbooks MAY refer to other playbooks in the workflow, similar to how programs refer to function calls or modules that comprise the program. The definition and normative requirements for all data types listed in the property table below and other property tables in this document can be found in Section 9.",
   "type": "object",
   "properties": {
     "type": {
       "type": "string",
-      "description": "The value of this property MUST be 'playbook' or 'playbook-template'. See section 1.2, section 1.3, and section 1.4 respectively, for information about executable playbooks and playbook templates.",
+      "description": "The value of this property MUST be playbook. See section 1.2 and section 1.3 for more information.",
       "enum": [
-        "playbook",
-        "playbook-template"
+        "playbook"
       ]
     },
     "spec_version": {
       "type": "string",
-      "description": "The version of the specification used to represent this playbook. The value of this property MUST be '1.1' to represent the version of this specification. ",
+      "description": "The version of the specification used to represent this playbook. The value of this property MUST be cacao-2.0 to represent the version of this specification.",
       "enum": [
-        "1.1"
+        "2.0"
       ]
     },
     "id": {
       "$ref": "data-types/identifier.json",
-      "description": "A value that uniquely identifies the playbook. All playbooks with the same 'id' are considered different versions of the same playbook and the version of the playbook is identified by its 'modified' property."
+      "description": "A value that uniquely identifies the playbook. All playbooks with the same id are considered different versions of the same playbook and the version of the playbook is identified by its modified property."
     },
     "name": {
       "type": "string",
-      "description": "A simple name for this playbook. This name is not guaranteed or required to be unique."
+      "description": "A simple name for this playbook. Playbook names often follow a naming convention that is unique within an organization, community, or trust group and as such this name SHOULD be unique."
     },
     "description": {
       "type": "string",
@@ -34,11 +33,23 @@
     },
     "playbook_types": {
       "type": "array",
-      "description": "A list of playbook types that specifies the operational functions this playbook addresses. The values for this property MUST come from the playbook-type-ov vocabulary.",
+      "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the playbook-type-enum enumeration (see section 3.1.1).",
       "items": {
         "type": "string"
       },
       "minItems": 1
+    },
+    "playbook_activities": {
+      "type": "array",
+      "description": "A list of activities pertaining to the playbook. This property SHOULD be populated. If the playbook_types property is populated then this property MUST have at least one assigned activity. This property allows an author to define more detailed descriptions for the various activities that a playbook performs. This property provides a much richer and verbose method to describe all aspects of a playbook than just the playbook_types property. The values for this property SHOULD come from the playbook-activity-type-ov vocabulary (see section 3.1.2). Each listed activity MUST be reflected in a CACAO workflow step object and that object MUST be included in the workflow property.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "playbook_complexity": {
+      "type": "string",
+      "description": "An ID that represents the entity that created this playbook. The ID MUST represent a STIX 2.1 identity object."
     },
     "created_by": {
       "$ref": "data-types/identifier.json",

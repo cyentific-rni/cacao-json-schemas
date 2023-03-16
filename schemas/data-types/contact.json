@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/fovea-research/cacao-json-schemas/working/schemas/data-types/contact.json",
+    "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/data-types/contact.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "contact",
     "description": "The 'contact' information data type captures general contact information and uses the JSON object type [RFC8259] for serialization. ",
