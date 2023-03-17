@@ -34,10 +34,16 @@
     "playbook_types": {
       "type": "array",
       "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the playbook-type-enum enumeration (see section 3.1.1).",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
+      "enum": [
+        "attack",
+        "detection",
+        "engagement",
+        "investigation",
+        "mitigation",
+        "notification",
+        "prevention",
+        "remediation"
+      ]
     },
     "playbook_activities": {
       "type": "array",

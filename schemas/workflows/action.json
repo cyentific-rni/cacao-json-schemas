@@ -21,7 +21,7 @@
           "type": "array",
           "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed (see section 5). All commands in a given step MUST be applicable to all the agents and all the targets defined in that step.",
           "items": {
-            "$ref": "../commands/command.json"
+            "$ref": "../commands/command-data.json"
           },
           "minItems": 1
         },
