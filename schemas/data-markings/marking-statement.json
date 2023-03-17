@@ -15,7 +15,7 @@
           "enum": [
             "marking-statement"
           ],
-          "description": "The value of this property MUST be marking-statement."
+          "description": "The value of this property MUST be 'marking-statement'."
         },
         "statement": {
           "type": "string",

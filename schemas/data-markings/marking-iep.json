@@ -12,10 +12,10 @@
       "properties": {
         "type": {
           "type": "string",
+          "description": "The value of this property MUST be 'marking-iep'.",
           "enum": [
             "marking-iep"
-          ],
-          "description": "The value of this property MUST be marking-iep."
+          ]
         },
         "name": {
           "type": "string",
