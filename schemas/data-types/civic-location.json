@@ -58,5 +58,41 @@
             "description": "Defines the precision of the coordinates specified by the 'latitude' and 'longitude' properties. This is measured in meters. The actual agent may be anywhere up to precision meters from the defined point. \n\nIf this property is not present, then the precision is unspecified. \n\nIf this property is present, the 'latitude' and 'longitude' properties MUST be present."
         }
     },
-    "unevaluatedProperties": false
+    "unevaluatedProperties": false,
+    "$defs": {
+        "workflow-step-type-enum": {
+          "type": "string",
+          "enum": [
+            "africa",
+            "eastern-africa",
+            "middle-africa",
+            "northern-africa",
+            "southern-africa",
+            "western-africa",
+            "americas",
+            "caribbean",
+            "central-america",
+            "latin-america-caribbean",
+            "northern-america",
+            "south-america",
+            "asia",
+            "central-asia",
+            "eastern-asia",
+            "southern-asia",
+            "south-eastern-asia",
+            "western-asia",
+            "europe",
+            "eastern-europe",
+            "northern-europe",
+            "southern-europe",
+            "western-europe",
+            "oceania",
+            "antarctica",
+            "australia-new-zealand",
+            "melanesia",
+            "micronesia",
+            "polynesia"
+          ]
+        }
+      }
 }

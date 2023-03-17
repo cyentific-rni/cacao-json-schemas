@@ -7,7 +7,12 @@
   "properties": {
     "type": {
       "type": "string",
-      "description": "The type of data marking being used. The value for this property MUST come from the 'data-marking-type-enum' enumeration."
+      "description": "The type of data marking being used. The value for this property MUST come from the 'data-marking-type-enum' enumeration.",
+      "enum": [
+        "marking-statement",
+        "marking-tlp",
+        "marking-iep"
+      ]
     },
     "id": {
       "$ref": "../data-types/identifier.json",
