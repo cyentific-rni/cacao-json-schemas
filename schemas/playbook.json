@@ -159,16 +159,19 @@
         "^step--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "workflows/while-condition.json"
-            },
-            {
               "$ref": "workflows/action.json"
             },
             {
-              "$ref": "playbook.json"
+              "$ref": "workflows/end.json"
             },
             {
-              "$ref": "workflows/end.json"
+              "$ref": "workflows/if-condition.json"
+            },
+            {
+              "$ref": "workflows/parallel.json"
+            },
+            {
+              "$ref": "workflows/playbook-action.json"
             },
             {
               "$ref": "workflows/start.json"
@@ -177,10 +180,7 @@
               "$ref": "workflows/switch-condition.json"
             },
             {
-              "$ref": "workflows/if-condition.json"
-            },
-            {
-              "$ref": "workflows/parallel.json"
+              "$ref": "workflows/while-condition.json"
             }
           ]
         }
@@ -193,43 +193,34 @@
         "^agent-target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "agent-target/individual.json"
-            },
-            {
               "$ref": "agent-target/group.json"
-            },
-            {
-              "$ref": "agent-target/organization.json"
-            },
-            {
-              "$ref": "agent-target/location.json"
-            },
-            {
-              "$ref": "agent-target/sector.json"
             },
             {
               "$ref": "agent-target/http-api.json"
             },
             {
-              "$ref": "agent-target/ssh.json"
+              "$ref": "agent-target/individual.json"
             },
             {
-              "$ref": "agent-target/security-category.json"
+              "$ref": "agent-target/linux.json"
+            },
+            {
+              "$ref": "agent-target/location.json"
             },
             {
               "$ref": "agent-target/net-address.json"
             },
             {
-              "$ref": "agent-target/kali.json"
+              "$ref": "agent-target/organization.json"
             },
             {
-              "$ref": "agent-target/attacker.json"
+              "$ref": "agent-target/sector.json"
             },
             {
-              "$ref": "agent-target/attack-agent.json"
+              "$ref": "agent-target/security-category.json"
             },
             {
-              "$ref": "agent-target/attack-group.json"
+              "$ref": "agent-target/ssh.json"
             }
           ]
         }
@@ -243,43 +234,34 @@
         "^agent-target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "anyOf": [
             {
-              "$ref": "agent-target/individual.json"
-            },
-            {
               "$ref": "agent-target/group.json"
-            },
-            {
-              "$ref": "agent-target/organization.json"
-            },
-            {
-              "$ref": "agent-target/location.json"
-            },
-            {
-              "$ref": "agent-target/sector.json"
             },
             {
               "$ref": "agent-target/http-api.json"
             },
             {
-              "$ref": "agent-target/ssh.json"
+              "$ref": "agent-target/individual.json"
             },
             {
-              "$ref": "agent-target/security-category.json"
+              "$ref": "agent-target/linux.json"
+            },
+            {
+              "$ref": "agent-target/location.json"
             },
             {
               "$ref": "agent-target/net-address.json"
             },
             {
-              "$ref": "agent-target/kali.json"
+              "$ref": "agent-target/organization.json"
             },
             {
-              "$ref": "agent-target/attacker.json"
+              "$ref": "agent-target/sector.json"
             },
             {
-              "$ref": "agent-target/attack-agent.json"
+              "$ref": "agent-target/security-category.json"
             },
             {
-              "$ref": "agent-target/attack-group.json"
+              "$ref": "agent-target/ssh.json"
             }
           ]
         }
