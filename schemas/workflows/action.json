@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/action.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "action",
-  "description": "This workflow step contains the actual commands to be executed on one or more targets. These commands are intended to be processed sequentially. In addition to the inherited properties, this section defines five more specific properties that are valid for this type.",
+  "description": "The Action Step workflow step contains the actual commands to be executed on one or more agents. These commands are intended to be processed sequentially. In addition to the inherited properties, this section defines five more specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
@@ -19,19 +19,19 @@
         },
         "commands": {
           "type": "array",
-          "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed.",
+          "description": "A list of commands that are to be executed as part of this step. If more than one command is listed, the commands MUST be processed in the order in which they are listed (see section 5). All commands in a given step MUST be applicable to all the agents and all the targets defined in that step.",
           "items": {
             "$ref": "../commands/command.json"
           },
           "minItems": 1
         },
-        "target": {
-          "$ref": "../targets/target.json",
-          "description": "One or more targets that SHOULD execute the commands defined in this step.The value of this property MUST contain a CACAO 'target' object (see section 6). If this property is defined the target_ids property MUST NOT be defined."
+        "agent": {
+          "$ref": "../data-types/identifier.json",
+          "description": "An agent ID reference that MUST execute the commands defined in this step. The ID MUST reference a CACAO 'agent-target' object (see section 6)."
         },
-        "target_ids": {
+        "targets": {
           "type": "array",
-          "description": "A list of target ID references that SHOULD execute the commands defined in this step. Each ID MUST reference a CACAO target object (see section 6). If this property is defined the targets property MUST NOT be defined.",
+          "description": "A list of target ID references that are affected by the commands defined in this step that are executed by the agent. Each ID MUST reference a CACAO 'agent-target' object (see section 6). If defined, this list MUST have at least one identifier.",
           "items": {
             "$ref": "../data-types/identifier.json"
           },
@@ -39,7 +39,7 @@
         },
         "in_args": {
           "type": "array",
-          "description": "The optional list of arguments/variable names from the local 'step_variables' dictionary (see section 4.1) or global 'playbook_variables' dictionary (see section 3.1) that are to be passed into this step to be executed by the target(s) as inputs. See section 9.13 for more information about variables.",
+          "description": "The list of variable names from the local 'step_variables' dictionary (see section 4.1) or passed into this step from the global 'playbook_variables' dictionary (see section 3.1) that are used in either an agent or one of the target(s) associated with this step. See section 9.16 for more information about variables.",
           "items": {
             "type": "string"
           },
@@ -47,7 +47,7 @@
         },
         "out_args": {
           "type": "array",
-          "description": "The optional list of arguments/variable names from the local 'step_variables' dictionary (see section 4.1) or global 'playbook_variables' dictionary (see section 3.1) that are to be returned from this step after execution of the commands by the target(s) and stored in the same variable dictionary. See section 9.13 for more information about variables.",
+          "description": "The optional list of variable names from the local 'step_variables' dictionary (see section 4.1) or global 'playbook_variables' dictionary (see section 3.1) that are to be returned from this step after execution of the commands by the agent(s) and stored in the same variable dictionary. See section 9.16 for more information about variables.",
           "items": {
             "type": "string"
           },
@@ -56,20 +56,9 @@
       }
     }
   ],
-  "anyOf": [
-    {
-      "not": {
-        "required": ["target"]
-      }
-    },
-    {
-      "not": {
-        "required": ["target_ids"]
-      }
-    }
-  ],
   "required": [
-    "commands"
+    "commands",
+    "agent"
   ],
   "unevaluatedProperties": false
 }

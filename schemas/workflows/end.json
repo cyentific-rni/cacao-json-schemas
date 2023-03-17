@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/end.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "end",
-  "description": "This workflow step is the ending point of a playbook and represents an explicit point in the workflow to signify the end of a playbook.",
+  "description": "The End Step workflow step is the ending point of a playbook or branch of step (e.g., a list of steps that are part of a parallel processing branch) and represents an explicit point in the workflow to signify the end of a playbook or branch of steps. While this type inherits all of the common properties of a workflow step it does not define any additional properties. When a playbook or branch of a playbook terminates it MUST call an End Step. This workflow step MUST NOT use the 'on_completion', 'on_success', or 'on_failure' properties.",
   "type": "object",
   "allOf": [
     {
@@ -12,7 +12,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The value of this property MUST be 'end'.'",
+          "description": "The value of this property MUST be 'end'.",
           "enum": [
             "end"
           ]
