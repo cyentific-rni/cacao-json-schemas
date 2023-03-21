@@ -1,7 +1,7 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/workflow-step-common.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/workflow-step.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "workflow-step-common",
+  "title": "workflow-step",
   "description": "Each workflow step contains some base properties that are common across all steps. These common properties are defined in the following table. The determination of a step being successful, failing, or completing is implementation specific and is out of scope for this specification, but details MAY be included in the description property.",
   "type": "object",
   "properties": {
@@ -35,7 +35,7 @@
       "description": "A number (𝕎 - whole number) that represents the amount of time in milliseconds that this step MUST wait before considering the step has failed. When a timeout has occurred for a step, the 'on_failure' step pointer is invoked (if defined) and the information included in that call states that an ACTION_TIMEOUT occurred including the id of the step that timed out. If specified, the value of this property MUST be greater than or equal to 0. If this property is omitted, the system executing this workflow step SHOULD consider implementing a maximum allowed timeout to ensure that no individual workflow step can block a playbook execution indefinitely."
     },
     "step_variables": {
-      "$ref": "../data-types/dictionary.json",
+      "$ref": "../data-types/variable-dictionary.json",
       "description": "This property contains the variables that can be used within this workflow step or within commands and agents referenced by this workflow step. See section 9.16.2 for information about referencing variables. The key for each entry in the dictionary MUST be a string that uniquely identifies the 'variable'. The value for each key MUST be a CACAO variable data type (see section 9.16.3)."
     },
     "owner": {
@@ -59,7 +59,7 @@
       "description": "This property defines the extensions that are in use on this step. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.10 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension definition's schema property. Step extensions SHOULD be located in the 'extension_definitions' property found at the Playbook level.",
       "patternProperties": {
         "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "type": "object"
+          "$ref": "../extension-definition/extension-definition.json"
         }
       }
     }

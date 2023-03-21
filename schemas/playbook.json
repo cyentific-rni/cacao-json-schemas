@@ -8,16 +8,12 @@
     "type": {
       "type": "string",
       "description": "The value of this property MUST be playbook. See section 1.2 and section 1.3 for more information.",
-      "enum": [
-        "playbook"
-      ]
+      "enum": ["playbook"]
     },
     "spec_version": {
       "type": "string",
       "description": "The version of the specification used to represent this playbook. The value of this property MUST be cacao-2.0 to represent the version of this specification.",
-      "enum": [
-        "2.0"
-      ]
+      "enum": ["2.0"]
     },
     "id": {
       "$ref": "data-types/identifier.json",
@@ -140,7 +136,7 @@
       "minItems": 1
     },
     "playbook_variables": {
-      "$ref": "data-types/dictionary.json",
+      "$ref": "data-types/variable.json",
       "description": "This property contains the global variables (see section 9.16.1 for information about variable scope) that can be used within this playbook or within workflow steps, commands, and agents defined within this playbook. See section 9.16 for information about referencing variables. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the variable. The value for each key MUST be a CACAO 'variable' data type (see section 9.16)."
     },
     "workflow_start": {
@@ -156,73 +152,66 @@
       "type": "object",
       "unevaluatedProperties": false,
       "patternProperties": {
-        "^step--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "anyOf": [
-            {
-              "$ref": "workflows/action.json"
-            },
-            {
-              "$ref": "workflows/end.json"
-            },
-            {
-              "$ref": "workflows/if-condition.json"
-            },
-            {
-              "$ref": "workflows/parallel.json"
-            },
-            {
-              "$ref": "workflows/playbook-action.json"
-            },
-            {
-              "$ref": "workflows/start.json"
-            },
-            {
-              "$ref": "workflows/switch-condition.json"
-            },
-            {
-              "$ref": "workflows/while-condition.json"
-            }
-          ]
+        "action--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/action.json"
+        },
+        "end--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/end.json"
+        },
+        "if-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/if-condition.json"
+        },
+        "parallel--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/parallel.json"
+        },
+        "playbook--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/playbook.json"
+        },
+        "start--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/start.json"
+        },
+        "switch-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/switch-condition.json"
+        },
+        "while-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "workflows/while-condition.json"
         }
       }
     },
     "agents": {
       "minProperties": 1,
       "type": "object",
+      "unevaluatedProperties": false,
       "patternProperties": {
-        "^agent-target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "anyOf": [
-            {
-              "$ref": "agent-target/group.json"
-            },
-            {
-              "$ref": "agent-target/http-api.json"
-            },
-            {
-              "$ref": "agent-target/individual.json"
-            },
-            {
-              "$ref": "agent-target/linux.json"
-            },
-            {
-              "$ref": "agent-target/location.json"
-            },
-            {
-              "$ref": "agent-target/net-address.json"
-            },
-            {
-              "$ref": "agent-target/organization.json"
-            },
-            {
-              "$ref": "agent-target/sector.json"
-            },
-            {
-              "$ref": "agent-target/security-category.json"
-            },
-            {
-              "$ref": "agent-target/ssh.json"
-            }
-          ]
+        "group--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/group.json"
+        },
+        "http-api--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/http-api.json"
+        },
+        "individual--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/individual.json"
+        },
+        "linux--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/linux.json"
+        },
+        "location--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/location.json"
+        },
+        "net-address--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/net-address.json"
+        },
+        "organization--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/organization.json"
+        },
+        "sector--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/sector.json"
+        },
+        "security-category--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/security-category.json"
+        },
+        "ssh--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/ssh.json"
         }
       },
       "description": "A dictionary of agents that can be referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an identifier that uniquely identifies the agent (see section 9.10 for more information on identifiers). The value for each key MUST be a CACAO agent-target object (see section 6). Any agents that are used in other parts of this playbook MUST also be included in this property. Any agents that are used in other referenced playbooks MAY also be included in this property."
@@ -230,40 +219,37 @@
     "targets": {
       "minProperties": 1,
       "type": "object",
+      "unevaluatedProperties": false,
       "patternProperties": {
-        "^agent-target--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "anyOf": [
-            {
-              "$ref": "agent-target/group.json"
-            },
-            {
-              "$ref": "agent-target/http-api.json"
-            },
-            {
-              "$ref": "agent-target/individual.json"
-            },
-            {
-              "$ref": "agent-target/linux.json"
-            },
-            {
-              "$ref": "agent-target/location.json"
-            },
-            {
-              "$ref": "agent-target/net-address.json"
-            },
-            {
-              "$ref": "agent-target/organization.json"
-            },
-            {
-              "$ref": "agent-target/sector.json"
-            },
-            {
-              "$ref": "agent-target/security-category.json"
-            },
-            {
-              "$ref": "agent-target/ssh.json"
-            }
-          ]
+        "group--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/group.json"
+        },
+        "http-api--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/http-api.json"
+        },
+        "individual--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/individual.json"
+        },
+        "linux--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/linux.json"
+        },
+        "location--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/location.json"
+        },
+        "net-address--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/net-address.json"
+        },
+        "organization--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/organization.json"
+        },
+        "sector--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/sector.json"
+        },
+        "security-category--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/security-category.json"
+        },
+        "ssh--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "agent-target/ssh.json"
         }
       },
       "description": "A dictionary of targets that can be referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an identifier that uniquely identifies the target (see section 9.10 for more information on identifiers). The value for each key MUST be a CACAO agent-target object (see section 6). Any targets that are used in other parts of this playbook MUST also be included in this property. Any agents that are used in other referenced playbooks MAY also be included in this property."

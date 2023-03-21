@@ -6,16 +6,14 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow-step-common.json"
+      "$ref": "workflow-step.json"
     },
     {
       "properties": {
         "type": {
           "type": "string",
           "description": "The value of this property MUST be 'switch-condition'.",
-          "enum": [
-            "switch-condition"
-          ]
+          "enum": ["switch-condition"]
         },
         "switch": {
           "type": "string",
@@ -23,18 +21,42 @@
         },
         "cases": {
           "description": "This property is a dictionary that defines one or more case values (as dictionary keys) and a step ID (as a key value) to be processed when the case value is matched against the switch value. The value for each entry in the dictionary MUST be an 'identifier' and it MUST represent a CACAO workflow step object. This value uniquely identifies the steps to be processed when that key/value is chosen (see section 9.10 for more information on identifiers). Each entry in the 'cases' property forms a branch of steps that are to be executed, even if there is only one workflow step in the branch. Each branch MUST reference a unique End Step when that branch has completed processing. This allows implementations to know when to return to the original Switch Condition Step that started that branch to look for any 'on_completion', 'on_success', or 'on_failure' actions. This dictionary MAY have a 'default' case value.",
-          "minProperties": 1,
           "type": "object",
           "unevaluatedProperties": false,
           "patternProperties": {
             "^[a-zA-Z0-9_-]{0,250}": {
-              "anyOf": [
+              "oneOf": [
                 {
-                  "type": "array",
-                  "items": {
-                    "$ref": "../data-types/identifier.json"
-                  },
-                  "minItems": 1
+                  "type": "string",
+                  "pattern": "action--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "end--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "if-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "parallel--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "playbook--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "start--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "switch-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+                },
+                {
+                  "type": "string",
+                  "pattern": "while-condition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
                 }
               ]
             }
@@ -43,9 +65,6 @@
       }
     }
   ],
-  "required": [
-    "switch",
-    "cases"
-  ],
+  "required": ["switch", "cases"],
   "unevaluatedProperties": false
 }

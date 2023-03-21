@@ -6,7 +6,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "workflow-step-common.json"
+      "$ref": "workflow-step.json"
     },
     {
       "properties": {
