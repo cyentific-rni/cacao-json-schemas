@@ -13,7 +13,7 @@
     "spec_version": {
       "type": "string",
       "description": "The version of the specification used to represent this playbook. The value of this property MUST be cacao-2.0 to represent the version of this specification.",
-      "enum": ["2.0"]
+      "enum": ["cacao-2.0"]
     },
     "id": {
       "$ref": "data-types/identifier.json",
@@ -30,16 +30,18 @@
     "playbook_types": {
       "type": "array",
       "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the playbook-type-enum enumeration (see section 3.1.1).",
-      "enum": [
-        "attack",
-        "detection",
-        "engagement",
-        "investigation",
-        "mitigation",
-        "notification",
-        "prevention",
-        "remediation"
-      ]
+      "items": {
+        "enum": [
+          "attack",
+          "detection",
+          "engagement",
+          "investigation",
+          "mitigation",
+          "notification",
+          "prevention",
+          "remediation"
+        ]
+      }
     },
     "playbook_activities": {
       "type": "array",
@@ -178,7 +180,7 @@
         }
       }
     },
-    "agents": {
+    "agent_definitions": {
       "minProperties": 1,
       "type": "object",
       "unevaluatedProperties": false,
@@ -216,7 +218,7 @@
       },
       "description": "A dictionary of agents that can be referenced from workflow steps found in the workflow property. The key for each entry in the dictionary MUST be an identifier that uniquely identifies the agent (see section 9.10 for more information on identifiers). The value for each key MUST be a CACAO agent-target object (see section 6). Any agents that are used in other parts of this playbook MUST also be included in this property. Any agents that are used in other referenced playbooks MAY also be included in this property."
     },
-    "targets": {
+    "target_definitions": {
       "minProperties": 1,
       "type": "object",
       "unevaluatedProperties": false,

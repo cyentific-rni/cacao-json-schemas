@@ -28,13 +28,9 @@
           "type": "string",
           "description": "The version of the command language being used. If no version is specified then the most current version of the command language SHOULD be used."
         },
-        "playbook_activities": {
-          "type": "array",
-          "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. The value for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary.",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1
+        "playbook_activity": {
+          "type": "string",
+          "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. The value for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary."
         }
       }
     }

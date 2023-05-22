@@ -18,7 +18,7 @@
       "description": "More details, context, and possibly an explanation about this object. This property SHOULD be populated."
     },
     "location": {
-      "type": "string",
+      "$ref": "../data-types/civic-location.json",
       "description": "Physical address information for this object."
     },
     "target_extensions": {
