@@ -73,7 +73,7 @@
         "Ed448"
       ]
     },
-    "public_keys": {
+    "public_key": {
       "type": "string",
       "description": "This property contains a PEM encoded PKCS#1 public key without the header and footer."
     },
