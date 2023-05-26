@@ -21,11 +21,11 @@
       "$ref": "../data-types/civic-location.json",
       "description": "Physical address information for this object."
     },
-    "target_extensions": {
+    "agent_target_extensions": {
       "type": "object",
+      "unevaluatedProperties": false,
       "patternProperties": {
         "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "../extension-definition/extension-definition.json"
         }
       },
       "description": "This property defines the extensions that are in use on this object. The key for each entry in the dictionary MUST be an identifier that uniquely 'identifies' the extension (see section 9.10 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension definition's schema property."
