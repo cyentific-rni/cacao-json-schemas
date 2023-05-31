@@ -138,8 +138,14 @@
       "minItems": 1
     },
     "playbook_variables": {
-      "$ref": "data-types/variable-dictionary.json",
-      "description": "This property contains the global variables (see section 9.16.1 for information about variable scope) that can be used within this playbook or within workflow steps, commands, and agents defined within this playbook. See section 9.16 for information about referencing variables. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the variable. The value for each key MUST be a CACAO 'variable' data type (see section 9.16)."
+      "type": "object",
+      "unevaluatedProperties": false,
+      "description": "This property contains the global variables (see section 9.16.1 for information about variable scope) that can be used within this playbook or within workflow steps, commands, and agents defined within this playbook. See section 9.16 for information about referencing variables. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the variable. The value for each key MUST be a CACAO 'variable' data type (see section 9.16).",
+      "patternProperties": {
+        "^__[a-zA-Z_][a-zA-Z0-9_-]{0,199}__$": {
+          "$ref": "data-types/variable.json"
+        }
+      }
     },
     "workflow_start": {
       "$ref": "data-types/identifier.json",
