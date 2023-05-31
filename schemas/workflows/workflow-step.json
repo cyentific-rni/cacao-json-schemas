@@ -35,8 +35,14 @@
       "description": "A number (𝕎 - whole number) that represents the amount of time in milliseconds that this step MUST wait before considering the step has failed. When a timeout has occurred for a step, the 'on_failure' step pointer is invoked (if defined) and the information included in that call states that an ACTION_TIMEOUT occurred including the id of the step that timed out. If specified, the value of this property MUST be greater than or equal to 0. If this property is omitted, the system executing this workflow step SHOULD consider implementing a maximum allowed timeout to ensure that no individual workflow step can block a playbook execution indefinitely."
     },
     "step_variables": {
-      "$ref": "../data-types/variable-dictionary.json",
-      "description": "This property contains the variables that can be used within this workflow step or within commands and agents referenced by this workflow step. See section 9.16.2 for information about referencing variables. The key for each entry in the dictionary MUST be a string that uniquely identifies the 'variable'. The value for each key MUST be a CACAO variable data type (see section 9.16.3)."
+      "type": "object",
+      "unevaluatedProperties": false,
+      "description": "This property contains the variables that can be used within this workflow step or within commands and agents referenced by this workflow step. See section 9.16.2 for information about referencing variables. The key for each entry in the dictionary MUST be a string that uniquely identifies the 'variable'. The value for each key MUST be a CACAO variable data type (see section 9.16.3).",
+      "patternProperties": {
+        "^__[a-zA-Z_][a-zA-Z0-9_-]{0,199}__$": {
+          "$ref": "../data-types/variable.json"
+        }
+      }
     },
     "owner": {
       "$ref": "../data-types/identifier.json",
