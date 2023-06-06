@@ -45,7 +45,7 @@
           "type": "array",
           "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1). The value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/security-category-type-ov"
           },
           "minItems": 1
         }
@@ -55,5 +55,45 @@
   "required": [
     "http_url"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "security-category-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "aaa",
+            "analytics",
+            "caldera",
+            "content-gateway",
+            "desktop",
+            "endpoint",
+            "firewall",
+            "handset",
+            "ids",
+            "ips",
+            "kali",
+            "manx",
+            "orchestrator",
+            "os-linux",
+            "os-mac",
+            "os-windows",
+            "redcanary-atomicred",
+            "ragdoll",
+            "router",
+            "sandcat",
+            "server",
+            "siem",
+            "switch",
+            "ticketing",
+            "tip",
+            "wireless"
+          ]
+        }
+      ]
+    }
+  }
 }

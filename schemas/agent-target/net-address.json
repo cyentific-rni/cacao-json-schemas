@@ -73,14 +73,58 @@
           "description": "The private key associated with the username to access this agent. This value SHOULD be passed in via a variable."
         },
         "category": {
-          "type": "string",
-          "description": "The optional categories of security infrastructure this network addressable entity represents. See section 6.10.1. The values for this property, if defined, SHOULD come from the security-infrastructure-type-ov vocabulary."
-        }
+          "type": "array",
+          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1).The value for this property SHOULD come from the security-category-type-ov vocabulary.",
+          "items": {
+            "$ref": "#/$defs/security-category-type-ov"
+          },
+          "minItems": 1
+        }       
       }
     }
   ],
   "required": [
     "address"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "security-category-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "aaa",
+            "analytics",
+            "caldera",
+            "content-gateway",
+            "desktop",
+            "endpoint",
+            "firewall",
+            "handset",
+            "ids",
+            "ips",
+            "kali",
+            "manx",
+            "orchestrator",
+            "os-linux",
+            "os-mac",
+            "os-windows",
+            "redcanary-atomicred",
+            "ragdoll",
+            "router",
+            "sandcat",
+            "server",
+            "siem",
+            "switch",
+            "ticketing",
+            "tip",
+            "wireless"
+          ]
+        }
+      ]
+    }
+  }
 }
