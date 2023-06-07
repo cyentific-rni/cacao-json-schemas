@@ -26,8 +26,8 @@
       "description": "An identifier used by the source to reference this content. Some organizations give names or numbers to content that they publish. This property would capture that information to help ensure that a consumer is being referred to the correct content."
     },
     "reference_id": {
-      "$ref": "identifier.json",
-      "description": "An identifier that represents the data that this content is referring to. This property is especially useful when referencing content that already exists in a graph dataset or can be referenced via some ID. When referencing STIX content, this would be the STIX based UUID."
+      "type": "string",
+      "description": "An identifier that represents the data that this content is referring to. This property is especially useful when referencing content that already exists in a graph dataset or can be referenced via some ID. When referencing STIX content, this would be the STIX-based UUID."
     }
   },
   "unevaluatedProperties": false
