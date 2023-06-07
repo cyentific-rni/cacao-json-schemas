@@ -8,7 +8,7 @@
     {
       "properties": {
         "type": {
-          "type": "string",
+          "$ref": "#/$defs/command-type-ov",
           "description": "The type of command being used. The value of this property SHOULD come from the 'command-type-ov' vocabulary."
         },
         "description": {
@@ -29,7 +29,7 @@
           "description": "The version of the command language being used. If no version is specified then the most current version of the command language SHOULD be used."
         },
         "playbook_activity": {
-          "type": "string",
+          "$ref": "#/$defs/playbook-activity-type-ov",
           "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. The value for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary."
         }
       }
@@ -38,5 +38,64 @@
   "required": [
     "type"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "command-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "manual",
+            "bash",
+            "http-api",
+            "ssh",
+            "caldera-cmd",
+            "elastic",
+            "jupyter",
+            "kestrel",
+            "openc2-json",
+            "sigma",
+            "yara"
+          ]
+        }
+      ]
+    },
+    "playbook-activity-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "compose-content",
+            "deliver-content",
+            "identify-audience",
+            "identify-channel",
+            "scan-system",
+            "match-indicator",
+            "analyze-collected-data",
+            "identify-indicators",
+            "scan-vulnerabilities",
+            "configure-systems",
+            "restrict-access",
+            "disconnect-system",
+            "eliminate-risk",
+            "revert-system",
+            "restore-data",
+            "restore-capabilities",
+            "map-network",
+            "identify-steps",
+            "step-sequence",
+            "prepare-engagement",
+            "execute-operation",
+            "analyze-engagement-results"
+          ]
+        }
+      ]
+    }
+  }
 }

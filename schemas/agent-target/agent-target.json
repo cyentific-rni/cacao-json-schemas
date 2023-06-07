@@ -1,12 +1,12 @@
 {
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/agent-target/agent-target.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "target",
+  "title": "agent-target",
   "description": "Each object (agent or target) contains some base properties that are common across all objects. These properties are defined in the following table. The ID for each object is stored as the key in the 'agents' dictionary or the 'targets' dictionary. ",
   "type": "object",
   "properties": {
     "type": {
-      "type": "string",
+      "$ref": "#/$defs/agent-target-type-ov",
       "description": "The type of object being used. The value of this property SHOULD come from the 'agent-target-type-ov' vocabulary."
     },
     "name": {
@@ -34,5 +34,29 @@
   "required": [
     "type",
     "name"
-  ]
+  ],
+  "$defs": {
+    "agent-target-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "group",
+            "individual",
+            "location",
+            "organization",
+            "sector",
+            "http-api",
+            "linux",
+            "net-address",
+            "security-category",
+            "ssh"
+          ]
+        }
+      ]
+    }
+  }
 }

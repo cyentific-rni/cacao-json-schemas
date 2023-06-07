@@ -22,7 +22,7 @@
             "description": "Additional details about this network location including things like wiring closet, rack number, rack location, and VLANs."
         },
         "region": {
-            "type": "string",
+            "$ref": "#/$defs/region-enum",
             "description": "The geographical region for this location. The value for this property MUST come from the 'region-enum' enumeration (see section 9.3.1)."
         },
         "country": {
@@ -60,39 +60,39 @@
     },
     "unevaluatedProperties": false,
     "$defs": {
-        "workflow-step-type-enum": {
-          "type": "string",
-          "enum": [
-            "africa",
-            "eastern-africa",
-            "middle-africa",
-            "northern-africa",
-            "southern-africa",
-            "western-africa",
-            "americas",
-            "caribbean",
-            "central-america",
-            "latin-america-caribbean",
-            "northern-america",
-            "south-america",
-            "asia",
-            "central-asia",
-            "eastern-asia",
-            "southern-asia",
-            "south-eastern-asia",
-            "western-asia",
-            "europe",
-            "eastern-europe",
-            "northern-europe",
-            "southern-europe",
-            "western-europe",
-            "oceania",
-            "antarctica",
-            "australia-new-zealand",
-            "melanesia",
-            "micronesia",
-            "polynesia"
-          ]
+        "region-enum": {
+            "type": "string",
+            "enum": [
+                "africa",
+                "eastern-africa",
+                "middle-africa",
+                "northern-africa",
+                "southern-africa",
+                "western-africa",
+                "americas",
+                "caribbean",
+                "central-america",
+                "latin-america-caribbean",
+                "northern-america",
+                "south-america",
+                "asia",
+                "central-asia",
+                "eastern-asia",
+                "southern-asia",
+                "south-eastern-asia",
+                "western-asia",
+                "europe",
+                "eastern-europe",
+                "northern-europe",
+                "southern-europe",
+                "western-europe",
+                "oceania",
+                "antarctica",
+                "australia-new-zealand",
+                "melanesia",
+                "micronesia",
+                "polynesia"
+            ]
         }
-      }
+    }
 }

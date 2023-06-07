@@ -6,13 +6,8 @@
   "type": "object",
   "properties": {
     "type": {
-      "type": "string",
-      "description": "The type of data marking being used. The value for this property MUST come from the 'data-marking-type-enum' enumeration.",
-      "enum": [
-        "marking-statement",
-        "marking-tlp",
-        "marking-iep"
-      ]
+      "$ref": "#/$defs/data-marking-type-enum",
+      "description": "The type of data marking being used. The value for this property MUST come from the 'data-marking-type-enum' enumeration."
     },
     "id": {
       "$ref": "../data-types/identifier.json",
@@ -82,5 +77,15 @@
     "created_by",
     "created",
     "modified"
-  ]
+  ],
+  "$defs": {
+    "data-marking-type-enum": {
+      "type": "string",
+      "enum": [
+        "marking-statement",
+        "marking-tlp",
+        "marking-iep"
+      ]
+    }
+  }
 }

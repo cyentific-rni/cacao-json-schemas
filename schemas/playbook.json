@@ -31,23 +31,14 @@
       "type": "array",
       "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the playbook-type-enum enumeration (see section 3.1.1).",
       "items": {
-        "enum": [
-          "attack",
-          "detection",
-          "engagement",
-          "investigation",
-          "mitigation",
-          "notification",
-          "prevention",
-          "remediation"
-        ]
+        "$ref": "#/$defs/playbook-type-ov"
       }
     },
     "playbook_activities": {
       "type": "array",
       "description": "A list of activities pertaining to the playbook. This property SHOULD be populated. If the playbook_types property is populated then this property MUST have at least one assigned activity. This property allows an author to define more detailed descriptions for the various activities that a playbook performs. This property provides a much richer and verbose method to describe all aspects of a playbook than just the playbook_types property. The values for this property SHOULD come from the playbook-activity-type-ov vocabulary (see section 3.1.2). Each listed activity MUST be reflected in a CACAO workflow step object and that object MUST be included in the workflow property.",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/playbook-activity-type-ov"
       },
       "minItems": 1
     },
@@ -314,5 +305,61 @@
     "workflow_start",
     "workflow"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "playbook-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "attack",
+            "detection",
+            "engagement",
+            "investigation",
+            "mitigation",
+            "notification",
+            "prevention",
+            "remediation"
+          ]
+        }
+      ]
+    },
+    "playbook-activity-type-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "compose-content",
+            "deliver-content",
+            "identify-audience",
+            "identify-channel",
+            "scan-system",
+            "match-indicator",
+            "analyze-collected-data",
+            "identify-indicators",
+            "scan-vulnerabilities",
+            "configure-systems",
+            "restrict-access",
+            "disconnect-system",
+            "eliminate-risk",
+            "revert-system",
+            "restore-data",
+            "restore-capabilities",
+            "map-network",
+            "identify-steps",
+            "step-sequence",
+            "prepare-engagement",
+            "execute-operation",
+            "analyze-engagement-results"
+          ]
+        }
+      ]
+    }
+  }
 }

@@ -57,21 +57,8 @@
       "description": "The hashing algorithm used on the JCS version of the full playbook with the signature object as defined by IANA <TODO REF> and is a case-sensitive ASCII string. As of this writing, implementations SHOULD use 'sha-256' but MAY use any current and widely accepted algorithm that is defined in the IANA registry. The actual signing process uses an algorithm, defined in the 'algorithm' property, that may define an internal hashing function, this property MAY use the same hashing algorithm as the signing process or MAY use something else."
     },
     "algorithm": {
-      "type": "string",
-      "description": "This property identifies the algorithm that was used to sign the playbook and is a case-sensitive ASCII string. The value for this property MUST come from the 'signature-algorithm-type-enum' enumeration.",
-      "enum": [
-        "RS256",
-        "RS384",
-        "RS512",
-        "ES256",
-        "ES384",
-        "ES512",
-        "PS256",
-        "PS384",
-        "PS512",
-        "Ed25519",
-        "Ed448"
-      ]
+      "$ref": "#/$defs/signature-algorithm-type-enum",
+      "description": "This property identifies the algorithm that was used to sign the playbook and is a case-sensitive ASCII string. The value for this property MUST come from the 'signature-algorithm-type-enum' enumeration."
     },
     "public_key": {
       "type": "string",
@@ -128,5 +115,38 @@
       "required": ["thumbprint"]
     }
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "signature-algorithm-type-enum": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "RS256",
+            "RS384",
+            "RS512",
+            "ES256",
+            "ES384",
+            "ES512",
+            "PS256",
+            "PS384",
+            "PS512",
+            "Ed25519",
+            "Ed448",
+            "XMSS-SHA2_10_256",
+            "XMSS-SHA2_16_256",
+            "XMSS-SHA2_20_256",
+            "LMS_SHA256_M32_H5",
+            "LMS_SHA256_M32_H10",
+            "LMS_SHA256_M32_H15",
+            "LMS_SHA256_M32_H20",
+            "LMS_SHA256_M32_H25"
+          ]
+        }
+      ]
+    }
+  }
 }
