@@ -1,8 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/data-types/playbook-complexity.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/data-types/playbook-processing-summary.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "playbook-complexity",
-  "description": "The 'playbook-complexity' data type represents the major features and functionality of a playbook. This data type contains a summarized list of features that can be implemented for a specific playbook and is used at playbook metadata level. This is done to help implementations understand the concepts and features used within a specific playbook without having to parse the entire playbook.",
+  "title": "playbook-processing-summary",
+  "description": "The playbook-processing-summary data type represents the major processing features and functionality of a playbook and contains a summarized list of the processing features that can be implemented for a specific playbook and is defined at the playbook metadata level. This is done to help implementations understand the concepts and features used within a specific playbook without having to parse the entire playbook.",
   "type": "object",
   "properties": {
     "manual_playbook": {
@@ -36,6 +36,14 @@
     "data_markings": {
       "type": "boolean",
       "description": "See section 2.4 and section 8."
+    },
+    "digital_signatures": {
+      "type": "boolean",
+      "description": "See section 9.13."
+    },
+    "countersigned_signatures": {
+      "type": "boolean",
+      "description": "See section 9.13."
     },
     "extensions": {
       "type": "boolean",

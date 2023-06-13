@@ -18,7 +18,7 @@
           ]
         },
         "sector": {
-          "type": "string",
+          "$ref": "#/$defs/industry-sector-ov",
           "description": "The values this property SHOULD come from the 'industry-sector-ov' vocabulary, see section 6.7.1."
         }
       }
@@ -27,5 +27,69 @@
   "required": [
     "sector"
   ],
-  "unevaluatedProperties": false
+  "unevaluatedProperties": false,
+  "$defs": {
+    "industry-sector-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "aerospace",
+            "aviation",
+            "agriculture",
+            "automotive",
+            "biotechnology",
+            "chemical",
+            "commercial",
+            "consulting",
+            "construction",
+            "cosmetics",
+            "critical-infrastructure",
+            "dams",
+            "defense",
+            "education",
+            "emergency-services",
+            "energy",
+            "non-renewable-energy",
+            "renewable-energy",
+            "media",
+            "financial",
+            "food",
+            "gambling",
+            "government",
+            "local-government",
+            "national-government",
+            "regional-government",
+            "public-services",
+            "healthcare",
+            "information-communications-technology",
+            "electronics-hardware",
+            "software",
+            "telecommunications",
+            "legal-services",
+            "lodging",
+            "manufacturing",
+            "maritime",
+            "metals",
+            "mining",
+            "non-profit",
+            "humanitarian-aid",
+            "human-rights",
+            "nuclear",
+            "petroleum",
+            "pharmaceuticals",
+            "research",
+            "transportation",
+            "logistics-shipping",
+            "utilities",
+            "video-game",
+            "water"
+          ]
+        }
+      ]
+    }
+  }
 }

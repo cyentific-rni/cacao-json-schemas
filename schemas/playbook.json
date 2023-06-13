@@ -42,9 +42,9 @@
       },
       "minItems": 1
     },
-    "playbook_complexity": {
-      "$ref": "data-types/playbook-complexity.json",
-      "description": "This property contains a summarized list of features that are defined within this playbook. This property enables the content of a playbook to be assessed without requiring the entire content to be parsed or understood. See section 9.5."
+    "playbook_processing_summary": {
+      "$ref": "data-types/playbook-processing-summary.json",
+      "description": "This property contains a summarized list of processing features that are defined within this playbook. This property enables the content of a playbook to be assessed without requiring the entire content to be parsed or understood. See section 9.12."
     },
     "created_by": {
       "$ref": "data-types/identifier.json",
@@ -98,9 +98,9 @@
     },
     "industry_sectors": {
       "type": "array",
-      "description": "A list of industry sectors that this playbook is applied to. Any industry sectors that are used in other parts of this playbook MUST also be included in this property. Any industry sectors that are used in other referenced playbooks MAY also be included in this property. The values for this property SHOULD come from the 'industry-sector-ov' vocabulary.",
+      "description": "A list of industry sectors that this playbook may be related or applicable to. Any industry sectors that are used in other parts of this playbook MUST also be included in this property. Any industry sectors that are used in other referenced playbooks MAY also be included in this property. The values for this property SHOULD come from the 'industry-sector-ov' vocabulary.",
       "items": {
-        "type": "string"
+        "$ref": "#/$defs/industry-sector-ov"
       },
       "minItems": 1
     },
@@ -357,6 +357,68 @@
             "prepare-engagement",
             "execute-operation",
             "analyze-engagement-results"
+          ]
+        }
+      ]
+    },
+    "industry-sector-ov": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "aerospace",
+            "aviation",
+            "agriculture",
+            "automotive",
+            "biotechnology",
+            "chemical",
+            "commercial",
+            "consulting",
+            "construction",
+            "cosmetics",
+            "critical-infrastructure",
+            "dams",
+            "defense",
+            "education",
+            "emergency-services",
+            "energy",
+            "non-renewable-energy",
+            "renewable-energy",
+            "media",
+            "financial",
+            "food",
+            "gambling",
+            "government",
+            "local-government",
+            "national-government",
+            "regional-government",
+            "public-services",
+            "healthcare",
+            "information-communications-technology",
+            "electronics-hardware",
+            "software",
+            "telecommunications",
+            "legal-services",
+            "lodging",
+            "manufacturing",
+            "maritime",
+            "metals",
+            "mining",
+            "non-profit",
+            "humanitarian-aid",
+            "human-rights",
+            "nuclear",
+            "petroleum",
+            "pharmaceuticals",
+            "research",
+            "transportation",
+            "logistics-shipping",
+            "utilities",
+            "video-game",
+            "water"
           ]
         }
       ]
