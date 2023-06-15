@@ -73,7 +73,14 @@
   "anyOf": [
     {
       "not": {
-        "required": ["on_failure", "on_success"]
+        "anyOf" :[
+          {
+            "required": ["on_failure"]
+          },
+          {
+            "required": ["on_success"]
+          }
+        ]
       }
     },
     {
