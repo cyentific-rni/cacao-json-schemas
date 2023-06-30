@@ -85,7 +85,7 @@
       "description": "A base64URL.encoded signature that was created using the signature algorithm defined in the 'algorithm' property and a key. In pseudo code it is defined as: base64URL.encode(sign(algorithm, key, hash(jcs(<JSONObject with Signature Object>))))"
     },
     "signature": {
-      "type": "string",
+      "$ref": "signature.json",
       "description": "This property enables a signature chain, meaning a signature can be signed by another signature."
     }
   },
