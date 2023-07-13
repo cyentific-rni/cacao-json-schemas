@@ -58,7 +58,7 @@
               }
             }
           },
-          "description": "The key for each entry in the dictionary MUST be a string that uniquely identifies the address type. The key MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'."
+          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address type. The key MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
         },
         "username": {
           "type": "string",
@@ -74,7 +74,7 @@
         },
         "category": {
           "type": "array",
-          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1).The value for this property SHOULD come from the security-category-type-ov vocabulary.",
+          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1). The value for this property SHOULD come from the security-category-type-ov vocabulary.",
           "items": {
             "$ref": "#/$defs/security-category-type-ov"
           },
