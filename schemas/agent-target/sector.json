@@ -12,7 +12,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The value of this property MUST be sector.",
+          "description": "The value of this property MUST be 'sector'.",
           "enum": [
             "sector"
           ]

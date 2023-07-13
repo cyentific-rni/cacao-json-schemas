@@ -58,7 +58,7 @@
               }
             }
           },
-          "description": "The key for each entry in the dictionary MUST be a string that uniquely identifies the address type. The key MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'."
+          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address types. The key(s) MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
         },
         "port": {
           "type": "string",

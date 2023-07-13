@@ -19,11 +19,11 @@
         },
         "playbook_id": {
           "$ref": "../data-types/identifier.json",
-          "description": "The referenced playbook to execute at the defined agent(s). The playbook ID SHOULD be defined such that it is locally relevant to each agent that will execute the playbook."
+          "description": "The referenced playbook to execute. The playbook ID SHOULD be defined such that it is locally relevant to the system that will execute the playbook."
         },
         "playbook_version": {
           "$ref": "../data-types/timestamp.json",
-          "description": "The version of the CACAO playbook that this step references. The value of this property MUST be the modified 'timestamp' from the CACAO playbook that this step references. If this property is not defined then the latest version that is known or available is considered valid."
+          "description": "The version of the CACAO playbook that this step references. The value of this property MUST be the 'modified' 'timestamp' from the CACAO playbook that this step references. If this property is not defined then the latest version that is known or available is considered valid."
         },
         "in_args": {
           "type": "array",
