@@ -29,7 +29,7 @@
     },
     "playbook_types": {
       "type": "array",
-      "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the playbook-type-enum enumeration (see section 3.1.1).",
+      "description": "A list of playbook types that specifies the operational roles that this playbook addresses. This property SHOULD be populated. The values for this property MUST come from the 'playbook-type-ov' enumeration (see section 3.1.1).",
       "items": {
         "$ref": "#/$defs/playbook-type-ov"
       }
