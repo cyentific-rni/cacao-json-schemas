@@ -57,7 +57,7 @@
       "description": "This property identifies the hashing algorithm, as defined by IANA, that was used to hash the JCS version of the full playbook object (Playbook Object + X.jss Signature) and is a case-sensitive ASCII string. As of this writing, implementations SHOULD use 'sha-256' or 'sha-512' but MAY use any current and widely accepted hashing algorithm that is defined in the IANA registry. The actual signing process, defined in the 'algorithm' property, sometimes uses an internal hashing algorithm inside the signing process itself, this property MAY identify the same hashing algorithm as the signing process or MAY identify a different hashing algorithm."
     },
     "algorithm": {
-      "$ref": "#/$defs/signature-algorithm-type-enum",
+      "$ref": "#/$defs/signature-algorithm-type-ov",
       "description": "This property identifies the algorithm that was used to sign the playbook and is a case-sensitive ASCII string. The value for this property SHOULD come from the 'signature-algorithm-type-ov' vocabulary and SHOULD be a current and widely accepted quantum safe algorithm, but MAY be any currently accepted safe algorithm. At the time of this writing quantum safe algorithms could come from those defined in XMSS [RFC 8391] section 5.3 or LMS [RFC 8554] section 5.1 and other algorithms could come from those defined in JWA [RFC 7518] section 3.1 or [RFC 8037] section 3.1. While JWA [RFC7518] section 3.1 defines the following symmetric algorithms: 'HS256', 'HS384', and 'HS512' these algorithms SHOULD NOT be used, as CACAO playbooks are intended to be shared across system and organizational boundaries. If one of these three symmetric algorithms or some other symmetric algorithm is used, then the sharing and transmission of those keys is out of scope for this specification."
     },
     "public_key": {
@@ -117,7 +117,7 @@
   ],
   "unevaluatedProperties": false,
   "$defs": {
-    "signature-algorithm-type-enum": {
+    "signature-algorithm-type-ov": {
       "anyOf": [
         {
           "type": "string"
