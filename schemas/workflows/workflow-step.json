@@ -72,20 +72,26 @@
   },
   "anyOf": [
     {
-      "not": {
-        "anyOf" :[
-          {
-            "required": ["on_failure"]
-          },
-          {
-            "required": ["on_success"]
-          }
-        ]
-      }
+      "anyOf" :[
+        {
+          "required": ["on_failure"]
+        },
+        {
+          "required": ["on_success"]
+        }
+      ]
     },
     {
-      "not": {
-        "required": ["on_completion"]
+      "required": ["on_completion"]
+    },
+    {
+      "properties": {
+        "type" : {
+          "type" : "string",
+          "enum": [
+            "end"
+          ]
+        }
       }
     }
   ],
