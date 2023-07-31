@@ -60,17 +60,9 @@
           },
           "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address type. The key MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
         },
-        "username": {
-          "type": "string",
-          "description": "The username to access this agent."
-        },
-        "password": {
-          "type": "string",
-          "description": "The password associated with the username to access this agent. This value SHOULD be passed in via a variable."
-        },
-        "private_key": {
-          "type": "string",
-          "description": "The private key associated with the username to access this agent. This value SHOULD be passed in via a variable."
+        "credentials": {
+          "$ref": "../data-types/identifier.json",
+          "description": "This property contains an ID reference to a CACAO 'authentication-credentials' object that is stored at the playbook level in the authentication_credentials_definitions property. The ID MUST reference a CACAO 'authentication-credentials' object (see section 6)."
         },
         "category": {
           "type": "array",
