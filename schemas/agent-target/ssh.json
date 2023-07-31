@@ -64,17 +64,9 @@
           "type": "string",
           "description": "The TCP port number for the SSH service. The default value is 22 based on standard port number services [PortNumbers]."
         },
-        "username": {
-          "type": "string",
-          "description": "The username to access this system."
-        },
-        "password": {
-          "type": "string",
-          "description": "The password associated with the username to access this system. This value will most often be passed in via a variable."
-        },
-        "private_key": {
-          "type": "string",
-          "description": "The private key associated with the username to access this system. This value will most often be passed in via a variable."
+        "credentials": {
+          "$ref": "../data-types/identifier.json",
+          "description": "This property contains an ID reference to a CACAO 'authentication-credentials' object that is stored at the playbook level in the authentication_credentials_definitions property. The ID MUST reference a CACAO 'authentication-credentials' object (see section 6)."
         },
         "category": {
           "type": "array",

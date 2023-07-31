@@ -188,6 +188,32 @@
       },
       "description": "This property declares the extensions that are in use on this playbook and contains the properties and values that are to be used by the extensions. The key for each entry in the dictionary MUST be an identifier (see section 9.9 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual property extension definition is located in the extension_definitions property."
     },
+    "authentication_credentials_definitions": {
+      "minProperties": 1,
+      "type": "object",
+      "unevaluatedProperties": false,
+      "patternProperties": {
+        "^http-basic--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/http-basic.json"
+        },
+        "^general--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/general.json"
+        },
+        "^oauth2--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/oauth2.json"
+        },
+        "^private-key--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/private-key.json"
+        },
+        "^x509-certificate--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/x509-certificate.json"
+        },
+        "^[a-z]([-a-z]*[a-z])?--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "$ref": "authentication-credentials/authentication-credentials.json"
+        }
+      },
+      "description": "A dictionary of authentication credentials that can be referenced from agents and targets in workflow steps found in the workflow property. These authentication credentials can be used by agents and targets when performing interactions that require authentication. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the credential (see section 10.10 for more information on identifiers). The value for each key MUST be a CACAO 'authentication-credentials' object (see section 6). Any authentication credentials that are used in other parts of this playbook MUST also be included in this property."
+    },
     "agent_definitions": {
       "minProperties": 1,
       "type": "object",

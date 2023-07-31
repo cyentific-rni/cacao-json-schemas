@@ -61,31 +61,39 @@
       "description": "The ID of the next step to be processed if this step fails to complete successfully. The value of this property MUST represent a CACAO workflow step object. If omitted and a failure occurs, then the playbook's exception handler found in the 'workflow_exception' property at the Playbook level will be invoked. If this property is defined, then 'on_completion' MUST NOT be defined. This property MUST NOT be used on an end step."
     },
     "step_extensions": {
+      "minProperties": 1,
       "type": "object",
       "unevaluatedProperties": false,
-      "description": "This property defines the extensions that are in use on this step. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.10 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension definition's schema property. Step extensions SHOULD be located in the 'extension_definitions' property found at the Playbook level.",
       "patternProperties": {
         "^extension-definition--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
+          "type": "object"
         }
-      }
+      },
+      "description": "This property defines the extensions that are in use on this step. The key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the extension (see section 9.10 for more information on identifiers). The value for each key is a JSON object that can contain the structure as defined in the extension definition's schema property. Step extensions SHOULD be located in the 'extension_definitions' property found at the Playbook level."
     }
   },
   "anyOf": [
     {
-      "not": {
-        "anyOf" :[
-          {
-            "required": ["on_failure"]
-          },
-          {
-            "required": ["on_success"]
-          }
-        ]
-      }
+      "anyOf" :[
+        {
+          "required": ["on_failure"]
+        },
+        {
+          "required": ["on_success"]
+        }
+      ]
     },
     {
-      "not": {
-        "required": ["on_completion"]
+      "required": ["on_completion"]
+    },
+    {
+      "properties": {
+        "type" : {
+          "type" : "string",
+          "enum": [
+            "end"
+          ]
+        }
       }
     }
   ],
