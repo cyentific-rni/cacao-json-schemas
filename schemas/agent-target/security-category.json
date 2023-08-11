@@ -19,7 +19,7 @@
         },
           "category": {
             "type": "array",
-            "description": "One or more identified categories of security infrastructure types that this agent represents. A product instantiation may include one or more security infrastructure types as hints to assist in describing the agent features most likely required by a playbook step or playbook. The values for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
+            "description": "One or more identified categories of security infrastructure types that this agent represents. A product instantiation may include one or more security infrastructure types as hints to assist in describing the agent features most likely required by a playbook step or playbook. \n\nThe values for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
             "items": {
               "$ref": "#/$defs/security-category-type-ov"
             },

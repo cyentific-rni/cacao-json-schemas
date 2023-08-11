@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/workflows/while-condition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "while-condition",
-  "description": "The While Condition Step workflow step defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines two additional specific properties that are valid for this type.",
+  "description": "The While Condition Step workflow step defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines three additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
@@ -19,11 +19,11 @@
         },
         "condition": {
           "type": "string",
-          "description": "A boolean expression as defined in the STIX Patterning Grammar that 'while it is true' executes the workflow step identified by 'on_true' otherwise it exits the while conditional part of the workflow step."
+          "description": "A boolean expression as defined in the STIX Patterning Grammar that while it is true executes the workflow step identified by 'on_true' otherwise it exits the while conditional workflow step and executes the 'on_false' workflow step"
         },
         "on_true": {
           "type": "string",
-          "description": "The step ID to be processed every time the loop condition evaluates as true. The entry in the 'on_true' property forms a branch of steps that are to be executed, even if there is only one workflow step in the branch. This branch MUST reference a unique End Step when that branch has completed processing. This allows implementations to know when to return to the original While Step that started that branch to look for any 'on_completion', 'on_success', or 'on_failure' actions. The ID MUST represent a CACAO workflow step object.",
+          "description": "The step ID to be processed every time the loop condition evaluates as true. \n\nThe entry in the on_true property forms a branch of steps that are to be executed, even if there is only one workflow step in the branch. Each branch MUST reference a unique End Step when that branch has completed processing. This allows implementations to know when to return to the original While Step that started that branch to look for any 'on_completion', 'on_success', or 'on_failure' actions. \n\nThe ID MUST represent a CACAO workflow step object.",
           "$ref": "../data-types/identifier.json"
         }
       }

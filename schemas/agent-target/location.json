@@ -19,7 +19,7 @@
         },
         "logical": {
           "type": "array",
-          "description": "An optional list of logical location names as defined by the playbook creator (e.g., wiring closet, network segment, room number, etc)",
+          "description": "An optional list of logical location names as defined by the playbook creator (e.g., wiring closet, network segment, room number, etc).",
           "items": {
             "type": "string"
           },

@@ -21,13 +21,29 @@
           "type": "string",
           "description": "A full URL of the HTTP API service that should be called."
         },
-        "credentials": {
-          "$ref": "../data-types/identifier.json",
-          "description": "This property contains an ID reference to a CACAO 'authentication-credentials' object that is stored at the playbook level in the authentication_credentials_definitions property. The ID MUST reference a CACAO 'authentication-credentials' object (see section 6)."
+        "http_auth_type": {
+          "type": "string",
+          "description": "The authentication type required to access this HTTP API (e.g., 'basic', 'oauth2', etc.)."
+        },
+        "user_id": {
+          "type": "string",
+          "description": "The user_id property used in HTTP Basic authentication as defined by [RFC7617]."
+        },
+        "password": {
+          "type": "string",
+          "description": "The password property used in HTTP Basic authentication as defined by [RFC7617]."
+        },
+        "token": {
+          "type": "string",
+          "description": "The bearer token used in HTTP Bearer Token authentication as defined by [RFC6750]."
+        },
+        "oauth_header": {
+          "type": "string",
+          "description": "The OAuth header used in OAuth authentication as defined in section 3.5.1 of [RFC5849]."
         },
         "category": {
           "type": "array",
-          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1). The value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
+          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1). \n\nThe value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
           "items": {
             "$ref": "#/$defs/security-category-type-ov"
           },

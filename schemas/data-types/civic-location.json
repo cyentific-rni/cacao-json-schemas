@@ -23,7 +23,7 @@
         },
         "region": {
             "$ref": "#/$defs/region-enum",
-            "description": "The geographical region for this location. The value for this property MUST come from the 'region-enum' enumeration (see section 9.3.1)."
+            "description": "The geographical region for this location. \n\nThe value for this property MUST come from the region-enum enumeration (see section 9.3.1)."
         },
         "country": {
             "type": "string",
@@ -31,7 +31,7 @@
         },
         "administrative_area": {
             "type": "string",
-            "description": "The state, province, or other sub-national administrative area for this location. This property SHOULD contain a valid ISO 3166-2 Code [ISO3166-2]."
+            "description": "The state, province, or other sub-national administrative area for this location. \n\nThis property SHOULD contain a valid ISO 3166-2 Code [ISO3166-2]."
         },
         "city": {
             "type": "string",

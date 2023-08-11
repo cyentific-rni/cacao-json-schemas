@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/data-types/variable.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "variable",
-  "description": "Variables can be defined and then used as the playbook is executed. Variables are stored in a 'dictionary' where the key is the name of the variable and the value is a 'variable' data type. Variables can represent stateful elements that may need to be captured to allow for the successful execution of the playbook. All playbook variables are mutable unless identified as a constant. The scope of a variable is determined by where the variable is declared. A variable may be defined globally for the entire playbook or locally within a workflow step. Variables are scoped to the object they are defined in, and any object that is used or referenced by that object. A specific variable can only be defined once, however, a variable can be assigned and used in the object where it is defined or in any object used or referenced by that object (e.g., a playbook variable can be assigned at the playbook level but also reassigned a different value within a workflow step). Variables are referenced by using the key name from the dictionary with a suffix (keyword) of ':value'. For example, if you had a variable in the dictionary called '__ip_addresses__', one could reference this and use it in a playbook by using '__ip_addresses__:value'. Variables MAY be passed to and from external playbooks provided that system supports passing of arguments when the system function is invoked or returns its results. The 'variable' data type captures variable information and uses the JSON object type [RFC8259] for serialization.",
+  "description": "Variables can be defined and then used as the playbook is executed. Variables are stored in a 'dictionary' where the key is the name of the variable and the value is a 'variable' data type. Variables can represent stateful elements that may need to be captured to allow for the successful execution of the playbook. All playbook variables are mutable unless identified as a constant. The scope of a variable is determined by where the variable is declared. A variable may be defined globally for the entire playbook or locally within a workflow step. Variables are scoped to the object they are defined in, and any object that is used or referenced by that object. A specific variable can only be defined once, however, a variable can be assigned and used in the object where it is defined or in any object used or referenced by that object (e.g., a playbook variable can be assigned at the playbook level but also reassigned a different value within a workflow step). Variables are referenced by using the key name from the dictionary with a suffix (keyword) of ':value'. For example, if you had a variable in the dictionary called '__ip_addresses__', one could reference this and use it in a playbook by using '__ip_addresses__:value'. Variables MAY be passed to and from external playbooks provided that system supports passing of arguments when the system function is invoked or returns its results.",
   "type": "object",
   "properties": {
     "type": {
@@ -18,7 +18,7 @@
         "string",
         "null"
       ],
-      "description": "The value of the variable represented by a JSON string. The value MAY be populated with a string value (or number encoded as a string), an empty string '', or with the special JSON NULL value. NOTE: An empty string is NOT equivalent to a JSON NULL value. An empty string means the value is known to be empty. A value of NULL means the value is unknown or undefined."
+      "description": "The value of the variable represented by a JSON string. The value MAY be populated with a string value (or number encoded as a string), an empty string '', or with the special JSON NULL value. \n\nNOTE: An empty string is NOT equivalent to a JSON NULL value. An empty string means the value is known to be empty. A value of NULL means the value is unknown or undefined."
     },
     "constant": {
       "type": "boolean",
@@ -26,7 +26,7 @@
     },
     "external": {
       "type": "boolean",
-      "description": "This property only applies to playbook scoped variables. When set to 'true' the variable declaration defines that the variable's initial value is passed into the playbook from a calling context. When set to 'false' or omitted, the variable is defined within the playbook."
+      "description": "This property only applies to playbook scoped variables. \n\nWhen set to true the variable declaration defines that the variable's initial value is passed into the playbook from a calling context. \n\nWhen set to false or omitted, the variable is defined within the playbook."
     }
   },
   "required": [
