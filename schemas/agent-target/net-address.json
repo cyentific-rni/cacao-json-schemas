@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/agent-target/net-address.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/agent-target/net-address.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "net-address",
   "description": "This type defines a network address object and is used for commands that need to be processed or executed by a device at a network address. In addition to the inherited properties, this section defines five additional specific properties that are valid for this type.",

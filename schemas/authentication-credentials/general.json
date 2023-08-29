@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/authentication-credentials/general.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/authentication-credentials/general.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "general",
   "description": "This type defines a general unstructured authentication credential object and is used by agents and targets when performing authentication. This object inherits all of the authentication credentials common properties (see section 6.1). In addition to the inherited properties, this section defines one additional specific property that is valid for this type.",

@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-csd01/schemas/workflows/parallel.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/parallel.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "parallel",
   "description": "The Parallel Step workflow step defines how to create steps that are processed in parallel. This workflow step allows playbook authors to define two or more steps that can be executed at the same time. For example, a playbook that responds to an incident may require both the network team and the desktop team to investigate and respond to a threat at the same time. Another example is a response to a cyber attack on an operational technology (OT) environment that requires releasing air / steam / water pressure simultaneously. In addition to the inherited properties, this section defines one additional specific property that is valid for this type. Implementations MUST wait for all steps referenced in the 'next_steps' property to complete before moving on. The steps referenced from this object are intended to be processed in parallel, however, if an implementation cannot support executing steps in parallel, then the steps MAY be executed in sequential order if the desired outcome is the same.",
