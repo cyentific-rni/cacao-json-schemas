@@ -35,19 +35,19 @@
     },
     "data_markings": {
       "type": "boolean",
-      "description": "See section 2.4 and section 8."
+      "description": "See section 2.4 and section 9."
     },
     "digital_signatures": {
       "type": "boolean",
-      "description": "See section 9.13."
+      "description": "See section 10.15."
     },
     "countersigned_signatures": {
       "type": "boolean",
-      "description": "See section 9.13."
+      "description": "See section 10.15."
     },
     "extensions": {
       "type": "boolean",
-      "description": "See section 7."
+      "description": "See section 8."
     }
   },
   "unevaluatedProperties": false

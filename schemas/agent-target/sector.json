@@ -19,7 +19,7 @@
         },
         "sector": {
           "$ref": "#/$defs/industry-sector-ov",
-          "description": "The values this property SHOULD come from the 'industry-sector-ov' vocabulary, see section 6.7.1."
+          "description": "The values this property SHOULD come from the 'industry-sector-ov' vocabulary, see section 7.7.1."
         }
       }
     }

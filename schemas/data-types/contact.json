@@ -13,7 +13,7 @@
           "type": "string"
         }
       },
-      "description": "An email address for this contact. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the contact type (e.g., the keys could be things like 'work', 'home', 'personal', etc). The value for each key MUST be a 'string'."
+      "description": "An email address for this contact. \n\nThe key for each entry in the dictionary MUST be a string that uniquely identifies the contact type (e.g., the keys could be things like 'work', 'home', 'personal', etc). The value for each key MUST be a string."
     },
     "phone": {
       "type": "object",
@@ -23,7 +23,7 @@
           "type": "string"
         }
       },
-      "description": "A phone number for this contact. The key for each entry in the dictionary MUST be a 'string' that uniquely identifies the type (e.g., the keys could be things like 'work', 'home', 'personal', etc). The value for each key MUST be a 'string'."
+      "description": "A phone number for this contact. \n\nThe key for each entry in the dictionary MUST be a string that uniquely identifies the type (e.g., the keys could be things like 'work', 'home', 'personal', etc). The value for each key MUST be a string."
     },
     "contact_details": {
       "type": "string",

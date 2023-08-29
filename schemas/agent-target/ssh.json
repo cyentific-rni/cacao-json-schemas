@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/agent-target/ssh.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ssh",
-  "description": "This type defines a SSH CLI object and is used for commands that need to be processed or executed by an SSH CLI. In addition to the inherited properties, this section defines six additional specific properties that are valid for this type.",
+  "description": "This type defines a SSH CLI object and is used for commands that need to be processed or executed by an SSH CLI. In addition to the inherited properties, this section defines four additional specific properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
@@ -58,19 +58,20 @@
               }
             }
           },
-          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address types. The key(s) MUST be one of 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
+          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address types. The key(s) MUST be one of the following values 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
         },
         "port": {
           "type": "string",
-          "description": "The TCP port number for the SSH service. The default value is 22 based on standard port number services [PortNumbers]."
+          "description": "The TCP port number for the SSH service. The default value is 22 based on standard port number services [PortNumbers].",
+          "default": "22"
         },
-        "credentials": {
+        "authentication_info": {
           "$ref": "../data-types/identifier.json",
-          "description": "This property contains an ID reference to a CACAO 'authentication-credentials' object that is stored at the playbook level in the authentication_credentials_definitions property. The ID MUST reference a CACAO 'authentication-credentials' object (see section 6)."
+          "description": "This property contains an ID reference to a CACAO 'authentication-info' object that is stored at the playbook level in the authentication_info_definitions property. \n\nThe ID MUST reference a CACAO 'authentication-info' object (see section 6)."
         },
         "category": {
           "type": "array",
-          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 6.11.1). The value for this property SHOULD come from the security-category-type-ov vocabulary.",
+          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 7.11.1). \n\nThe value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
           "items": {
             "$ref": "#/$defs/security-category-type-ov"
           },
