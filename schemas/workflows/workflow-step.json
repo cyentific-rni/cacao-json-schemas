@@ -74,7 +74,7 @@
   },
   "anyOf": [
     {
-      "anyOf" :[
+      "anyOf": [
         {
           "required": ["on_failure"]
         },
@@ -87,9 +87,7 @@
       "required": ["on_completion"]
     }
   ],
-  "required": [
-    "type"
-  ],
+  "required": ["type"],
   "if": {
     "properties": {
       "type": { "const": "end" }
@@ -100,7 +98,8 @@
       "on_completion": { "not": {} },
       "on_success": { "not": {} },
       "on_failure": { "not": {} }
-    },
+    }
+  },
   "$defs": {
     "workflow-step-type-enum": {
       "type": "string",
