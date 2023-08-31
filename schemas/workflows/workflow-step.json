@@ -85,21 +85,22 @@
     },
     {
       "required": ["on_completion"]
-    },
-    {
-      "properties": {
-        "type" : {
-          "type" : "string",
-          "enum": [
-            "end"
-          ]
-        }
-      }
     }
   ],
   "required": [
     "type"
   ],
+  "if": {
+    "properties": {
+      "type": { "const": "end" }
+    }
+  },
+  "then": {
+    "properties": {
+      "on_completion": { "not": {} },
+      "on_success": { "not": {} },
+      "on_failure": { "not": {} }
+    },
   "$defs": {
     "workflow-step-type-enum": {
       "type": "string",
