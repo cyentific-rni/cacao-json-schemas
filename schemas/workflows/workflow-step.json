@@ -79,10 +79,10 @@
     {
       "anyOf": [
         {
-          "required": ["on_failure"]
+          "required": ["on_success"]
         },
         {
-          "required": ["on_success"]
+          "required": ["on_failure"]
         }
       ]
     }
