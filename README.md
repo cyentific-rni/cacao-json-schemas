@@ -17,7 +17,7 @@ We are also maintaining a working version in `working` branch.
 
 ## Validation Example with Python
 
-The code below validates a CACAO playbook with CACAO JSON schemas from this repo utilizing a python package called "jsonschema". For further details please head to the [official documentation](https://python-jsonschema.readthedocs.io/en/stable/).
+The code below validates a CACAO playbook with CACAO JSON schemas from this repo utilizing a python package called "jsonschema". For further details please head to the [official documentation](https://python-jsonschema.readthedocs.io/en/stable/). (The example run on python version 3.11.)
 
 ```python
 from jsonschema import validate, ValidationError, SchemaError
