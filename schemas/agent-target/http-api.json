@@ -17,7 +17,7 @@
             "http-api"
           ]
         },
-        "http_url": {
+        "host": {
           "type": "string",
           "description": "A full URL of the HTTP API service that should be called."
         },
@@ -37,7 +37,7 @@
     }
   ],
   "required": [
-    "http_url"
+    "host"
   ],
   "unevaluatedProperties": false,
   "$defs": {

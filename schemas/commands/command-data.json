@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/commands/command-data.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "command-data",
-  "description": "The CACAO command object ('command-data') contains detailed information about the commands that are to be executed or processed automatically or manually as part of an action step (see section 4.5). Each command listed in an action step may be of a different command type, however, all commands listed in a single step MUST be processed or executed by all of the agents defined in that step. \n\nCommands can use and refer to variables just like other parts of the playbook. For each command either the command property or the command_b64 property MUST be present. \n\nThe individual commands MAY be defined in other specifications, and when possible will be mapped to the JSON structure of this specification. When that is not possible, they will be base64 encoded.",
+  "description": "The CACAO command object (command-data) contains detailed information about the commands that are to be executed automatically or manually as part of an action step (see section 4.5). Each command listed in an action step may be of a different command type, however, all commands listed in a single step MUST be processed or executed by all of the agents defined in that step. \n\nCommands can make use of variables just like other parts of the playbook. \n\nEach command object contains some base properties that are common across all commands. These common properties are defined in the following table.",
   "type": "object",
   "allOf": [
     {
@@ -15,15 +15,6 @@
           "type": "string",
           "description": "An optional description about this command."
         },
-        "command": {
-          "type": "string",
-          "description": "A string-based command as defined by the type. Commands can be simple strings, JSON blobs (normal plain/text JSON data), or type specific command IDs (see example 5.5). \n\nThe command MUST be valid for the defined type and version."
-        },
-        "command_b64": {
-          "type": "string",
-          "contentEncoding": "base64",
-          "description": "A base64 encoded (see section 4 of [RFC 4648]) command as defined by the type. This property is used for structured commands that are not simple strings or native JSON. \n\nThe command MUST be valid for the defined type and version."
-        },
         "version": {
           "type": "string",
           "description": "The version of the command language being used. If no version is specified then the most current version of the command language SHOULD be used."
@@ -31,6 +22,13 @@
         "playbook_activity": {
           "$ref": "#/$defs/playbook-activity-type-ov",
           "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. \n\nThe value for this property SHOULD come from the playbook-activity-type-ov vocabulary."
+        },
+        "external_references": {
+          "type": "array",
+          "items": {
+            "$ref": "./../data-types/external-reference.json"
+          },
+          "description": "A list of external references for this command."
         }
       }
     }
@@ -50,14 +48,15 @@
           "enum": [
             "manual",
             "bash",
-            "http-api",
-            "ssh",
             "caldera-cmd",
             "elastic",
+            "http-api",
             "jupyter",
             "kestrel",
-            "openc2-json",
+            "openc2-http",
+            "powershell",
             "sigma",
+            "ssh",
             "yara"
           ]
         }
