@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/data-types/signature.json",
+  "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/cacao-v2.0-cs01/schemas/data-types/signature.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "signature",
   "description": "The 'signature' data type captures the actual digital signature and meta-data about the signature and uses the JSON object type [RFC8259] for serialization. See section Appendix A for a detailed example. \n\n* One of the following properties MUST be populated, 'public_key' (preferred), 'public_cert_chain', 'cert_url', or 'thumbprint'.",
