@@ -17,16 +17,16 @@
         },
         "command": {
           "type": "string",
-          "description": "The OpenC2 HTTP command uses the HTTP transport. As such this property MUST contain A complete HTTP command that starts with an HTTP method (POST) and ends with the HTTP protocol designation as defined in the appropriate HTTP RFCs. For this command the HTTP method MUST be POST. For example: \n\n 'POST /api1/newObject HTTP/1.1'"
+          "description": "The OpenC2 HTTP command uses the HTTP transport. As such this property MUST contain an HTTP start line that contains three elements, an HTTP method, a request target, and the HTTP version (see https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages). \n\nFor this command the HTTP method MUST be 'POST'. For example: \n\n'POST /api1/newObject HTTP/1.1'"
         },
-        "payload_b64": {
+        "content_b64": {
           "type": "string",
           "contentEncoding": "base64",
           "description": "An OpenC2 command that is base64 encoded (see section 4 of [RFC 4648])."
         },
         "headers": {
           "type": "object",
-          "description": "This property contains any required HTTP headers. \n\nThe key for each entry in the dictionary MUST be a string that uniquely identifies the header. The value for each key MUST be a list of string.",
+          "description": "This property contains any required HTTP headers. \n\nThe key for each entry in the dictionary MUST be a 'string' that uniquely identifies the header. The value for each key MUST be a 'list' of 'string'.",
           "additionalProperties": {
             "type": "array",
             "items": {
@@ -37,6 +37,6 @@
       }
     }
   ],
-  "required": ["command", "payload_b64"],
+  "required": ["command", "content_b64"],
   "unevaluatedProperties": false
 }

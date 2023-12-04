@@ -56,22 +56,27 @@
                 "minimum": 0,
                 "maximum": 4095
               }
+            },
+            "^dname$": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             }
           },
-          "description": "The key for each entry in the dictionary MUST be a 'string' that uniquely identifies one or more address types. The key(s) MUST be one of the following values 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
+          "description": "The key for each entry in the dictionary MUST be a string that uniquely identifies one or more address types. The key(s) MUST be one of the following values 'dname' (domain name), 'ipv4', 'ipv6', 'l2mac', 'vlan', or 'url'. The dictionary value associated with each key MUST be a 'list' of 'string' that contains the corresponding address(es) for that particular key type."
         },
         "port": {
           "type": "string",
-          "description": "The TCP port number for the Linux system. The default value is 22 based on standard port number services [PortNumbers].",
-          "default": "22"
+          "description": "The TCP port number for the Linux system."
         },
         "authentication_info": {
           "$ref": "../data-types/identifier.json",
-          "description": "This property contains an ID reference to a CACAO 'authentication-info' object that is stored at the playbook level in the authentication_info_definitions property. \n\nThe ID MUST reference a CACAO 'authentication-info' object (see section 6)."
+          "description": "This property contains an ID reference to a CACAO 'authentication-info' object that is stored at the playbook level in the 'authentication_info_definitions' property. The ID MUST reference a CACAO 'authentication-info' object (see section 6)."
         },
         "category": {
           "type": "array",
-          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 7.11.1). \n\nThe value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
+          "description": "One or more identified categories of security infrastructure types that this agent represents (see section 7.11.1). The value for this property SHOULD come from the 'security-category-type-ov' vocabulary.",
           "items": {
             "$ref": "#/$defs/security-category-type-ov"
           },

@@ -20,7 +20,7 @@
         "command_b64": {
           "type": "string",
           "contentEncoding": "base64",
-          "description": "A base64 encoded (see section 4 of [RFC 4648]) sigma command. \n\nThe value of this command_b64 property MUST be a valid sigma command."
+          "description": "A base64 encoded (see section 4 of [RFC 4648]) sigma command. \n\nThe value of this 'command_b64' property MUST be a valid sigma command."
         }
       }
     }

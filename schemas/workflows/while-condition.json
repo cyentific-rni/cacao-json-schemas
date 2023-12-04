@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/while-condition.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "while-condition",
-  "description": "The while condition step workflow step defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines two additional specific properties that are valid for this type.",
+  "description": "The while condition step workflow step defines the 'while' conditional logic that can be used within the workflow of the playbook. In addition to the inherited properties, this section defines the following additional properties that are valid for this type.",
   "type": "object",
   "allOf": [
     {
@@ -23,7 +23,7 @@
         },
         "on_true": {
           "type": "string",
-          "description": "The step ID to be processed every time the loop condition evaluates as true. \n\nThe entry in the on_true property forms a branch of steps that are to be executed, even if there is only one workflow step in the branch. This branch MUST reference a unique end step when that branch has completed processing. This allows implementations to know when to return to the original While Step that started that branch to look for any on_completion, on_success, or on_failure actions. \n\nThe ID MUST represent a CACAO workflow step object.",
+          "description": "The step ID to be processed every time the loop condition evaluates as true. \n\nThe entry in the on_true property forms a branch of steps that are to be executed, even if there is only one workflow step in the branch. This branch MUST reference a unique end step when that branch has completed processing. This allows implementations to know when to return to the original While Step that started that branch to look for any 'on_completion', 'on_success', or 'on_failure' actions. \n\nThe ID MUST represent a CACAO workflow step object.",
           "$ref": "../data-types/identifier.json"
         }
       }

@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/commands/command-data.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "command-data",
-  "description": "The CACAO command object (command-data) contains detailed information about the commands that are to be executed automatically or manually as part of an action step (see section 4.5). Each command listed in an action step may be of a different command type, however, all commands listed in a single step MUST be processed or executed by all of the agents defined in that step. \n\nCommands can make use of variables just like other parts of the playbook. \n\nEach command object contains some base properties that are common across all commands. These common properties are defined in the following table.",
+  "description": "The CACAO command object ('command-data') contains detailed information about the commands that are to be executed automatically or manually as part of an action step (see section 4.5). Each command listed in an action step may be of a different command type, however, all commands listed in a single step MUST be processed or executed by all of the agents defined in that step. \n\nCommands can make use of variables just like other parts of the playbook. \n\nEach command object contains base properties that are common across all commands. These common properties are defined in the following table.",
   "type": "object",
   "allOf": [
     {
@@ -13,15 +13,15 @@
         },
         "description": {
           "type": "string",
-          "description": "An optional description about this command."
+          "description": "A description of this command."
         },
         "version": {
           "type": "string",
-          "description": "The version of the command language being used. If no version is specified then the most current version of the command language SHOULD be used."
+          "description": "The version of the command type being used. If no version is specified then the most current version of the command type SHOULD be used."
         },
         "playbook_activity": {
           "$ref": "#/$defs/playbook-activity-type-ov",
-          "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. \n\nThe value for this property SHOULD come from the playbook-activity-type-ov vocabulary."
+          "description": "A meta data description of the playbook activity that the command provides that enables summarization at the playbook level of all activities defined within the playbook. This property SHOULD be populated. \n\nThe value for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary."
         },
         "external_references": {
           "type": "array",

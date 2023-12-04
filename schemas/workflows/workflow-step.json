@@ -2,12 +2,12 @@
   "$id": "https://raw.githubusercontent.com/cyentific-rni/cacao-json-schemas/working/schemas/workflows/workflow-step.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "workflow-step",
-  "description": "Workflows contain a series of steps that are stored in a dictionary (see the workflow property in section 3.1), where the key is the step ID and the value is a workflow step. These workflow steps along with the associated commands form the building blocks for playbooks and are used to control the commands that need to be executed. Workflows steps are processed either sequentially, in parallel, or both depending on the type of steps required by the playbook. In addition to simple processing, workflow steps MAY also contain conditional and/or temporal operations to control the execution of the playbook. \n\nConditional processing means executing steps or commands after some sort of condition is met. Temporal processing means executing steps or commands either during a certain time window or after some period of time has passed. \n\nThis section defines the various workflow steps and how they may be used to define a playbook. \n\nEach workflow step contains some base properties that are common across all steps. These common properties are defined in the following table. The determination of a step being successful, failing, or completing is implementation specific and is out of scope for this specification, but details MAY be included in the description property.",
+  "description": "Workflows contain a series of steps that are stored in a dictionary (see the workflow property in section 3.1), where the key is the step ID and the value is a workflow step. These workflow steps along with the associated commands form the building blocks for playbooks and are used to control the commands that need to be executed. Workflows steps are processed either sequentially, in parallel, or both depending on the type of steps required by the playbook. In addition to simple processing, workflow steps MAY also contain conditional and/or temporal operations to control the execution of the playbook. \n\nConditional processing means executing steps or commands after some sort of condition is met. Temporal processing means executing steps or commands either during a certain time window or after some period of time has passed. \n\nThis section defines the various workflow steps and how they may be used to define a playbook. \n\nEach workflow step contains base properties that are common across all steps. These common properties are defined in the following table. The determination of a step being successful,failing, or completing is implementation specific and is out of scope for this specification, but details MAY be included in the description property.",
   "type": "object",
   "properties": {
     "type": {
       "$ref": "#/$defs/workflow-step-type-enum",
-      "description": "The type of workflow step being used. \n\nThe value for this property MUST come from the 'workflow-step-type-enum' enumeration."
+      "description": "The type of workflow step being used. The value for this property MUST come from the 'workflow-step-type-enum' enumeration."
     },
     "name": {
       "type": "string",
@@ -19,7 +19,7 @@
     },
     "external_references": {
       "type": "array",
-      "description": "An optional list of external references for this step.",
+      "description": "A list of external references for this step.",
       "items": {
         "$ref": "../data-types/external-reference.json"
       },
@@ -69,7 +69,7 @@
           "type": "object"
         }
       },
-      "description": "This property declares the extensions that are in use on this step and contains any of the properties and values that are to be used by that extension. \n\nThe key for each entry in the dictionary MUST be an 'identifier' (see section 10.10 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual step extension definition is located in the extension_definitions property found at the Playbook level."
+      "description": "This property declares the extensions that are in use on this step and contains any of the properties and values that are to be used by that extension. \n\nThe key for each entry in the dictionary MUST be an 'identifier' (see section 10.10 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual step extension definition is located in the 'extension_definitions' property found at the Playbook level."
     }
   },
   "required": ["type"],

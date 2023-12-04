@@ -26,7 +26,7 @@
         },
         "agent": {
           "$ref": "../data-types/identifier.json",
-          "description": "This property contains an ID reference to a CACAO 'agent-target' object that is stored at the playbook level in the agent_definitions property. This agent MUST execute the commands defined in this step. As stated in section 7, agents are the entities that execute commands on or against targets. \n\nThe ID MUST reference a CACAO 'agent-target' object (see section 7)."
+          "description": "This property contains an ID reference to a CACAO 'agent-target' object that is stored at the playbook level in the 'agent_definitions' property. This agent MUST execute the commands defined in this step. As stated in section 7, agents are the entities that execute commands on or against targets. \n\nThe ID MUST reference a CACAO agent-target object (see section 7)."
         },
         "targets": {
           "type": "array",
@@ -38,7 +38,7 @@
         },
         "in_args": {
           "type": "array",
-          "description": "The list of variable names from the local step_variables dictionary (see section 4.1) or passed into this step from the global playbook_variables dictionary (see section 3.1) that are used in either an agent or one of the target(s) associated with this step. See section 10.18 for more information about variables.",
+          "description": "The list of variable names from the local 'step_variables' dictionary (see section 4.1) or passed into this step from the global 'playbook_variables' dictionary (see section 3.1) that are used in either an agent or one of the target(s) associated with this step. See section 10.18 for more information about variables.",
           "items": {
             "type": "string"
           },
@@ -46,7 +46,7 @@
         },
         "out_args": {
           "type": "array",
-          "description": "The list of variable names from the local step_variables dictionary (see section 4.1) or global playbook_variables dictionary (see section 3.1) that are to be returned to this step after execution of the commands by the agent(s). Implementations SHOULD strongly discourage the use of overloading of variable names, meaning using the same variable name at the step level that is also in use at the playbook level. This is to avoid issues with implementations. However, if the variable name is reused at the step level, then only that instance of the variable SHOULD be updated. See section 10.18 for more information about variables.",
+          "description": "The list of variable names from the local 'step_variables' dictionary (see section 4.1) or global 'playbook_variables' dictionary (see section 3.1) that are to be returned to this step after execution of the commands by the agent(s). Implementations SHOULD strongly discourage the use of overloading of variable names, meaning using the same variable name at the step level that is also in use at the playbook level. This is to avoid issues with implementations. However, if the variable name is reused at the step level, then only that instance of the variable SHOULD be updated. See section 10.18 for more information about variables.",
           "items": {
             "type": "string"
           },

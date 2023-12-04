@@ -36,7 +36,7 @@
     },
     "playbook_activities": {
       "type": "array",
-      "description": "A list of activities pertaining to the playbook. This property SHOULD be populated. If the playbook_types property is populated and comes from the 'playbook-type-ov' then this property MUST have at least one assigned activity. \n\nThis property allows an author to define more detailed descriptions for the various activities that a playbook performs. This property provides a much richer and verbose method to describe all aspects of a playbook than just the playbook_types property. \n\nThe values for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary (see section 3.1.2). \n\nEach listed activity MUST be reflected in a CACAO workflow step object and that object MUST be included in the workflow property.",
+      "description": "A list of activities pertaining to the playbook. This property SHOULD be populated. If the playbook_types property is populated and comes from the playbook-type-ov then this property MUST have at least one assigned activity. \n\nThis property allows an author to define more detailed descriptions for the various activities that a playbook performs. This property provides a much richer and verbose method to describe all aspects of a playbook than just the playbook_types property. \n\nThe values for this property SHOULD come from the 'playbook-activity-type-ov' vocabulary (see section 3.1.2). \n\nEach listed activity MUST be reflected in a CACAO workflow step object and that object MUST be included in the workflow property.",
       "items": {
         "$ref": "#/$defs/playbook-activity-type-ov"
       },
@@ -72,7 +72,7 @@
     },
     "derived_from": {
       "type": "array",
-      "description": "The ID of one or more CACAO playbooks that this playbook was derived from. \n\nThe ID MUST represent a CACAO playbook object.",
+      "description": "The ID of one or more CACAO playbooks that this playbook was derived from. The ID MUST represent a CACAO playbook object.",
       "items": {
         "$ref": "data-types/identifier.json"
       },
@@ -96,7 +96,7 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 100,
-      "description": "A number (𝕎 - whole number) that represents the seriousness of the conditions that this playbook addresses. This is highly dependent on whether the playbook is a response to an incident (in which case the severity could be mapped to an incident category defined in some solution), a response to a threat (in which case the severity would likely be mapped to the severity of the threat faced or captured by threat intelligence), or a response to something else. \n\nMarketplaces and sharing organizations MAY define additional rules for how this property should be assigned. This specification does not address how this assessment is determined.  \n\nIf specified, the value of this property MUST be between 0 and 100. \n\nWhen left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest severity, to a value of 100, the highest."
+      "description": "A number (𝕎 - whole number) that represents the seriousness of the conditions that this playbook addresses. This is highly dependent on whether the playbook is a response to an incident (in which case the severity could be mapped to an incident category defined in some solution), a response to a threat (in which case the severity would likely be mapped to the severity of the threat faced or captured by threat intelligence), or a response to something else. \n\nMarketplaces and sharing organizations MAY define additional rules for how this property should be assigned. This specification does not address how this assessment is determined. \n\nIf specified, the value of this property MUST be between 0 and 100. \n\nWhen left blank this means unspecified. A value of 0 means specifically undefined. Values range from 1, the lowest severity, to a value of 100, the highest."
     },
     "impact": {
       "type": "integer",
@@ -114,7 +114,7 @@
     },
     "labels": {
       "type": "array",
-      "description": "An optional set of terms, labels, or tags associated with this playbook. The values may be user, organization, or trust-group defined and their meaning is outside the scope of this specification.",
+      "description": "A set of terms, labels, or tags associated with this playbook. The values may be user, organization, or trust-group defined and their meaning is outside the scope of this specification.",
       "items": {
         "type": "string"
       },
@@ -122,7 +122,7 @@
     },
     "external_references": {
       "type": "array",
-      "description": "An optional list of external references for this playbook or content found in this playbook. \n\nAny external references that are used in other parts of this playbook MUST also be included in this property. Any external references that are used in other referenced playbooks MAY also be included in this property.",
+      "description": "A list of external references for this playbook or content found in this playbook. \n\nAny external references that are used in other parts of this playbook MUST also be included in this property. Any external references that are used in other referenced playbooks MAY also be included in this property.",
       "items": {
         "$ref": "data-types/external-reference.json"
       },
@@ -130,7 +130,7 @@
     },
     "markings": {
       "type": "array",
-      "description": "An optional list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references). \n\nEach ID MUST represent a CACAO data marking object.",
+      "description": "A list of data marking objects that apply to this playbook. In some cases, though uncommon, data markings themselves may be marked with sharing or handling guidance. In this case, this property MUST NOT contain any references to the same data marking object (i.e., it cannot contain any circular references). \n\nEach ID MUST represent a CACAO data marking object.",
       "items": {
         "$ref": "data-types/identifier.json"
       },
@@ -194,7 +194,7 @@
           "type": "object"
         }
       },
-      "description": "This property declares the extensions that are in use on this playbook and contains the properties and values that are to be used by the extensions. \n\nThe key for each entry in the dictionary MUST be an 'identifier' (see section 10.10 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual property extension definition is located in the extension_definitions property."
+      "description": "This property declares the extensions that are in use on this playbook (at the metadata level, see section 3.1) and contains the properties and values that are to be used by the extensions. \n\nThe key for each entry in the dictionary MUST be an 'identifier' (see section 10.10 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual property extension definition is located in the extension_definitions property."
     },
     "authentication_info_definitions": {
       "minProperties": 1,
@@ -202,22 +202,16 @@
       "unevaluatedProperties": false,
       "patternProperties": {
         "^http-basic--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "authentication-information/http-basic.json"
+          "$ref": "authentication-info/http-basic.json"
         },
         "^oauth2--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "authentication-information/oauth2.json"
-        },
-        "^private-key--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "authentication-information/private-key.json"
+          "$ref": "authentication-info/oauth2.json"
         },
         "^user-auth--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "authentication-information/user-auth.json"
-        },
-        "^[a-z]([-a-z]*[a-z])?--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "authentication-information/authentication-information.json"
+          "$ref": "authentication-info/user-auth.json"
         }
       },
-      "description": "A dictionary of authentication information that can be referenced from agents and targets in workflow steps found in the workflow property. \n\nThe authentication information can be used by agents and targets when performing interactions that require authentication. \n\nThe key for each entry in the dictionary MUST be an identifier that uniquely identifies the authentication information (see section 10.10 for more information on identifiers). The value for each key MUST be a CACAO authentication-info object (see section 6). \n\nAny authentication information that is used in other parts of this playbook MUST also be included in this property."
+      "description": "A dictionary of authentication information that can be referenced from agents and targets in workflow steps found in the workflow property. \n\nThe authentication information can be used by agents and targets when performing interactions that require authentication. \n\nThe key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the authentication information (see section 10.10 for more information on identifiers). The value for each key MUST be a CACAO 'authentication-info' object (see section 6). \n\nAny authentication information that is used in other parts of this playbook MUST also be included in this property."
     },
     "agent_definitions": {
       "minProperties": 1,
@@ -253,9 +247,6 @@
         },
         "^ssh--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "$ref": "agent-target/ssh.json"
-        },
-        "^[a-z]([-a-z]*[a-z])?--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "agent-target/agent-target.json"
         }
       },
       "description": "A dictionary of agents that can be referenced from workflow steps found in the workflow property. \n\nThe key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the agent (see section 10.10 for more information on identifiers). The value for each key MUST be a CACAO 'agent-target' object (see section 7). \n\nAny agents that are used in other parts of this playbook MUST also be included in this property."
@@ -294,9 +285,6 @@
         },
         "^ssh--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
           "$ref": "agent-target/ssh.json"
-        },
-        "^[a-z]([-a-z]*[a-z])?--[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$": {
-          "$ref": "agent-target/agent-target.json"
         }
       },
       "description": "A dictionary of targets that can be referenced from workflow steps found in the workflow property. \n\nThe key for each entry in the dictionary MUST be an 'identifier' that uniquely identifies the target (see section 10.10 for more information on identifiers). The value for each key MUST be a CACAO 'agent-target' object (see section 7). \n\nAny targets that are used in other parts of this playbook MUST also be included in this property."
@@ -329,7 +317,7 @@
     },
     "signatures": {
       "type": "array",
-      "description": "An optional list of digital signatures for this playbook. Adding a signature to a playbook does not represent a version change of the playbook. See sections 2.5, 10.15, and Appendix A for more information and a detailed example.",
+      "description": "A list of digital signatures for this playbook. Adding a signature to a playbook does not represent a version change of the playbook. See sections 2.5, 10.15, and Appendix A for more information and a detailed example.",
       "items": {
         "$ref": "data-types/signature.json"
       },
