@@ -18,21 +18,6 @@
           ]
         }
       }
-    },
-    {
-      "not" : {
-        "anyOf" : [
-          {
-            "required": ["on_completion"]
-          },
-          {
-            "required": ["on_failure"]
-          },
-          {
-            "required": ["on_success"]
-          }
-        ]
-      }
     }
   ],
   "unevaluatedProperties": false

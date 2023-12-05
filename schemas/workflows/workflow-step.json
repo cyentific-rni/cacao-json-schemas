@@ -72,34 +72,33 @@
       "description": "This property declares the extensions that are in use on this step and contains any of the properties and values that are to be used by that extension. \n\nThe key for each entry in the dictionary MUST be an 'identifier' (see section 10.10 for more information on identifiers) that uniquely identifies the extension. The value for each key is a JSON object that contains the structure as defined in the extension definition's schema property. The actual step extension definition is located in the extension_definitions property found at the Playbook level."
     }
   },
+  "required": ["type"],
   "anyOf": [
     {
-      "anyOf" :[
-        {
-          "required": ["on_failure"]
-        },
-        {
-          "required": ["on_success"]
+      "if": {
+        "properties": {
+          "type": { "const": "end" }
         }
-      ]
-    },
-    {
-      "required": ["on_completion"]
-    },
-    {
-      "properties": {
-        "type" : {
-          "type" : "string",
-          "enum": [
-            "end"
-          ]
+      },
+      "then": {
+        "not": {
+          "required": ["on_completion", "on_failure", "on_success"]
         }
       }
+    },
+    {
+      "required": ["on_completion"],
+      "not": {
+        "required": ["on_failure", "on_success"]
+      }
+    },
+    {
+      "required": ["on_success"],
+      "not": {
+        "required": ["on_completion"]
+      }
     }
-  ],
-  "required": [
-    "type"
-  ],
+  ],  
   "$defs": {
     "workflow-step-type-enum": {
       "type": "string",
