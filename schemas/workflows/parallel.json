@@ -23,7 +23,7 @@
           "items": {
             "$ref": "../data-types/identifier.json"
           },
-          "minItems": 1
+          "minItems": 2
         }
       }
     }

@@ -69,7 +69,7 @@
         "external_references": {
           "type": "array",
           "items": {
-            "$ref": "string"
+            "type": "string"
           },
           "description": "See IEP Specification [IEP]."
         }
