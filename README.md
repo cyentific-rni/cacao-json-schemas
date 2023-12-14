@@ -1,5 +1,10 @@
 ## JSON schemas for validating CACAO Security Playbooks
 
+**Note: In December 2023, Cyentific AS offered and transferred the content of this repository, meaning the CACAO JSON validation schemas, to the OASIS CACAO TC (https://github.com/oasis-open/cacao-json-schemas), which will be further maintained as an open-source product.**
+
+---
+``Deprecated``
+
 This repository contains JSON schemas for validating CACAO Security Playbooks. The JSON schemas provided are intended to follow the CACAO specification and its versions as specified by the [OASIS CACAO Technical Committee](https://www.oasis-open.org/committees/cacao).
 
 In particular, JSON validation schemas for a specific version of CACAO  are provided in different branches of this repository or can be accessed by pivoting from the table below.
