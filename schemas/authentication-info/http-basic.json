@@ -5,7 +5,7 @@
   "description": "This type defines the HTTP basic authentication information object and is used by agents and targets when performing HTTP basic authentication. This object inherits all of the authentication information common properties (see section 6.1). In addition to the inherited properties, this section defines the following additional properties that are valid for this type. If the 'kms' and 'kms_key_identifier' properties are used the 'user_id' and 'password' properties MUST NOT be populated.",
   "allOf": [
     {
-      "$ref": "authentication-information.json"
+      "$ref": "authentication-info.json"
     },
     {
       "properties": {
